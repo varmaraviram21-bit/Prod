@@ -1,0 +1,1937 @@
+{
+  "version": "8.0",
+  "title": "Python Interview Practice \u2014 OOP",
+  "topics": [
+    [
+      "Classes & Objects",
+      "Beginner",
+      "Understand classes as blueprints and objects as instances."
+    ],
+    [
+      "__init__ Constructor",
+      "Beginner",
+      "Initialize object state with the constructor."
+    ],
+    [
+      "Instance Variables & Methods",
+      "Beginner",
+      "Work with per-object data and behavior."
+    ],
+    [
+      "Class Variables & Class Methods",
+      "Intermediate",
+      "Share class-level state and use @classmethod."
+    ],
+    [
+      "Static Methods",
+      "Intermediate",
+      "Create utility behavior with @staticmethod."
+    ],
+    [
+      "Encapsulation",
+      "Intermediate",
+      "Control access to object state and understand naming conventions."
+    ],
+    [
+      "Inheritance",
+      "Intermediate",
+      "Reuse and extend behavior with parent and child classes."
+    ],
+    [
+      "Polymorphism",
+      "Advanced",
+      "Use a common interface with different implementations."
+    ],
+    [
+      "Abstraction",
+      "Advanced",
+      "Design abstract interfaces with abc."
+    ],
+    [
+      "Advanced OOP Interview",
+      "Advanced",
+      "Combine OOP concepts with Python collections, functions and interview traps."
+    ]
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "topic": "Classes & Objects",
+      "level": "Beginner",
+      "q": "What is a class in Python?",
+      "code": "",
+      "options": [
+        "A loop",
+        "A blueprint for creating objects",
+        "Only a variable",
+        "A built-in function"
+      ],
+      "answer": 1,
+      "hints": [
+        "A class defines structure and behavior.",
+        "Objects are created from classes.",
+        "Think of a class as a blueprint."
+      ],
+      "id": 1
+    },
+    {
+      "type": "mcq",
+      "topic": "Classes & Objects",
+      "level": "Beginner",
+      "q": "What is an object?",
+      "code": "class Car: pass\nc=Car()",
+      "options": [
+        "The class definition",
+        "An instance of a class",
+        "A module",
+        "A parameter"
+      ],
+      "answer": 1,
+      "hints": [
+        "Car is the class.",
+        "c is created by calling Car().",
+        "An instance is another name for an object created from a class."
+      ],
+      "id": 2
+    },
+    {
+      "type": "code",
+      "topic": "Classes & Objects",
+      "level": "Beginner",
+      "q": "Create a class named Student and create one object named s.",
+      "code": "# Write your solution here",
+      "expected": "Use class Student: pass and then s = Student().",
+      "hints": [
+        "A class definition starts with class.",
+        "An empty class can use pass.",
+        "Create the object by calling the class."
+      ],
+      "id": 3
+    },
+    {
+      "type": "mcq",
+      "topic": "Classes & Objects",
+      "level": "Beginner",
+      "q": "What is printed?",
+      "code": "class Dog:\n    pass\nd=Dog()\nprint(type(d).__name__)",
+      "options": [
+        "Dog",
+        "d",
+        "object",
+        "None"
+      ],
+      "answer": 0,
+      "hints": [
+        "d is an instance of Dog.",
+        "type(d) gives its class.",
+        "The class name is Dog."
+      ],
+      "id": 4
+    },
+    {
+      "type": "code",
+      "topic": "Classes & Objects",
+      "level": "Beginner",
+      "q": "Create a class Calculator with a method add(a,b) that returns a+b.",
+      "code": "# Write your solution here",
+      "expected": "Define Calculator and an instance method add(self,a,b) returning a+b.",
+      "hints": [
+        "Methods inside classes normally receive self first.",
+        "add needs two additional parameters.",
+        "Use return a+b."
+      ],
+      "id": 5
+    },
+    {
+      "type": "mcq",
+      "topic": "Classes & Objects",
+      "level": "Beginner",
+      "q": "How do you access an object's attribute?",
+      "code": "class A:\n    pass\na=A()\na.x=10",
+      "options": [
+        "a->x",
+        "a.x",
+        "a[x]",
+        "x.a"
+      ],
+      "answer": 1,
+      "hints": [
+        "Python uses dot notation for normal attribute access.",
+        "The object name comes first.",
+        "The attribute name follows a dot."
+      ],
+      "id": 6
+    },
+    {
+      "type": "code",
+      "topic": "Classes & Objects",
+      "level": "Beginner",
+      "q": "Create a class Person and give an object p a name attribute with value 'Ravi'.",
+      "code": "# Write your solution here",
+      "expected": "Use class Person: pass; p=Person(); p.name='Ravi'.",
+      "hints": [
+        "Create the class first.",
+        "Instantiate it.",
+        "Assign the attribute with dot notation."
+      ],
+      "id": 7
+    },
+    {
+      "type": "mcq",
+      "topic": "Classes & Objects",
+      "level": "Beginner",
+      "q": "What does self usually refer to?",
+      "code": "class A:\n    def show(self):\n        print(self)",
+      "options": [
+        "The class itself",
+        "The current instance",
+        "The parent class",
+        "A global variable"
+      ],
+      "answer": 1,
+      "hints": [
+        "Instance methods receive the current object.",
+        "self is the conventional parameter name.",
+        "It lets the method access instance attributes and other methods."
+      ],
+      "id": 8
+    },
+    {
+      "type": "mcq",
+      "topic": "__init__ Constructor",
+      "level": "Beginner",
+      "q": "When is __init__ normally called?",
+      "code": "class Person:\n    def __init__(self):\n        print('created')\nPerson()",
+      "options": [
+        "When the class is defined",
+        "During object initialization",
+        "Only when deleted",
+        "Never"
+      ],
+      "answer": 1,
+      "hints": [
+        "Calling Person() creates an instance.",
+        "Python then invokes initialization logic.",
+        "__init__ is commonly used to set initial state."
+      ],
+      "id": 9
+    },
+    {
+      "type": "code",
+      "topic": "__init__ Constructor",
+      "level": "Beginner",
+      "q": "Create a Person class whose __init__ stores name in self.name.",
+      "code": "# Write your solution here",
+      "expected": "Use def __init__(self,name): self.name=name.",
+      "hints": [
+        "The constructor method is __init__.",
+        "Store the parameter on the instance.",
+        "Use self.name = name."
+      ],
+      "id": 10
+    },
+    {
+      "type": "mcq",
+      "topic": "__init__ Constructor",
+      "level": "Beginner",
+      "q": "What is printed?",
+      "code": "class A:\n    def __init__(self,x): self.x=x\na=A(5)\nprint(a.x)",
+      "options": [
+        "x",
+        "5",
+        "None",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "5 is passed into x.",
+        "self.x stores that value on the object.",
+        "a.x retrieves it."
+      ],
+      "id": 11
+    },
+    {
+      "type": "code",
+      "topic": "__init__ Constructor",
+      "level": "Beginner",
+      "q": "Create a Book class with title and price initialized by __init__.",
+      "code": "# Write your solution here",
+      "expected": "Use __init__(self,title,price) and assign self.title and self.price.",
+      "hints": [
+        "Create two parameters.",
+        "Store both on self.",
+        "Use dot attributes."
+      ],
+      "id": 12
+    },
+    {
+      "type": "mcq",
+      "topic": "__init__ Constructor",
+      "level": "Intermediate",
+      "q": "What is the main purpose of __init__?",
+      "code": "",
+      "options": [
+        "Destroy an object",
+        "Initialize instance state",
+        "Create a loop",
+        "Import a module"
+      ],
+      "answer": 1,
+      "hints": [
+        "It runs during instance creation.",
+        "It commonly assigns initial attributes.",
+        "It is not the destructor."
+      ],
+      "id": 13
+    },
+    {
+      "type": "code",
+      "topic": "__init__ Constructor",
+      "level": "Intermediate",
+      "q": "Create an Employee class with name='Unknown' as a default constructor argument.",
+      "code": "# Write your solution here",
+      "expected": "Use def __init__(self,name='Unknown'): self.name=name.",
+      "hints": [
+        "Defaults work like normal function parameters.",
+        "self is still the first parameter.",
+        "Store the selected name."
+      ],
+      "id": 14
+    },
+    {
+      "type": "mcq",
+      "topic": "__init__ Constructor",
+      "level": "Interview",
+      "q": "Which statement is true?",
+      "code": "",
+      "options": [
+        "__init__ creates the class",
+        "__init__ initializes an already-created instance",
+        "__init__ must return self",
+        "__init__ can return any value"
+      ],
+      "answer": 1,
+      "hints": [
+        "The class exists before instances are made.",
+        "Initialization happens for an instance.",
+        "A normal __init__ must return None."
+      ],
+      "id": 15
+    },
+    {
+      "type": "mcq",
+      "topic": "Instance Variables & Methods",
+      "level": "Beginner",
+      "q": "Which attribute is normally specific to each object?",
+      "code": "class Dog:\n    def __init__(self,name): self.name=name",
+      "options": [
+        "self.name",
+        "Dog",
+        "__init__",
+        "class"
+      ],
+      "answer": 0,
+      "hints": [
+        "self attributes belong to an instance.",
+        "Two Dog objects can have different names.",
+        "Class attributes are shared differently."
+      ],
+      "id": 16
+    },
+    {
+      "type": "code",
+      "topic": "Instance Variables & Methods",
+      "level": "Beginner",
+      "q": "Create a BankAccount with balance initialized to 0 and a deposit(amount) method that adds to balance.",
+      "code": "# Write your solution here",
+      "expected": "Use self.balance=0 and self.balance += amount.",
+      "hints": [
+        "Initialize balance in __init__.",
+        "deposit receives self and amount.",
+        "Modify the instance attribute."
+      ],
+      "id": 17
+    },
+    {
+      "type": "mcq",
+      "topic": "Instance Variables & Methods",
+      "level": "Beginner",
+      "q": "What is printed?",
+      "code": "class Counter:\n    def __init__(self): self.n=0\n    def inc(self): self.n+=1\nc=Counter(); c.inc(); c.inc(); print(c.n)",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "Error"
+      ],
+      "answer": 2,
+      "hints": [
+        "n starts at zero.",
+        "Each inc call adds one.",
+        "There are two calls."
+      ],
+      "id": 18
+    },
+    {
+      "type": "code",
+      "topic": "Instance Variables & Methods",
+      "level": "Intermediate",
+      "q": "Write a Rectangle class with area() returning self.width*self.height.",
+      "code": "# Write your solution here",
+      "expected": "Define __init__(self,width,height) and area(self) returning the product.",
+      "hints": [
+        "Store width and height on self.",
+        "area needs only self.",
+        "Multiply the two attributes."
+      ],
+      "id": 19
+    },
+    {
+      "type": "mcq",
+      "topic": "Instance Variables & Methods",
+      "level": "Interview",
+      "q": "Why is self required in an instance method definition?",
+      "code": "",
+      "options": [
+        "It represents the current instance and gives access to its state",
+        "It makes the method static",
+        "It imports the class",
+        "It is optional syntax"
+      ],
+      "answer": 0,
+      "hints": [
+        "The method needs a reference to the object.",
+        "Python passes the instance when called through an object.",
+        "The conventional name is self."
+      ],
+      "id": 20
+    },
+    {
+      "type": "code",
+      "topic": "Instance Variables & Methods",
+      "level": "Intermediate",
+      "q": "Create a Student class with marks and a method average() for three marks.",
+      "code": "# Write your solution here",
+      "expected": "Store three marks and return their sum divided by 3.",
+      "hints": [
+        "Store the marks as instance attributes.",
+        "Use (a+b+c)/3.",
+        "Return the calculated value."
+      ],
+      "id": 21
+    },
+    {
+      "type": "mcq",
+      "topic": "Class Variables & Class Methods",
+      "level": "Intermediate",
+      "q": "Where is a class variable normally defined?",
+      "code": "class Employee:\n    company='ABC'",
+      "options": [
+        "Inside every method only",
+        "Directly in the class body",
+        "Only inside __init__",
+        "In a loop"
+      ],
+      "answer": 1,
+      "hints": [
+        "company is aligned with the class body.",
+        "It is not prefixed with self.",
+        "Instances can access it unless shadowed."
+      ],
+      "id": 22
+    },
+    {
+      "type": "mcq",
+      "topic": "Class Variables & Class Methods",
+      "level": "Intermediate",
+      "q": "What is printed?",
+      "code": "class A:\n    count=0\nx=A(); y=A()\nprint(x.count, y.count)",
+      "options": [
+        "0 0",
+        "1 1",
+        "None None",
+        "Error"
+      ],
+      "answer": 0,
+      "hints": [
+        "count is a class attribute.",
+        "Neither object changes it here.",
+        "Both instances can read the same class value."
+      ],
+      "id": 23
+    },
+    {
+      "type": "code",
+      "topic": "Class Variables & Class Methods",
+      "level": "Intermediate",
+      "q": "Create a class Product with a class variable tax_rate=0.18.",
+      "code": "# Write your solution here",
+      "expected": "Define class Product: tax_rate=0.18.",
+      "hints": [
+        "Put the variable in the class body.",
+        "Do not put it inside __init__ for this question.",
+        "Use the decimal 0.18."
+      ],
+      "id": 24
+    },
+    {
+      "type": "mcq",
+      "topic": "Class Variables & Class Methods",
+      "level": "Intermediate",
+      "q": "Which decorator creates a class method?",
+      "code": "",
+      "options": [
+        "@staticmethod",
+        "@classmethod",
+        "@class",
+        "@method"
+      ],
+      "answer": 1,
+      "hints": [
+        "Python provides a built-in decorator for class methods.",
+        "It is written with @.",
+        "The method receives cls conventionally."
+      ],
+      "id": 25
+    },
+    {
+      "type": "code",
+      "topic": "Class Variables & Class Methods",
+      "level": "Intermediate",
+      "q": "Create a class method from_name(cls,name) that returns cls(name).",
+      "code": "# Write your solution here",
+      "expected": "Use @classmethod and return cls(name).",
+      "hints": [
+        "The decorator is @classmethod.",
+        "The first parameter conventionally is cls.",
+        "Calling cls creates an instance of the class."
+      ],
+      "id": 26
+    },
+    {
+      "type": "mcq",
+      "topic": "Class Variables & Class Methods",
+      "level": "Interview",
+      "q": "What does cls refer to in a class method?",
+      "code": "",
+      "options": [
+        "Current instance",
+        "The class itself",
+        "Global module",
+        "A local list"
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare cls with self.",
+        "A class method receives the class as its first argument.",
+        "It can access class-level state."
+      ],
+      "id": 27
+    },
+    {
+      "type": "code",
+      "topic": "Class Variables & Class Methods",
+      "level": "Advanced",
+      "q": "Create a class Employee with class variable count and increment it in __init__ each time an object is created.",
+      "code": "# Write your solution here",
+      "expected": "Use Employee.count += 1 or type(self).count += 1 in __init__.",
+      "hints": [
+        "Initialize count before object creation.",
+        "Increment once per constructor call.",
+        "The counter belongs to the class."
+      ],
+      "id": 28
+    },
+    {
+      "type": "mcq",
+      "topic": "Static Methods",
+      "level": "Intermediate",
+      "q": "Which decorator defines a static method?",
+      "code": "",
+      "options": [
+        "@staticmethod",
+        "@classmethod",
+        "@instance",
+        "@static"
+      ],
+      "answer": 0,
+      "hints": [
+        "It is a standard Python decorator.",
+        "A static method does not receive self or cls automatically.",
+        "Use @staticmethod."
+      ],
+      "id": 29
+    },
+    {
+      "type": "code",
+      "topic": "Static Methods",
+      "level": "Intermediate",
+      "q": "Create a static method is_even(n) returning True when n is even.",
+      "code": "# Write your solution here",
+      "expected": "Use @staticmethod and return n % 2 == 0.",
+      "hints": [
+        "No self is needed.",
+        "Use modulo.",
+        "Return the boolean expression."
+      ],
+      "id": 30
+    },
+    {
+      "type": "mcq",
+      "topic": "Static Methods",
+      "level": "Intermediate",
+      "q": "Which statement best describes a static method?",
+      "code": "",
+      "options": [
+        "It automatically receives self",
+        "It automatically receives cls",
+        "It receives no implicit instance/class first argument",
+        "It must be private"
+      ],
+      "answer": 2,
+      "hints": [
+        "Unlike instance/class methods, no implicit object/class is passed.",
+        "It can still receive explicit parameters.",
+        "It is often used for utility logic related to the class."
+      ],
+      "id": 31
+    },
+    {
+      "type": "code",
+      "topic": "Static Methods",
+      "level": "Interview",
+      "q": "Create a Temperature class with static method c_to_f(c) returning c*9/5+32.",
+      "code": "# Write your solution here",
+      "expected": "Use @staticmethod and return c*9/5+32.",
+      "hints": [
+        "The conversion does not require object state.",
+        "Make it static.",
+        "Use the formula exactly."
+      ],
+      "id": 32
+    },
+    {
+      "type": "mcq",
+      "topic": "Static Methods",
+      "level": "Interview",
+      "q": "When is a static method a good choice?",
+      "code": "",
+      "options": [
+        "When behavior needs neither instance nor class state",
+        "Whenever inheritance is used",
+        "Only for constructors",
+        "Only for private data"
+      ],
+      "answer": 0,
+      "hints": [
+        "Ask whether self or cls is needed.",
+        "If neither is required, a static method may fit.",
+        "It acts like a namespaced utility function."
+      ],
+      "id": 33
+    },
+    {
+      "type": "mcq",
+      "topic": "Encapsulation",
+      "level": "Intermediate",
+      "q": "What does a leading underscore in _balance conventionally communicate?",
+      "code": "",
+      "options": [
+        "Python makes it impossible to access",
+        "It is intended as an internal implementation detail",
+        "It creates a private class",
+        "It deletes the variable"
+      ],
+      "answer": 1,
+      "hints": [
+        "A single underscore is a convention, not strict enforcement.",
+        "It signals internal use.",
+        "The attribute can still be accessed."
+      ],
+      "id": 34
+    },
+    {
+      "type": "mcq",
+      "topic": "Encapsulation",
+      "level": "Intermediate",
+      "q": "What does __name trigger in Python classes?",
+      "code": "class A:\n    def __init__(self): self.__name='x'",
+      "options": [
+        "Deletion",
+        "Name mangling",
+        "Static dispatch",
+        "Compilation"
+      ],
+      "answer": 1,
+      "hints": [
+        "Double leading underscores have special behavior.",
+        "Python mangles the attribute name with the class name.",
+        "This reduces accidental name collisions."
+      ],
+      "id": 35
+    },
+    {
+      "type": "code",
+      "topic": "Encapsulation",
+      "level": "Intermediate",
+      "q": "Create a Person class with a private-looking __age attribute and a get_age() method.",
+      "code": "# Write your solution here",
+      "expected": "Assign self.__age in __init__ and return it from get_age().",
+      "hints": [
+        "Use two leading underscores for the requested attribute.",
+        "The getter is a normal instance method.",
+        "Return the stored value."
+      ],
+      "id": 36
+    },
+    {
+      "type": "mcq",
+      "topic": "Encapsulation",
+      "level": "Interview",
+      "q": "Which is true about Python private attributes?",
+      "code": "",
+      "options": [
+        "They are absolutely inaccessible",
+        "Double underscore attributes are name-mangled, not truly private",
+        "They cannot be inherited",
+        "They are automatically encrypted"
+      ],
+      "answer": 1,
+      "hints": [
+        "Python does not enforce Java-style private access.",
+        "Name mangling changes the attribute's internal name.",
+        "It mainly prevents accidental clashes."
+      ],
+      "id": 37
+    },
+    {
+      "type": "code",
+      "topic": "Encapsulation",
+      "level": "Advanced",
+      "q": "Create a BankAccount with __balance and deposit/withdraw methods that prevent withdrawal if amount exceeds balance.",
+      "code": "# Write your solution here",
+      "expected": "Check if amount <= self.__balance before subtracting.",
+      "hints": [
+        "Keep balance behind __balance.",
+        "Use a condition before changing it.",
+        "Only subtract when sufficient funds exist."
+      ],
+      "id": 38
+    },
+    {
+      "type": "mcq",
+      "topic": "Inheritance",
+      "level": "Intermediate",
+      "q": "What is inheritance used for?",
+      "code": "",
+      "options": [
+        "Creating unrelated variables",
+        "Reusing and extending behavior from a parent class",
+        "Replacing all functions",
+        "Only storing data"
+      ],
+      "answer": 1,
+      "hints": [
+        "A child class can inherit methods and attributes.",
+        "It can also override behavior.",
+        "This supports code reuse and specialization."
+      ],
+      "id": 39
+    },
+    {
+      "type": "code",
+      "topic": "Inheritance",
+      "level": "Intermediate",
+      "q": "Create Animal with speak() and Dog(Animal) that inherits it.",
+      "code": "# Write your solution here",
+      "expected": "Define class Dog(Animal): pass after defining Animal.",
+      "hints": [
+        "Define the parent first.",
+        "Put the parent name in parentheses.",
+        "pass is enough for inheritance here."
+      ],
+      "id": 40
+    },
+    {
+      "type": "mcq",
+      "topic": "Inheritance",
+      "level": "Intermediate",
+      "q": "What does super() commonly help you do?",
+      "code": "",
+      "options": [
+        "Access parent-class behavior",
+        "Create a global variable",
+        "Make a method static",
+        "Stop inheritance"
+      ],
+      "answer": 0,
+      "hints": [
+        "super() provides a proxy for parent/superclass access.",
+        "It is often used to call a parent's __init__.",
+        "It is especially useful in inheritance chains."
+      ],
+      "id": 41
+    },
+    {
+      "type": "code",
+      "topic": "Inheritance",
+      "level": "Intermediate",
+      "q": "Create Vehicle with __init__(brand), then Car(Vehicle) with an extra model attribute and use super().__init__.",
+      "code": "# Write your solution here",
+      "expected": "Car.__init__ should call super().__init__(brand) and set self.model=model.",
+      "hints": [
+        "Call the parent initializer first.",
+        "Use super().__init__(brand).",
+        "Then initialize the child-specific attribute."
+      ],
+      "id": 42
+    },
+    {
+      "type": "mcq",
+      "topic": "Inheritance",
+      "level": "Interview",
+      "q": "If a child class defines a method with the same name as the parent, what is this commonly called?",
+      "code": "",
+      "options": [
+        "Overriding",
+        "Overloading only",
+        "Importing",
+        "Packing"
+      ],
+      "answer": 0,
+      "hints": [
+        "The child supplies its own implementation.",
+        "The method name remains the same.",
+        "This is method overriding."
+      ],
+      "id": 43
+    },
+    {
+      "type": "code",
+      "topic": "Inheritance",
+      "level": "Advanced",
+      "q": "Create Shape with area() raising NotImplementedError and Circle(Shape) overriding area().",
+      "code": "# Write your solution here",
+      "expected": "Circle.area should return 3.14*self.radius**2.",
+      "hints": [
+        "The child should replace the parent behavior.",
+        "Store radius in the child.",
+        "Use radius squared multiplied by pi approximation."
+      ],
+      "id": 44
+    },
+    {
+      "type": "mcq",
+      "topic": "Polymorphism",
+      "level": "Advanced",
+      "q": "What is polymorphism in OOP?",
+      "code": "",
+      "options": [
+        "One interface can work with objects having different implementations",
+        "Only one class can exist",
+        "Variables cannot change",
+        "A loop inside a class"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think 'many forms'.",
+        "Different classes can implement the same method name.",
+        "Caller code can often use the common interface."
+      ],
+      "id": 45
+    },
+    {
+      "type": "code",
+      "topic": "Polymorphism",
+      "level": "Advanced",
+      "q": "Create Dog and Cat classes, each with speak(), then loop through [Dog(),Cat()] and call speak().",
+      "code": "# Write your solution here",
+      "expected": "Both classes implement speak(); iterate over the objects and call animal.speak().",
+      "hints": [
+        "Give both classes the same method name.",
+        "Store instances in one list.",
+        "The loop does not need to check the concrete class."
+      ],
+      "id": 46
+    },
+    {
+      "type": "mcq",
+      "topic": "Polymorphism",
+      "level": "Advanced",
+      "q": "What is duck typing in Python?",
+      "code": "",
+      "options": [
+        "Objects are usable based on supported behavior rather than declared type",
+        "Only inheritance is allowed",
+        "Classes cannot have methods",
+        "It refers to list sorting"
+      ],
+      "answer": 0,
+      "hints": [
+        "Python often focuses on what an object can do.",
+        "If an object provides the required method, code can use it.",
+        "An explicit shared parent is not always necessary."
+      ],
+      "id": 47
+    },
+    {
+      "type": "code",
+      "topic": "Polymorphism",
+      "level": "Advanced",
+      "q": "Write a function make_speak(animal) that calls animal.speak().",
+      "code": "# Write your solution here",
+      "expected": "Define make_speak(animal): return animal.speak().",
+      "hints": [
+        "The function should not check type.",
+        "Call the common method.",
+        "Return its result if the method returns one."
+      ],
+      "id": 48
+    },
+    {
+      "type": "mcq",
+      "topic": "Polymorphism",
+      "level": "Interview",
+      "q": "Which concept is demonstrated when the same area() call works for Circle and Rectangle objects?",
+      "code": "",
+      "options": [
+        "Polymorphism",
+        "Encapsulation only",
+        "Variable scope",
+        "Iteration"
+      ],
+      "answer": 0,
+      "hints": [
+        "Both objects expose area().",
+        "The implementations can differ.",
+        "The common call is the key idea."
+      ],
+      "id": 49
+    },
+    {
+      "type": "mcq",
+      "topic": "Abstraction",
+      "level": "Advanced",
+      "q": "Which module provides tools for defining abstract base classes?",
+      "code": "",
+      "options": [
+        "abc",
+        "math",
+        "random",
+        "json"
+      ],
+      "answer": 0,
+      "hints": [
+        "Python's abstract base class support is in a short-named standard module.",
+        "It includes ABC and abstractmethod.",
+        "The module name is abc."
+      ],
+      "id": 50
+    },
+    {
+      "type": "mcq",
+      "topic": "Abstraction",
+      "level": "Advanced",
+      "q": "Which decorator marks a method as abstract?",
+      "code": "",
+      "options": [
+        "@abstractmethod",
+        "@abstract",
+        "@required",
+        "@interface"
+      ],
+      "answer": 0,
+      "hints": [
+        "Import it from abc.",
+        "It marks methods subclasses are expected to implement.",
+        "The decorator name contains 'method'."
+      ],
+      "id": 51
+    },
+    {
+      "type": "code",
+      "topic": "Abstraction",
+      "level": "Advanced",
+      "q": "Create an abstract Shape with abstract area() and a Square subclass implementing it.",
+      "code": "# Write your solution here",
+      "expected": "Use from abc import ABC, abstractmethod; class Shape(ABC); decorate area with @abstractmethod.",
+      "hints": [
+        "Subclass ABC.",
+        "Use @abstractmethod above area.",
+        "Square must implement area to be concrete."
+      ],
+      "id": 52
+    },
+    {
+      "type": "mcq",
+      "topic": "Abstraction",
+      "level": "Interview",
+      "q": "What is a key benefit of abstraction?",
+      "code": "",
+      "options": [
+        "Expose necessary interface while hiding implementation details",
+        "Make all attributes public",
+        "Avoid all classes",
+        "Guarantee faster execution"
+      ],
+      "answer": 0,
+      "hints": [
+        "Users of an abstraction focus on what it does.",
+        "Implementation can vary behind the interface.",
+        "It is about design and separation of concerns."
+      ],
+      "id": 53
+    },
+    {
+      "type": "code",
+      "topic": "Abstraction",
+      "level": "Advanced",
+      "q": "Design an abstract Payment class with pay(amount), then implement CardPayment.pay().",
+      "code": "# Write your solution here",
+      "expected": "Payment inherits ABC and pay is abstract; CardPayment implements pay.",
+      "hints": [
+        "Use abc.",
+        "Define the required interface in Payment.",
+        "Implement the concrete behavior in CardPayment."
+      ],
+      "id": 54
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "What is method resolution order (MRO)?",
+      "code": "",
+      "options": [
+        "The order Python searches classes for attributes/methods",
+        "The order variables are printed",
+        "The order lists are sorted",
+        "The order imports are downloaded"
+      ],
+      "answer": 0,
+      "hints": [
+        "Inheritance can form chains and multiple inheritance.",
+        "Python needs a deterministic lookup order.",
+        "ClassName.mro() exposes it."
+      ],
+      "id": 55
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "What does isinstance(obj, Class) check?",
+      "code": "",
+      "options": [
+        "Whether obj is an instance of Class or its subclasses",
+        "Whether Class is abstract",
+        "Whether obj is a string",
+        "Whether a method is static"
+      ],
+      "answer": 0,
+      "hints": [
+        "It checks object/class relationship.",
+        "Subclass instances can also satisfy the check.",
+        "It returns a boolean."
+      ],
+      "id": 56
+    },
+    {
+      "type": "code",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "Create a class with __str__ returning a user-friendly representation such as 'Student: Ravi'.",
+      "code": "# Write your solution here",
+      "expected": "Implement def __str__(self): return 'Student: ' + self.name.",
+      "hints": [
+        "__str__ controls the informal string representation.",
+        "Return a string, not print it.",
+        "Use self.name."
+      ],
+      "id": 57
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "What is the difference between __str__ and __repr__ at a high level?",
+      "code": "",
+      "options": [
+        "__str__ is user-friendly; __repr__ aims for developer/debug representation",
+        "They are always identical",
+        "Both only work for integers",
+        "__repr__ is a loop"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think user-facing vs developer-facing representation.",
+        "Both are special methods.",
+        "The exact fallback behavior is a useful interview detail."
+      ],
+      "id": 58
+    },
+    {
+      "type": "code",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "Create a class Point with __eq__ comparing x and y values between two Point objects.",
+      "code": "# Write your solution here",
+      "expected": "Return self.x == other.x and self.y == other.y.",
+      "hints": [
+        "Compare corresponding coordinates.",
+        "Return one boolean expression.",
+        "Store x and y during initialization."
+      ],
+      "id": 59
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "What does @property allow you to do?",
+      "code": "",
+      "options": [
+        "Expose method-based logic through attribute-style access",
+        "Create a global variable",
+        "Disable inheritance",
+        "Turn a class into a list"
+      ],
+      "answer": 0,
+      "hints": [
+        "A property is accessed without parentheses.",
+        "It can compute or validate a value.",
+        "It is commonly used for controlled attribute access."
+      ],
+      "id": 60
+    },
+    {
+      "type": "code",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "Create a Circle class with radius and a read-only @property area.",
+      "code": "# Write your solution here",
+      "expected": "Define @property def area(self): return 3.14*self.radius**2.",
+      "hints": [
+        "Use @property above area.",
+        "Access should look like circle.area.",
+        "No setter is required for a read-only property."
+      ],
+      "id": 61
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Interview",
+      "q": "What is composition?",
+      "code": "",
+      "options": [
+        "Building a class using objects of other classes",
+        "Only using inheritance",
+        "Deleting an object",
+        "Using only global variables"
+      ],
+      "answer": 0,
+      "hints": [
+        "A 'has-a' relationship often suggests composition.",
+        "Objects become components of a larger object.",
+        "It can reduce tight inheritance coupling."
+      ],
+      "id": 62
+    },
+    {
+      "type": "code",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "Create Engine with start(), then Car containing an Engine object and a start() method delegating to engine.start().",
+      "code": "# Write your solution here",
+      "expected": "Initialize self.engine=Engine() and return/call self.engine.start().",
+      "hints": [
+        "Car has an Engine.",
+        "Instantiate Engine inside or inject it.",
+        "Delegate the behavior to the component."
+      ],
+      "id": 63
+    },
+    {
+      "type": "mcq",
+      "topic": "Classes & Objects",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    x=10\na=A(); a.x=20\nprint(A.x,a.x)",
+      "options": [
+        "10 20",
+        "20 20",
+        "10 10",
+        "20 10"
+      ],
+      "answer": 0,
+      "hints": [
+        "The assignment a.x creates/shadows an instance attribute.",
+        "The class attribute remains 10.",
+        "Reading a.x finds the instance attribute first."
+      ],
+      "id": 64
+    },
+    {
+      "type": "mcq",
+      "topic": "Instance Variables & Methods",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    def __init__(self): self.x=[]\na=A(); b=A(); a.x.append(1)\nprint(b.x)",
+      "options": [
+        "[1]",
+        "[]",
+        "None",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "Each __init__ creates a new list.",
+        "The lists belong to separate instances.",
+        "Only a.x was modified."
+      ],
+      "id": 65
+    },
+    {
+      "type": "mcq",
+      "topic": "Class Variables & Class Methods",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    count=0\n    def __init__(self): A.count+=1\nA(); A(); print(A.count)",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "Error"
+      ],
+      "answer": 2,
+      "hints": [
+        "The class variable starts at zero.",
+        "Each constructor increments it.",
+        "There are two instances."
+      ],
+      "id": 66
+    },
+    {
+      "type": "mcq",
+      "topic": "Inheritance",
+      "level": "Interview",
+      "q": "Which relationship best matches inheritance?",
+      "code": "",
+      "options": [
+        "is-a",
+        "has-a",
+        "uses-a only",
+        "contains-a only"
+      ],
+      "answer": 0,
+      "hints": [
+        "A Dog is an Animal is the classic example.",
+        "Composition is often described as has-a.",
+        "Inheritance models specialization."
+      ],
+      "id": 67
+    },
+    {
+      "type": "mcq",
+      "topic": "Polymorphism",
+      "level": "Interview",
+      "q": "A function calls obj.draw() without checking whether obj is Circle or Square. What concept is this closest to?",
+      "code": "",
+      "options": [
+        "Polymorphism/duck typing",
+        "Encapsulation only",
+        "Parsing",
+        "Serialization"
+      ],
+      "answer": 0,
+      "hints": [
+        "The caller relies on a common behavior.",
+        "Concrete object type is not required for the call.",
+        "This is a common Python polymorphism pattern."
+      ],
+      "id": 68
+    },
+    {
+      "type": "mcq",
+      "topic": "Encapsulation",
+      "level": "Interview",
+      "q": "Which is the safest statement about _name?",
+      "code": "",
+      "options": [
+        "It is a convention indicating internal use",
+        "It is encrypted",
+        "It cannot be read",
+        "It is always a property"
+      ],
+      "answer": 0,
+      "hints": [
+        "A single underscore does not enforce privacy.",
+        "It communicates intent to programmers.",
+        "Python conventions matter in API design."
+      ],
+      "id": 69
+    },
+    {
+      "type": "mcq",
+      "topic": "Static Methods",
+      "level": "Interview",
+      "q": "Can a static method access instance state through self automatically?",
+      "code": "",
+      "options": [
+        "Yes",
+        "No",
+        "Only in subclasses",
+        "Only with inheritance"
+      ],
+      "answer": 1,
+      "hints": [
+        "Static methods receive no implicit self.",
+        "They need an explicit object passed if they need instance data.",
+        "That is a key distinction from instance methods."
+      ],
+      "id": 70
+    },
+    {
+      "type": "mcq",
+      "topic": "Abstraction",
+      "level": "Interview",
+      "q": "Can you normally instantiate a class with unimplemented abstract methods?",
+      "code": "",
+      "options": [
+        "Yes always",
+        "No, Python prevents instantiation of an abstract class",
+        "Only with print",
+        "Only inside a loop"
+      ],
+      "answer": 1,
+      "hints": [
+        "An ABC with abstract methods remains abstract.",
+        "Python raises TypeError when trying to instantiate it until required methods are implemented.",
+        "Concrete subclasses can then be instantiated."
+      ],
+      "id": 71
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "What does super() in a single-inheritance child constructor commonly accomplish?",
+      "code": "",
+      "options": [
+        "Calls parent implementation without manually naming the parent",
+        "Deletes parent state",
+        "Creates a static method",
+        "Changes variable types"
+      ],
+      "answer": 0,
+      "hints": [
+        "super() gives access to the next class in MRO.",
+        "Calling super().__init__ initializes inherited state.",
+        "It also supports cooperative multiple inheritance patterns."
+      ],
+      "id": 72
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "Which is usually preferable when you need to reuse behavior but the relationship is not naturally 'is-a'?",
+      "code": "",
+      "options": [
+        "Composition",
+        "Inheritance always",
+        "Global variables",
+        "Recursion"
+      ],
+      "answer": 0,
+      "hints": [
+        "Composition models 'has-a' or collaboration.",
+        "It can keep components loosely coupled.",
+        "Inheritance is strongest for genuine subtype relationships."
+      ],
+      "id": 73
+    },
+    {
+      "type": "mcq",
+      "topic": "Classes & Objects",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    x=10\na=A(); a.x=20\nprint(A.x,a.x)",
+      "options": [
+        "10 20",
+        "20 20",
+        "10 10",
+        "20 10"
+      ],
+      "answer": 0,
+      "hints": [
+        "The assignment a.x creates/shadows an instance attribute.",
+        "The class attribute remains 10.",
+        "Reading a.x finds the instance attribute first."
+      ],
+      "id": 74
+    },
+    {
+      "type": "mcq",
+      "topic": "Instance Variables & Methods",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    def __init__(self): self.x=[]\na=A(); b=A(); a.x.append(1)\nprint(b.x)",
+      "options": [
+        "[1]",
+        "[]",
+        "None",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "Each __init__ creates a new list.",
+        "The lists belong to separate instances.",
+        "Only a.x was modified."
+      ],
+      "id": 75
+    },
+    {
+      "type": "mcq",
+      "topic": "Class Variables & Class Methods",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    count=0\n    def __init__(self): A.count+=1\nA(); A(); print(A.count)",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "Error"
+      ],
+      "answer": 2,
+      "hints": [
+        "The class variable starts at zero.",
+        "Each constructor increments it.",
+        "There are two instances."
+      ],
+      "id": 76
+    },
+    {
+      "type": "mcq",
+      "topic": "Inheritance",
+      "level": "Interview",
+      "q": "Which relationship best matches inheritance?",
+      "code": "",
+      "options": [
+        "is-a",
+        "has-a",
+        "uses-a only",
+        "contains-a only"
+      ],
+      "answer": 0,
+      "hints": [
+        "A Dog is an Animal is the classic example.",
+        "Composition is often described as has-a.",
+        "Inheritance models specialization."
+      ],
+      "id": 77
+    },
+    {
+      "type": "mcq",
+      "topic": "Polymorphism",
+      "level": "Interview",
+      "q": "A function calls obj.draw() without checking whether obj is Circle or Square. What concept is this closest to?",
+      "code": "",
+      "options": [
+        "Polymorphism/duck typing",
+        "Encapsulation only",
+        "Parsing",
+        "Serialization"
+      ],
+      "answer": 0,
+      "hints": [
+        "The caller relies on a common behavior.",
+        "Concrete object type is not required for the call.",
+        "This is a common Python polymorphism pattern."
+      ],
+      "id": 78
+    },
+    {
+      "type": "mcq",
+      "topic": "Encapsulation",
+      "level": "Interview",
+      "q": "Which is the safest statement about _name?",
+      "code": "",
+      "options": [
+        "It is a convention indicating internal use",
+        "It is encrypted",
+        "It cannot be read",
+        "It is always a property"
+      ],
+      "answer": 0,
+      "hints": [
+        "A single underscore does not enforce privacy.",
+        "It communicates intent to programmers.",
+        "Python conventions matter in API design."
+      ],
+      "id": 79
+    },
+    {
+      "type": "mcq",
+      "topic": "Static Methods",
+      "level": "Interview",
+      "q": "Can a static method access instance state through self automatically?",
+      "code": "",
+      "options": [
+        "Yes",
+        "No",
+        "Only in subclasses",
+        "Only with inheritance"
+      ],
+      "answer": 1,
+      "hints": [
+        "Static methods receive no implicit self.",
+        "They need an explicit object passed if they need instance data.",
+        "That is a key distinction from instance methods."
+      ],
+      "id": 80
+    },
+    {
+      "type": "mcq",
+      "topic": "Abstraction",
+      "level": "Interview",
+      "q": "Can you normally instantiate a class with unimplemented abstract methods?",
+      "code": "",
+      "options": [
+        "Yes always",
+        "No, Python prevents instantiation of an abstract class",
+        "Only with print",
+        "Only inside a loop"
+      ],
+      "answer": 1,
+      "hints": [
+        "An ABC with abstract methods remains abstract.",
+        "Python raises TypeError when trying to instantiate it until required methods are implemented.",
+        "Concrete subclasses can then be instantiated."
+      ],
+      "id": 81
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "What does super() in a single-inheritance child constructor commonly accomplish?",
+      "code": "",
+      "options": [
+        "Calls parent implementation without manually naming the parent",
+        "Deletes parent state",
+        "Creates a static method",
+        "Changes variable types"
+      ],
+      "answer": 0,
+      "hints": [
+        "super() gives access to the next class in MRO.",
+        "Calling super().__init__ initializes inherited state.",
+        "It also supports cooperative multiple inheritance patterns."
+      ],
+      "id": 82
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "Which is usually preferable when you need to reuse behavior but the relationship is not naturally 'is-a'?",
+      "code": "",
+      "options": [
+        "Composition",
+        "Inheritance always",
+        "Global variables",
+        "Recursion"
+      ],
+      "answer": 0,
+      "hints": [
+        "Composition models 'has-a' or collaboration.",
+        "It can keep components loosely coupled.",
+        "Inheritance is strongest for genuine subtype relationships."
+      ],
+      "id": 83
+    },
+    {
+      "type": "mcq",
+      "topic": "Classes & Objects",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    x=10\na=A(); a.x=20\nprint(A.x,a.x)",
+      "options": [
+        "10 20",
+        "20 20",
+        "10 10",
+        "20 10"
+      ],
+      "answer": 0,
+      "hints": [
+        "The assignment a.x creates/shadows an instance attribute.",
+        "The class attribute remains 10.",
+        "Reading a.x finds the instance attribute first."
+      ],
+      "id": 84
+    },
+    {
+      "type": "mcq",
+      "topic": "Instance Variables & Methods",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    def __init__(self): self.x=[]\na=A(); b=A(); a.x.append(1)\nprint(b.x)",
+      "options": [
+        "[1]",
+        "[]",
+        "None",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "Each __init__ creates a new list.",
+        "The lists belong to separate instances.",
+        "Only a.x was modified."
+      ],
+      "id": 85
+    },
+    {
+      "type": "mcq",
+      "topic": "Class Variables & Class Methods",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    count=0\n    def __init__(self): A.count+=1\nA(); A(); print(A.count)",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "Error"
+      ],
+      "answer": 2,
+      "hints": [
+        "The class variable starts at zero.",
+        "Each constructor increments it.",
+        "There are two instances."
+      ],
+      "id": 86
+    },
+    {
+      "type": "mcq",
+      "topic": "Inheritance",
+      "level": "Interview",
+      "q": "Which relationship best matches inheritance?",
+      "code": "",
+      "options": [
+        "is-a",
+        "has-a",
+        "uses-a only",
+        "contains-a only"
+      ],
+      "answer": 0,
+      "hints": [
+        "A Dog is an Animal is the classic example.",
+        "Composition is often described as has-a.",
+        "Inheritance models specialization."
+      ],
+      "id": 87
+    },
+    {
+      "type": "mcq",
+      "topic": "Polymorphism",
+      "level": "Interview",
+      "q": "A function calls obj.draw() without checking whether obj is Circle or Square. What concept is this closest to?",
+      "code": "",
+      "options": [
+        "Polymorphism/duck typing",
+        "Encapsulation only",
+        "Parsing",
+        "Serialization"
+      ],
+      "answer": 0,
+      "hints": [
+        "The caller relies on a common behavior.",
+        "Concrete object type is not required for the call.",
+        "This is a common Python polymorphism pattern."
+      ],
+      "id": 88
+    },
+    {
+      "type": "mcq",
+      "topic": "Encapsulation",
+      "level": "Interview",
+      "q": "Which is the safest statement about _name?",
+      "code": "",
+      "options": [
+        "It is a convention indicating internal use",
+        "It is encrypted",
+        "It cannot be read",
+        "It is always a property"
+      ],
+      "answer": 0,
+      "hints": [
+        "A single underscore does not enforce privacy.",
+        "It communicates intent to programmers.",
+        "Python conventions matter in API design."
+      ],
+      "id": 89
+    },
+    {
+      "type": "mcq",
+      "topic": "Static Methods",
+      "level": "Interview",
+      "q": "Can a static method access instance state through self automatically?",
+      "code": "",
+      "options": [
+        "Yes",
+        "No",
+        "Only in subclasses",
+        "Only with inheritance"
+      ],
+      "answer": 1,
+      "hints": [
+        "Static methods receive no implicit self.",
+        "They need an explicit object passed if they need instance data.",
+        "That is a key distinction from instance methods."
+      ],
+      "id": 90
+    },
+    {
+      "type": "mcq",
+      "topic": "Abstraction",
+      "level": "Interview",
+      "q": "Can you normally instantiate a class with unimplemented abstract methods?",
+      "code": "",
+      "options": [
+        "Yes always",
+        "No, Python prevents instantiation of an abstract class",
+        "Only with print",
+        "Only inside a loop"
+      ],
+      "answer": 1,
+      "hints": [
+        "An ABC with abstract methods remains abstract.",
+        "Python raises TypeError when trying to instantiate it until required methods are implemented.",
+        "Concrete subclasses can then be instantiated."
+      ],
+      "id": 91
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "What does super() in a single-inheritance child constructor commonly accomplish?",
+      "code": "",
+      "options": [
+        "Calls parent implementation without manually naming the parent",
+        "Deletes parent state",
+        "Creates a static method",
+        "Changes variable types"
+      ],
+      "answer": 0,
+      "hints": [
+        "super() gives access to the next class in MRO.",
+        "Calling super().__init__ initializes inherited state.",
+        "It also supports cooperative multiple inheritance patterns."
+      ],
+      "id": 92
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced OOP Interview",
+      "level": "Advanced",
+      "q": "Which is usually preferable when you need to reuse behavior but the relationship is not naturally 'is-a'?",
+      "code": "",
+      "options": [
+        "Composition",
+        "Inheritance always",
+        "Global variables",
+        "Recursion"
+      ],
+      "answer": 0,
+      "hints": [
+        "Composition models 'has-a' or collaboration.",
+        "It can keep components loosely coupled.",
+        "Inheritance is strongest for genuine subtype relationships."
+      ],
+      "id": 93
+    },
+    {
+      "type": "mcq",
+      "topic": "Classes & Objects",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    x=10\na=A(); a.x=20\nprint(A.x,a.x)",
+      "options": [
+        "10 20",
+        "20 20",
+        "10 10",
+        "20 10"
+      ],
+      "answer": 0,
+      "hints": [
+        "The assignment a.x creates/shadows an instance attribute.",
+        "The class attribute remains 10.",
+        "Reading a.x finds the instance attribute first."
+      ],
+      "id": 94
+    },
+    {
+      "type": "mcq",
+      "topic": "Instance Variables & Methods",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    def __init__(self): self.x=[]\na=A(); b=A(); a.x.append(1)\nprint(b.x)",
+      "options": [
+        "[1]",
+        "[]",
+        "None",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "Each __init__ creates a new list.",
+        "The lists belong to separate instances.",
+        "Only a.x was modified."
+      ],
+      "id": 95
+    },
+    {
+      "type": "mcq",
+      "topic": "Class Variables & Class Methods",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "class A:\n    count=0\n    def __init__(self): A.count+=1\nA(); A(); print(A.count)",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "Error"
+      ],
+      "answer": 2,
+      "hints": [
+        "The class variable starts at zero.",
+        "Each constructor increments it.",
+        "There are two instances."
+      ],
+      "id": 96
+    },
+    {
+      "type": "mcq",
+      "topic": "Inheritance",
+      "level": "Interview",
+      "q": "Which relationship best matches inheritance?",
+      "code": "",
+      "options": [
+        "is-a",
+        "has-a",
+        "uses-a only",
+        "contains-a only"
+      ],
+      "answer": 0,
+      "hints": [
+        "A Dog is an Animal is the classic example.",
+        "Composition is often described as has-a.",
+        "Inheritance models specialization."
+      ],
+      "id": 97
+    },
+    {
+      "type": "mcq",
+      "topic": "Polymorphism",
+      "level": "Interview",
+      "q": "A function calls obj.draw() without checking whether obj is Circle or Square. What concept is this closest to?",
+      "code": "",
+      "options": [
+        "Polymorphism/duck typing",
+        "Encapsulation only",
+        "Parsing",
+        "Serialization"
+      ],
+      "answer": 0,
+      "hints": [
+        "The caller relies on a common behavior.",
+        "Concrete object type is not required for the call.",
+        "This is a common Python polymorphism pattern."
+      ],
+      "id": 98
+    },
+    {
+      "type": "mcq",
+      "topic": "Encapsulation",
+      "level": "Interview",
+      "q": "Which is the safest statement about _name?",
+      "code": "",
+      "options": [
+        "It is a convention indicating internal use",
+        "It is encrypted",
+        "It cannot be read",
+        "It is always a property"
+      ],
+      "answer": 0,
+      "hints": [
+        "A single underscore does not enforce privacy.",
+        "It communicates intent to programmers.",
+        "Python conventions matter in API design."
+      ],
+      "id": 99
+    },
+    {
+      "type": "mcq",
+      "topic": "Static Methods",
+      "level": "Interview",
+      "q": "Can a static method access instance state through self automatically?",
+      "code": "",
+      "options": [
+        "Yes",
+        "No",
+        "Only in subclasses",
+        "Only with inheritance"
+      ],
+      "answer": 1,
+      "hints": [
+        "Static methods receive no implicit self.",
+        "They need an explicit object passed if they need instance data.",
+        "That is a key distinction from instance methods."
+      ],
+      "id": 100
+    }
+  ],
+  "topicQuestions": [
+    { "topicName": "Classes & Objects", "type": "mcq", "topic": "Classes & Objects", "level": "Beginner", "question": "What is printed?", "code": "class Dog:\n    pass\nd = Dog()\nprint(type(d))", "options": ["<class 'Dog'>", "<class '__main__.Dog'>", "Dog", "Error"], "answer": 1, "hints": ["type() reports the full class path including the module.", "d is an instance of Dog defined in the main module.", "The output shows <class '__main__.Dog'>."] },
+    { "topicName": "Classes & Objects", "type": "mcq", "topic": "creating an instance", "level": "Intermediate", "question": "Which correctly creates an instance of a class Car?", "code": "class Car:\n    pass", "options": ["my_car = Car()", "my_car = new Car()", "my_car = Car.new()", "my_car = create(Car)"], "answer": 0, "hints": ["Python does not use a 'new' keyword.", "Calling the class name like a function creates an instance.", "my_car = Car() is correct."] },
+    { "topicName": "Classes & Objects", "type": "mcq", "topic": "distinct instances", "level": "Advanced", "question": "What is printed?", "code": "class A:\n    pass\na1 = A()\na2 = A()\nprint(a1 is a2)", "options": ["True", "False", "Error", "None"], "answer": 1, "hints": ["Each call to A() creates a brand-new object.", "a1 and a2 are two separate instances in memory.", "is checks identity, so this is False."] },
+
+    { "topicName": "__init__ Constructor", "type": "mcq", "topic": "__init__ basics", "level": "Beginner", "question": "What is printed?", "code": "class Person:\n    def __init__(self, name):\n        self.name = name\np = Person('Sam')\nprint(p.name)", "options": ["'Sam'", "Sam", "None", "Error"], "answer": 1, "hints": ["__init__ runs automatically when Person('Sam') is called.", "It stores 'Sam' into self.name.", "print(p.name) shows Sam without quotes."] },
+    { "topicName": "__init__ Constructor", "type": "mcq", "topic": "when __init__ runs", "level": "Intermediate", "question": "When is __init__ automatically called?", "code": "", "options": ["Whenever a new instance is created", "Only when you call it manually", "Every time a method is called", "When the class is defined"], "answer": 0, "hints": ["__init__ is Python's initializer method.", "It runs as part of creating a new object.", "ClassName(...) automatically triggers __init__."] },
+    { "topicName": "__init__ Constructor", "type": "mcq", "topic": "missing self", "level": "Advanced", "question": "What happens if __init__ is defined without self as its first parameter?", "code": "class A:\n    def __init__():\n        pass\na = A()", "options": ["It works normally", "Raises TypeError when instantiating", "self is created automatically anyway", "It silently does nothing"], "answer": 1, "hints": ["Python automatically passes the new instance as the first argument.", "Without a parameter to receive it, there's an argument count mismatch.", "This raises TypeError: __init__() takes 0 positional arguments but 1 was given."] },
+
+    { "topicName": "Instance Variables & Methods", "type": "mcq", "topic": "using self attributes", "level": "Beginner", "question": "What is printed?", "code": "class Dog:\n    def __init__(self, name):\n        self.name = name\n    def bark(self):\n        return self.name + ' says woof'\nd = Dog('Rex')\nprint(d.bark())", "options": ["'Rex says woof'", "Rex says woof", "None", "Error"], "answer": 1, "hints": ["bark() uses self.name to build the message.", "self.name is 'Rex' for this instance.", "print() displays the text without quotes: Rex says woof."] },
+    { "topicName": "Instance Variables & Methods", "type": "mcq", "topic": "modifying instance attributes", "level": "Intermediate", "question": "What is printed?", "code": "class A:\n    def __init__(self):\n        self.x = 1\na = A()\na.x = 5\nprint(a.x)", "options": ["1", "5", "Error", "None"], "answer": 1, "hints": ["Instance attributes can be reassigned after creation.", "a.x = 5 overwrites the original value.", "print(a.x) shows 5."] },
+    { "topicName": "Instance Variables & Methods", "type": "mcq", "topic": "independent instances", "level": "Advanced", "question": "What is printed?", "code": "class A:\n    def __init__(self):\n        self.x = 1\na1 = A()\na2 = A()\na1.x = 99\nprint(a2.x)", "options": ["99", "1", "Error", "None"], "answer": 1, "hints": ["Each instance has its own independent copy of instance attributes.", "Changing a1.x does not affect a2.x.", "a2.x remains 1."] },
+
+    { "topicName": "Class Variables & Class Methods", "type": "mcq", "topic": "class variable access", "level": "Beginner", "question": "What is printed?", "code": "class A:\n    count = 0\na1 = A()\na2 = A()\nprint(A.count)", "options": ["0", "2", "Error", "None"], "answer": 0, "hints": ["count is a class variable shared by all instances.", "Nothing in this code changes count.", "A.count remains 0."] },
+    { "topicName": "Class Variables & Class Methods", "type": "mcq", "topic": "shared class variable", "level": "Intermediate", "question": "What is printed?", "code": "class A:\n    count = 0\n    def __init__(self):\n        A.count += 1\na1 = A()\na2 = A()\nprint(A.count)", "options": ["0", "1", "2", "Error"], "answer": 2, "hints": ["Each call to __init__ increments the shared class variable.", "Two instances were created, so __init__ ran twice.", "A.count becomes 2."] },
+    { "topicName": "Class Variables & Class Methods", "type": "mcq", "topic": "@classmethod", "level": "Advanced", "question": "What is printed?", "code": "class A:\n    x = 1\n    @classmethod\n    def get_x(cls):\n        return cls.x\nprint(A.get_x())", "options": ["1", "cls", "Error", "None"], "answer": 0, "hints": ["@classmethod passes the class itself as the first argument, cls.", "cls.x refers to the class variable x.", "get_x() returns 1."] },
+
+    { "topicName": "Static Methods", "type": "mcq", "topic": "@staticmethod basics", "level": "Beginner", "question": "What is printed?", "code": "class MathUtil:\n    @staticmethod\n    def add(a, b):\n        return a + b\nprint(MathUtil.add(2, 3))", "options": ["5", "23", "Error", "None"], "answer": 0, "hints": ["A static method behaves like a plain function inside the class.", "It doesn't receive self or cls automatically.", "MathUtil.add(2, 3) returns 2 + 3 = 5."] },
+    { "topicName": "Static Methods", "type": "mcq", "topic": "identifying static methods", "level": "Intermediate", "question": "Which decorator marks a method that doesn't need access to self or cls?", "code": "", "options": ["@staticmethod", "@classmethod", "@property", "@abstractmethod"], "answer": 0, "hints": ["This decorator is for utility-style methods related to the class.", "Such methods don't need instance or class data.", "That decorator is @staticmethod."] },
+    { "topicName": "Static Methods", "type": "mcq", "topic": "static method limitations", "level": "Advanced", "question": "Can a static method directly access instance attributes?", "code": "", "options": ["No, because it has no access to self", "Yes, automatically", "Only if the class has one instance", "Only for numeric attributes"], "answer": 0, "hints": ["Static methods don't receive self as a parameter.", "Without self, there's no reference to any particular instance.", "So they cannot directly access instance attributes."] },
+
+    { "topicName": "Encapsulation", "type": "mcq", "topic": "single underscore convention", "level": "Beginner", "question": "What is printed?", "code": "class A:\n    def __init__(self):\n        self._x = 1\nprint(A()._x)", "options": ["1", "Raises AttributeError", "None", "Error"], "answer": 0, "hints": ["A single leading underscore is just a naming convention.", "It signals 'internal use' but doesn't enforce access restrictions.", "A()._x is still directly accessible and prints 1."] },
+    { "topicName": "Encapsulation", "type": "mcq", "topic": "name mangling", "level": "Intermediate", "question": "What happens?", "code": "class A:\n    def __init__(self):\n        self.__x = 1\na = A()\nprint(a.__x)", "options": ["Prints 1", "Raises AttributeError", "Prints None", "Raises TypeError"], "answer": 1, "hints": ["A double leading underscore triggers name mangling.", "The attribute is actually stored as _A__x, not __x.", "Accessing a.__x directly raises AttributeError."] },
+    { "topicName": "Encapsulation", "type": "mcq", "topic": "accessing mangled names", "level": "Advanced", "question": "What is printed?", "code": "class A:\n    def __init__(self):\n        self.__x = 1\na = A()\nprint(a._A__x)", "options": ["1", "Raises AttributeError", "None", "Error"], "answer": 0, "hints": ["Name mangling renames __x to _A__x internally.", "That mangled name can still be accessed directly, though it's discouraged.", "a._A__x prints 1."] },
+
+    { "topicName": "Inheritance", "type": "mcq", "topic": "inherited method", "level": "Beginner", "question": "What is printed?", "code": "class Animal:\n    def speak(self):\n        return 'generic sound'\nclass Dog(Animal):\n    pass\nprint(Dog().speak())", "options": ["'generic sound'", "generic sound", "Error", "None"], "answer": 1, "hints": ["Dog inherits speak() from Animal since it doesn't define its own.", "Calling Dog().speak() runs Animal's version.", "The output is generic sound (no quotes from print)."] },
+    { "topicName": "Inheritance", "type": "mcq", "topic": "method overriding", "level": "Intermediate", "question": "What is printed?", "code": "class Animal:\n    def speak(self):\n        return 'sound'\nclass Dog(Animal):\n    def speak(self):\n        return 'woof'\nprint(Dog().speak())", "options": ["sound", "woof", "Error", "None"], "answer": 1, "hints": ["Dog defines its own speak(), overriding Animal's version.", "Calling Dog().speak() uses the subclass's method.", "The output is woof."] },
+    { "topicName": "Inheritance", "type": "mcq", "topic": "super()", "level": "Advanced", "question": "What is printed?", "code": "class Animal:\n    def speak(self):\n        return 'sound'\nclass Dog(Animal):\n    def speak(self):\n        return super().speak() + ' woof'\nprint(Dog().speak())", "options": ["'woof'", "sound woof", "Error", "None"], "answer": 1, "hints": ["super().speak() calls Animal's original speak() method.", "That returns 'sound', which is then combined with ' woof'.", "The final result is 'sound woof', printed without quotes."] },
+
+    { "topicName": "Polymorphism", "type": "mcq", "topic": "definition", "level": "Beginner", "question": "Which best describes polymorphism in OOP?", "code": "", "options": ["Different classes can be used through the same method name/interface", "Only one class can exist per program", "Classes cannot have methods", "All classes must inherit from the same base class"], "answer": 0, "hints": ["Poly means 'many', morph means 'form'.", "It refers to different objects responding to the same call in their own way.", "This matches option A."] },
+    { "topicName": "Polymorphism", "type": "mcq", "topic": "same method, different classes", "level": "Intermediate", "question": "What is printed?", "code": "class Cat:\n    def speak(self):\n        return 'meow'\nclass Dog:\n    def speak(self):\n        return 'woof'\nfor a in [Cat(), Dog()]:\n    print(a.speak(), end=' ')", "options": ["meow woof", "woof meow", "Error", "None None"], "answer": 0, "hints": ["The loop calls speak() on each object without checking its exact class.", "Cat's speak() runs first, then Dog's.", "The output is 'meow woof '."] },
+    { "topicName": "Polymorphism", "type": "mcq", "topic": "built-in polymorphism", "level": "Advanced", "question": "What is printed?", "code": "print(len('abc'), len([1, 2, 3]))", "options": ["3 3", "'abc' [1, 2, 3]", "Error", "None None"], "answer": 0, "hints": ["len() works polymorphically across different types.", "It returns the character count for a string and the item count for a list.", "Both happen to be 3 here: '3 3'."] },
+
+    { "topicName": "Abstraction", "type": "mcq", "topic": "purpose of abstraction", "level": "Beginner", "question": "What is the purpose of abstraction in OOP?", "code": "", "options": ["Hide internal implementation details and expose only what's necessary", "Make all attributes public", "Prevent classes from having methods", "Remove the need for objects"], "answer": 0, "hints": ["Abstraction focuses on the 'what', not the 'how'.", "Users interact with a simple interface, not the internal machinery.", "This matches option A."] },
+    { "topicName": "Abstraction", "type": "mcq", "topic": "abc module", "level": "Intermediate", "question": "Which module provides tools to create abstract base classes in Python?", "code": "", "options": ["abc", "collections", "functools", "itertools"], "answer": 0, "hints": ["Python has a dedicated module for abstract base classes.", "It provides ABC and the abstractmethod decorator.", "That module is abc."] },
+    { "topicName": "Abstraction", "type": "mcq", "topic": "instantiating abstract classes", "level": "Advanced", "question": "What happens?", "code": "from abc import ABC, abstractmethod\nclass Shape(ABC):\n    @abstractmethod\n    def area(self):\n        pass\ns = Shape()", "options": ["s is created normally", "Raises TypeError", "Raises AttributeError", "Nothing happens"], "answer": 1, "hints": ["Shape has at least one unimplemented abstract method.", "Python prevents instantiating classes with unimplemented abstract methods.", "This raises TypeError: Can't instantiate abstract class Shape with abstract method area."] },
+
+    { "topicName": "Advanced OOP Interview", "type": "mcq", "topic": "__str__", "level": "Advanced", "question": "Which special method controls how an object is displayed when passed to print()?", "code": "", "options": ["__str__", "__init__", "__len__", "__call__"], "answer": 0, "hints": ["print() converts its argument to a string for display.", "A class can customize that conversion.", "The special method used is __str__."] },
+    { "topicName": "Advanced OOP Interview", "type": "mcq", "topic": "__eq__", "level": "Advanced", "question": "Which special method allows two custom objects to be compared using ==?", "code": "", "options": ["__eq__", "__cmp__", "__equals__", "__compare__"], "answer": 0, "hints": ["Python delegates == to a specific dunder method.", "Defining it lets you control what 'equal' means for your class.", "That method is __eq__."] },
+    { "topicName": "Advanced OOP Interview", "type": "mcq", "topic": "MRO", "level": "Interview", "question": "What is Method Resolution Order (MRO) used for?", "code": "", "options": ["Determining the order base classes are searched when looking up a method", "Sorting instance attributes alphabetically", "Deciding which class variables are private", "Choosing the return type of a method"], "answer": 0, "hints": ["This matters most with multiple inheritance.", "Several parent classes might define the same method name.", "MRO defines the precise order Python searches through those classes."] }
+  ]
+}

@@ -1,0 +1,1883 @@
+{
+  "version": "4.0",
+  "title": "Python Interview Practice \u2014 Strings",
+  "topics": [
+    [
+      "String Basics",
+      "Beginner",
+      "Definition, creation, immutability and basic operations."
+    ],
+    [
+      "Indexing & Slicing",
+      "Beginner",
+      "Character access, negative indexes and slices."
+    ],
+    [
+      "String Operators",
+      "Beginner",
+      "Concatenation, repetition and membership."
+    ],
+    [
+      "String Methods",
+      "Beginner",
+      "Common methods used in interviews."
+    ],
+    [
+      "Strings + For Loops",
+      "Intermediate",
+      "Counting, filtering and character processing."
+    ],
+    [
+      "Strings + Lists",
+      "Intermediate",
+      "split(), join() and word processing."
+    ],
+    [
+      "Built-ins + Strings",
+      "Intermediate",
+      "len(), sorted(), min(), max(), enumerate()."
+    ],
+    [
+      "Comprehensions",
+      "Intermediate",
+      "Character filtering and transformation."
+    ],
+    [
+      "Frequency Problems",
+      "Interview",
+      "Character and word frequency problems."
+    ],
+    [
+      "Palindrome & Anagram",
+      "Interview",
+      "Common screening patterns."
+    ],
+    [
+      "Advanced String Problems",
+      "Advanced",
+      "Normalization, duplicates and first unique character."
+    ]
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "type": "mcq",
+      "topic": "String Basics",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "s = 'Python'\nprint(s[0])",
+      "options": [
+        "P",
+        "y",
+        "n",
+        "0"
+      ],
+      "answer": 0,
+      "hints": [
+        "Indexes start at 0.",
+        "Index 0 is the first character.",
+        "The first character is P."
+      ]
+    },
+    {
+      "id": 2,
+      "type": "mcq",
+      "topic": "String Basics",
+      "level": "Beginner",
+      "question": "Which statement is correct?",
+      "code": "s = 'hello'",
+      "options": [
+        "Strings are mutable",
+        "Strings are immutable",
+        "Strings contain only letters",
+        "Strings cannot be indexed"
+      ],
+      "answer": 1,
+      "hints": [
+        "Can s[0] be changed directly?",
+        "Python strings cannot be changed in place.",
+        "A new string must be created."
+      ]
+    },
+    {
+      "id": 3,
+      "type": "code",
+      "topic": "String Basics",
+      "level": "Beginner",
+      "question": "Take a string from the user and print it.",
+      "code": "# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "input() reads text.",
+        "Store the returned value.",
+        "Use print() to display it."
+      ]
+    },
+    {
+      "id": 4,
+      "type": "mcq",
+      "topic": "String Basics",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "a = 'Py'\nb = 'thon'\nprint(a + b)",
+      "options": [
+        "Py thon",
+        "Python",
+        "Py+thon",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "+ joins strings.",
+        "It does not add a space.",
+        "Py followed by thon is Python."
+      ]
+    },
+    {
+      "id": 5,
+      "type": "mcq",
+      "topic": "Indexing & Slicing",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "s = 'Python'\nprint(s[-1])",
+      "options": [
+        "P",
+        "n",
+        "o",
+        "6"
+      ],
+      "answer": 1,
+      "hints": [
+        "Negative indexes count from the end.",
+        "-1 means last character.",
+        "Python ends with n."
+      ]
+    },
+    {
+      "id": 6,
+      "type": "mcq",
+      "topic": "Indexing & Slicing",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "s = 'Python'\nprint(s[1:4])",
+      "options": [
+        "Pyt",
+        "yth",
+        "ytho",
+        "tho"
+      ],
+      "answer": 1,
+      "hints": [
+        "Start is included.",
+        "Stop is excluded.",
+        "Indexes 1,2,3 are y,t,h."
+      ]
+    },
+    {
+      "id": 7,
+      "type": "code",
+      "topic": "Indexing & Slicing",
+      "level": "Beginner",
+      "question": "Print a string in reverse using slicing.",
+      "code": "s = 'Python'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Slicing supports a step.",
+        "Use a negative step.",
+        "The common reverse slice is [::-1]."
+      ]
+    },
+    {
+      "id": 8,
+      "type": "mcq",
+      "topic": "String Operators",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('ha' * 3)",
+      "options": [
+        "ha3",
+        "hahaha",
+        "ha ha ha",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "* repeats strings.",
+        "It repeats three times.",
+        "No spaces are added."
+      ]
+    },
+    {
+      "id": 9,
+      "type": "mcq",
+      "topic": "String Operators",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "s = 'python'\nprint('py' in s)",
+      "options": [
+        "True",
+        "False",
+        "py",
+        "Error"
+      ],
+      "answer": 0,
+      "hints": [
+        "in checks membership.",
+        "py appears in python.",
+        "Therefore it is True."
+      ]
+    },
+    {
+      "id": 10,
+      "type": "code",
+      "topic": "String Operators",
+      "level": "Beginner",
+      "question": "Check whether a user-entered word contains 'a'.",
+      "code": "word = input('Enter a word: ')\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use the in operator.",
+        "Check 'a' in word.",
+        "Put it in an if statement."
+      ]
+    },
+    {
+      "id": 11,
+      "type": "mcq",
+      "topic": "String Methods",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "s = '  Python  '\nprint(s.strip())",
+      "options": [
+        "  Python  ",
+        "Python",
+        "Python  ",
+        "  Python"
+      ],
+      "answer": 1,
+      "hints": [
+        "strip removes outer whitespace.",
+        "It does not remove internal spaces.",
+        "The result is Python."
+      ]
+    },
+    {
+      "id": 12,
+      "type": "mcq",
+      "topic": "String Methods",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('python'.upper())",
+      "options": [
+        "python",
+        "Python",
+        "PYTHON",
+        "Error"
+      ],
+      "answer": 2,
+      "hints": [
+        "upper converts letters to uppercase.",
+        "Every letter is affected.",
+        "The result is PYTHON."
+      ]
+    },
+    {
+      "id": 13,
+      "type": "mcq",
+      "topic": "String Methods",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('banana'.count('a'))",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "answer": 2,
+      "hints": [
+        "count counts occurrences.",
+        "banana contains three a characters.",
+        "So the result is 3."
+      ]
+    },
+    {
+      "id": 14,
+      "type": "mcq",
+      "topic": "String Methods",
+      "level": "Intermediate",
+      "question": "What is printed?",
+      "code": "print('I like Java'.replace('Java','Python'))",
+      "options": [
+        "I like Java",
+        "I like Python",
+        "Java Python",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "replace creates a changed string.",
+        "Java is the old text.",
+        "Python is the replacement."
+      ]
+    },
+    {
+      "id": 15,
+      "type": "mcq",
+      "topic": "String Methods",
+      "level": "Intermediate",
+      "question": "What does split() return here?",
+      "code": "print('Python is easy'.split())",
+      "options": [
+        "['Python', 'is', 'easy']",
+        "Pythoniseasy",
+        "('Python','is','easy')",
+        "['Python is easy']"
+      ],
+      "answer": 0,
+      "hints": [
+        "split without an argument uses whitespace.",
+        "There are three words.",
+        "The result is a list."
+      ]
+    },
+    {
+      "id": 16,
+      "type": "mcq",
+      "topic": "String Methods",
+      "level": "Intermediate",
+      "question": "What is printed?",
+      "code": "print('-'.join(['Python','is','fun']))",
+      "options": [
+        "Python-is-fun",
+        "Python is fun",
+        "['Python-is-fun']",
+        "Error"
+      ],
+      "answer": 0,
+      "hints": [
+        "join uses the string before the dot as separator.",
+        "The separator is '-'.",
+        "It goes between each list item."
+      ]
+    },
+    {
+      "id": 17,
+      "type": "code",
+      "topic": "String Methods",
+      "level": "Interview",
+      "question": "Strip whitespace and convert a user-entered name to title case.",
+      "code": "name = input('Name: ')\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "First use strip().",
+        "Then use title().",
+        "Methods can be chained."
+      ]
+    },
+    {
+      "id": 18,
+      "type": "mcq",
+      "topic": "Strings + For Loops",
+      "level": "Intermediate",
+      "question": "What is printed?",
+      "code": "s='hello'\ncount=0\nfor ch in s:\n    if ch=='l':\n        count += 1\nprint(count)",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
+      "answer": 1,
+      "hints": [
+        "The loop visits every character.",
+        "hello has two l characters.",
+        "count increases for each l."
+      ]
+    },
+    {
+      "id": 19,
+      "type": "code",
+      "topic": "Strings + For Loops",
+      "level": "Interview",
+      "question": "Count the vowels in a string using a for loop.",
+      "code": "s = 'interview'\ncount = 0\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Create 'aeiou'.",
+        "Loop through the string.",
+        "Increment when the character is a vowel."
+      ]
+    },
+    {
+      "id": 20,
+      "type": "code",
+      "topic": "Strings + For Loops",
+      "level": "Interview",
+      "question": "Create a new string containing only digits.",
+      "code": "s = 'a1b20c3'\nresult = ''\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Loop through each character.",
+        "Use isdigit().",
+        "Concatenate only digit characters."
+      ]
+    },
+    {
+      "id": 21,
+      "type": "mcq",
+      "topic": "Strings + Lists",
+      "level": "Intermediate",
+      "question": "What is printed?",
+      "code": "colors='red,green,blue'.split(',')\nprint(colors[1])",
+      "options": [
+        "red",
+        "green",
+        "blue",
+        "green,blue"
+      ],
+      "answer": 1,
+      "hints": [
+        "split(',') creates a list.",
+        "The list has red, green, blue.",
+        "Index 1 is the second item."
+      ]
+    },
+    {
+      "id": 22,
+      "type": "code",
+      "topic": "Strings + Lists",
+      "level": "Interview",
+      "question": "Convert a sentence to words and print the number of words.",
+      "code": "sentence='Python makes coding interesting'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use split().",
+        "Store the list of words.",
+        "Use len() on the list."
+      ]
+    },
+    {
+      "id": 23,
+      "type": "code",
+      "topic": "Strings + Lists",
+      "level": "Interview",
+      "question": "Join a list of words into one sentence with spaces.",
+      "code": "words=['Python','is','powerful']\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "join belongs to the separator string.",
+        "The separator is one space.",
+        "Use ' '.join(words)."
+      ]
+    },
+    {
+      "id": 24,
+      "type": "mcq",
+      "topic": "Built-ins + Strings",
+      "level": "Intermediate",
+      "question": "What is printed?",
+      "code": "print(len('Python'))",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "0"
+      ],
+      "answer": 1,
+      "hints": [
+        "len counts characters.",
+        "Python has six letters.",
+        "So the answer is 6."
+      ]
+    },
+    {
+      "id": 25,
+      "type": "mcq",
+      "topic": "Built-ins + Strings",
+      "level": "Intermediate",
+      "question": "What is printed?",
+      "code": "print(sorted('cab'))",
+      "options": [
+        "'abc'",
+        "['a','b','c']",
+        "['c','a','b']",
+        "None"
+      ],
+      "answer": 1,
+      "hints": [
+        "sorted returns a new list.",
+        "Characters are ordered.",
+        "The result is a list containing a,b,c."
+      ]
+    },
+    {
+      "id": 26,
+      "type": "mcq",
+      "topic": "Built-ins + Strings",
+      "level": "Interview",
+      "question": "Which expression finds the longest word?",
+      "code": "words=['cat','elephant','dog']",
+      "options": [
+        "max(words, key=len)",
+        "max(len(words))",
+        "words.max(len)",
+        "sorted(words)[0]"
+      ],
+      "answer": 0,
+      "hints": [
+        "max accepts a key function.",
+        "len gives each word's length.",
+        "Use key=len."
+      ]
+    },
+    {
+      "id": 27,
+      "type": "mcq",
+      "topic": "Comprehensions",
+      "level": "Intermediate",
+      "question": "What is printed?",
+      "code": "s='Python'\nresult=[ch.upper() for ch in s]\nprint(result)",
+      "options": [
+        "['PYTHON']",
+        "['P','Y','T','H','O','N']",
+        "'PYTHON'",
+        "None"
+      ],
+      "answer": 1,
+      "hints": [
+        "A string is iterable.",
+        "One result is produced per character.",
+        "upper transforms each character."
+      ]
+    },
+    {
+      "id": 28,
+      "type": "code",
+      "topic": "Comprehensions",
+      "level": "Interview",
+      "question": "Create a list containing only vowels using a list comprehension.",
+      "code": "s='computer science'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Iterate over each character.",
+        "Use ch.lower() in 'aeiou'.",
+        "Put the condition after the expression."
+      ]
+    },
+    {
+      "id": 29,
+      "type": "mcq",
+      "topic": "Frequency Problems",
+      "level": "Interview",
+      "question": "Which expression counts 'e' in a string?",
+      "code": "s='experience'",
+      "options": [
+        "s.count('e')",
+        "count(s,'e')",
+        "len('e' in s)",
+        "s.frequency('e')"
+      ],
+      "answer": 0,
+      "hints": [
+        "count is a string method.",
+        "It accepts the target substring.",
+        "Use s.count('e')."
+      ]
+    },
+    {
+      "id": 30,
+      "type": "code",
+      "topic": "Frequency Problems",
+      "level": "Interview",
+      "question": "Find the most frequent character without Counter.",
+      "code": "s='banana'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "A dictionary can store frequencies.",
+        "Loop through characters and increment counts.",
+        "Find the largest frequency."
+      ]
+    },
+    {
+      "id": 31,
+      "type": "code",
+      "topic": "Frequency Problems",
+      "level": "Advanced",
+      "question": "Print each character and its frequency only once, preserving first-seen order.",
+      "code": "s='banana'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use a set or dictionary.",
+        "Process the original string in order.",
+        "Skip characters already handled."
+      ]
+    },
+    {
+      "id": 32,
+      "type": "mcq",
+      "topic": "Palindrome & Anagram",
+      "level": "Interview",
+      "question": "Which condition checks a palindrome?",
+      "code": "s='level'",
+      "options": [
+        "s == s[::-1]",
+        "s == s[1:]",
+        "s != s[::-1]",
+        "len(s) == 0"
+      ],
+      "answer": 0,
+      "hints": [
+        "A palindrome reads the same backward.",
+        "[::-1] reverses a string.",
+        "Compare original and reversed."
+      ]
+    },
+    {
+      "id": 33,
+      "type": "code",
+      "topic": "Palindrome & Anagram",
+      "level": "Interview",
+      "question": "Check whether user input is a palindrome ignoring case.",
+      "code": "s=input('Enter text: ')\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Normalize case with lower().",
+        "Reverse using [::-1].",
+        "Compare the two strings."
+      ]
+    },
+    {
+      "id": 34,
+      "type": "code",
+      "topic": "Palindrome & Anagram",
+      "level": "Advanced",
+      "question": "Check a phrase as a palindrome while ignoring spaces and punctuation.",
+      "code": "s='A man, a plan, a canal: Panama'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Keep only alphanumeric characters.",
+        "Normalize case.",
+        "Compare the cleaned string with its reverse."
+      ]
+    },
+    {
+      "id": 35,
+      "type": "mcq",
+      "topic": "Palindrome & Anagram",
+      "level": "Interview",
+      "question": "Which approach checks whether two strings are anagrams?",
+      "code": "a='listen'\nb='silent'",
+      "options": [
+        "a == b",
+        "sorted(a) == sorted(b)",
+        "len(a) == len(b) only",
+        "a[::-1] == b"
+      ],
+      "answer": 1,
+      "hints": [
+        "Anagrams contain the same characters.",
+        "Sorting creates comparable character order.",
+        "Compare the sorted results."
+      ]
+    },
+    {
+      "id": 36,
+      "type": "code",
+      "topic": "Palindrome & Anagram",
+      "level": "Interview",
+      "question": "Check two strings for anagrams, ignoring case and spaces.",
+      "code": "a='Dormitory'\nb='Dirty room'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Normalize both strings.",
+        "Remove spaces.",
+        "Compare sorted normalized strings."
+      ]
+    },
+    {
+      "id": 37,
+      "type": "mcq",
+      "topic": "Advanced String Problems",
+      "level": "Advanced",
+      "question": "What is printed?",
+      "code": "print(''.join(dict.fromkeys('aabcc')))",
+      "options": [
+        "aabcc",
+        "abc",
+        "aabbcc",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "Dictionary keys are unique.",
+        "Modern Python preserves insertion order.",
+        "Joining the keys gives abc."
+      ]
+    },
+    {
+      "id": 38,
+      "type": "code",
+      "topic": "Advanced String Problems",
+      "level": "Advanced",
+      "question": "Remove duplicate characters while preserving first occurrence order.",
+      "code": "s='programming'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Track seen characters.",
+        "Loop in original order.",
+        "Only add unseen characters."
+      ]
+    },
+    {
+      "id": 39,
+      "type": "code",
+      "topic": "Advanced String Problems",
+      "level": "Advanced",
+      "question": "Find the first non-repeating character.",
+      "code": "s='swiss'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "First count frequencies.",
+        "Then scan in original order.",
+        "Return the first character with count 1."
+      ]
+    },
+    {
+      "id": 40,
+      "type": "code",
+      "topic": "Advanced String Problems",
+      "level": "Advanced",
+      "question": "Find the longest word; on a tie keep the first.",
+      "code": "sentence='Python makes technical interviews interesting'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use split().",
+        "max accepts key=len.",
+        "The first maximum is retained."
+      ]
+    },
+    {
+      "id": 41,
+      "type": "code",
+      "topic": "Advanced String Problems",
+      "level": "Advanced",
+      "question": "Count uppercase, lowercase and digit characters.",
+      "code": "s='PyThOn123'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Create three counters.",
+        "Use isupper(), islower(), isdigit().",
+        "Process one character at a time."
+      ]
+    },
+    {
+      "id": 42,
+      "type": "mcq",
+      "topic": "Indexing & Slicing",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('Python'[2])",
+      "options": [
+        "P",
+        "y",
+        "t",
+        "h"
+      ],
+      "answer": 2,
+      "hints": [
+        "Indexing starts at zero.",
+        "P is index 0 and y is index 1.",
+        "Therefore index 2 is t."
+      ]
+    },
+    {
+      "id": 43,
+      "type": "mcq",
+      "topic": "String Operators",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('ab' + 'cd')",
+      "options": [
+        "abcd",
+        "ab cd",
+        "ab+cd",
+        "Error"
+      ],
+      "answer": 0,
+      "hints": [
+        "+ concatenates strings.",
+        "No space is inserted.",
+        "The result is abcd."
+      ]
+    },
+    {
+      "id": 44,
+      "type": "mcq",
+      "topic": "String Methods",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('python'.capitalize())",
+      "options": [
+        "python",
+        "Python",
+        "PYTHON",
+        "pYTHON"
+      ],
+      "answer": 1,
+      "hints": [
+        "capitalize affects the first character.",
+        "The first character becomes uppercase.",
+        "The remaining characters become lowercase."
+      ]
+    },
+    {
+      "id": 45,
+      "type": "mcq",
+      "topic": "Strings + For Loops",
+      "level": "Intermediate",
+      "question": "How many iterations occur?",
+      "code": "for ch in 'code':\n    print(ch)",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "0"
+      ],
+      "answer": 1,
+      "hints": [
+        "The loop iterates over characters.",
+        "code has four characters.",
+        "Each character is one iteration."
+      ]
+    },
+    {
+      "id": 46,
+      "type": "mcq",
+      "topic": "Strings + Lists",
+      "level": "Intermediate",
+      "question": "What is the type of 'a,b'.split(',')?",
+      "code": "x='a,b'.split(',')",
+      "options": [
+        "str",
+        "list",
+        "tuple",
+        "set"
+      ],
+      "answer": 1,
+      "hints": [
+        "split separates text into pieces.",
+        "The result is a collection of pieces.",
+        "In Python split returns a list."
+      ]
+    },
+    {
+      "id": 47,
+      "type": "mcq",
+      "topic": "Built-ins + Strings",
+      "level": "Intermediate",
+      "question": "What does enumerate() provide when iterating a string?",
+      "code": "for item in enumerate('ab'):\n    print(item)",
+      "options": [
+        "Only characters",
+        "Only indexes",
+        "Index and value pairs",
+        "A dictionary"
+      ],
+      "answer": 2,
+      "hints": [
+        "enumerate adds a counter.",
+        "Each item contains position and value.",
+        "They are returned as pairs."
+      ]
+    },
+    {
+      "id": 48,
+      "type": "mcq",
+      "topic": "Comprehensions",
+      "level": "Intermediate",
+      "question": "What does this produce?",
+      "code": "[ch for ch in 'abc' if ch != 'b']",
+      "options": [
+        "['b']",
+        "['a','c']",
+        "'ac'",
+        "['a','b','c']"
+      ],
+      "answer": 1,
+      "hints": [
+        "The if condition filters.",
+        "b is excluded.",
+        "a and c remain."
+      ]
+    },
+    {
+      "id": 49,
+      "type": "mcq",
+      "topic": "Frequency Problems",
+      "level": "Interview",
+      "question": "What is printed?",
+      "code": "print('mississippi'.count('s'))",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": 2,
+      "hints": [
+        "count checks every occurrence.",
+        "mississippi contains four s characters.",
+        "Therefore the count is 4."
+      ]
+    },
+    {
+      "id": 50,
+      "type": "mcq",
+      "topic": "Palindrome & Anagram",
+      "level": "Interview",
+      "question": "Is 'madam' a palindrome?",
+      "code": "s='madam'",
+      "options": [
+        "Yes",
+        "No",
+        "Only if sorted",
+        "Error"
+      ],
+      "answer": 0,
+      "hints": [
+        "Read it forward.",
+        "Read it backward.",
+        "Both are madam."
+      ]
+    },
+    {
+      "id": 51,
+      "type": "mcq",
+      "topic": "Advanced String Problems",
+      "level": "Advanced",
+      "question": "Which method tests whether all characters are digits?",
+      "code": "s='12345'",
+      "options": [
+        "isnumber()",
+        "isdigit()",
+        "isnumericstr()",
+        "digits()"
+      ],
+      "answer": 1,
+      "hints": [
+        "It is a string method.",
+        "The method name starts with is.",
+        "Use isdigit()."
+      ]
+    },
+    {
+      "id": 52,
+      "type": "code",
+      "topic": "String Basics",
+      "level": "Beginner",
+      "question": "Print the length of a user-entered string.",
+      "code": "s=input()\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use len().",
+        "len accepts the string.",
+        "Print the returned number."
+      ]
+    },
+    {
+      "id": 53,
+      "type": "code",
+      "topic": "Indexing & Slicing",
+      "level": "Beginner",
+      "question": "Print the first three characters of s.",
+      "code": "s='Interview'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use slicing.",
+        "Start at 0.",
+        "Stop at index 3 because stop is excluded."
+      ]
+    },
+    {
+      "id": 54,
+      "type": "code",
+      "topic": "String Operators",
+      "level": "Beginner",
+      "question": "Repeat a user-entered string three times.",
+      "code": "s=input()\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "String repetition uses *.",
+        "Multiply the string by 3.",
+        "Print the result."
+      ]
+    },
+    {
+      "id": 55,
+      "type": "code",
+      "topic": "String Methods",
+      "level": "Beginner",
+      "question": "Convert input to lowercase and remove outer spaces.",
+      "code": "s=input()\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "strip removes outer whitespace.",
+        "lower changes case.",
+        "Chain them or use two steps."
+      ]
+    },
+    {
+      "id": 56,
+      "type": "code",
+      "topic": "Strings + For Loops",
+      "level": "Intermediate",
+      "question": "Count spaces in a string with a for loop.",
+      "code": "s='python is easy'\ncount=0\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Loop through each character.",
+        "Compare ch with a space.",
+        "Increment the counter."
+      ]
+    },
+    {
+      "id": 57,
+      "type": "code",
+      "topic": "Strings + Lists",
+      "level": "Intermediate",
+      "question": "Print the last word of a sentence.",
+      "code": "s='Python is powerful'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use split().",
+        "The result is a list.",
+        "Use negative indexing for the last item."
+      ]
+    },
+    {
+      "id": 58,
+      "type": "code",
+      "topic": "Built-ins + Strings",
+      "level": "Intermediate",
+      "question": "Print the shortest word in a sentence.",
+      "code": "s='Python is powerful'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Split into words.",
+        "min can accept key=len.",
+        "Use key=len."
+      ]
+    },
+    {
+      "id": 59,
+      "type": "code",
+      "topic": "Comprehensions",
+      "level": "Intermediate",
+      "question": "Create a list of uppercase characters from s.",
+      "code": "s='PyThOn'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Iterate through s.",
+        "Filter with isupper().",
+        "Build a list comprehension."
+      ]
+    },
+    {
+      "id": 60,
+      "type": "code",
+      "topic": "Frequency Problems",
+      "level": "Interview",
+      "question": "Count vowels and consonants in a word.",
+      "code": "s='python'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Decide whether each character is a vowel.",
+        "Alphabetic non-vowels are consonants.",
+        "Maintain two counters."
+      ]
+    },
+    {
+      "id": 61,
+      "type": "mcq",
+      "topic": "String Basics",
+      "level": "Beginner",
+      "question": "What is the type of a string literal?",
+      "code": "x='hello'",
+      "options": [
+        "str",
+        "list",
+        "tuple",
+        "int"
+      ],
+      "answer": 0,
+      "hints": [
+        "Python has a dedicated text type.",
+        "Use type(x) to inspect it.",
+        "The type name is str."
+      ]
+    },
+    {
+      "id": 62,
+      "type": "mcq",
+      "topic": "Indexing & Slicing",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('Python'[2])",
+      "options": [
+        "P",
+        "y",
+        "t",
+        "h"
+      ],
+      "answer": 2,
+      "hints": [
+        "Indexing starts at zero.",
+        "P is index 0 and y is index 1.",
+        "Therefore index 2 is t."
+      ]
+    },
+    {
+      "id": 63,
+      "type": "mcq",
+      "topic": "String Operators",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('ab' + 'cd')",
+      "options": [
+        "abcd",
+        "ab cd",
+        "ab+cd",
+        "Error"
+      ],
+      "answer": 0,
+      "hints": [
+        "+ concatenates strings.",
+        "No space is inserted.",
+        "The result is abcd."
+      ]
+    },
+    {
+      "id": 64,
+      "type": "mcq",
+      "topic": "String Methods",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('python'.capitalize())",
+      "options": [
+        "python",
+        "Python",
+        "PYTHON",
+        "pYTHON"
+      ],
+      "answer": 1,
+      "hints": [
+        "capitalize affects the first character.",
+        "The first character becomes uppercase.",
+        "The remaining characters become lowercase."
+      ]
+    },
+    {
+      "id": 65,
+      "type": "mcq",
+      "topic": "Strings + For Loops",
+      "level": "Intermediate",
+      "question": "How many iterations occur?",
+      "code": "for ch in 'code':\n    print(ch)",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "0"
+      ],
+      "answer": 1,
+      "hints": [
+        "The loop iterates over characters.",
+        "code has four characters.",
+        "Each character is one iteration."
+      ]
+    },
+    {
+      "id": 66,
+      "type": "mcq",
+      "topic": "Strings + Lists",
+      "level": "Intermediate",
+      "question": "What is the type of 'a,b'.split(',')?",
+      "code": "x='a,b'.split(',')",
+      "options": [
+        "str",
+        "list",
+        "tuple",
+        "set"
+      ],
+      "answer": 1,
+      "hints": [
+        "split separates text into pieces.",
+        "The result is a collection of pieces.",
+        "In Python split returns a list."
+      ]
+    },
+    {
+      "id": 67,
+      "type": "mcq",
+      "topic": "Built-ins + Strings",
+      "level": "Intermediate",
+      "question": "What does enumerate() provide when iterating a string?",
+      "code": "for item in enumerate('ab'):\n    print(item)",
+      "options": [
+        "Only characters",
+        "Only indexes",
+        "Index and value pairs",
+        "A dictionary"
+      ],
+      "answer": 2,
+      "hints": [
+        "enumerate adds a counter.",
+        "Each item contains position and value.",
+        "They are returned as pairs."
+      ]
+    },
+    {
+      "id": 68,
+      "type": "mcq",
+      "topic": "Comprehensions",
+      "level": "Intermediate",
+      "question": "What does this produce?",
+      "code": "[ch for ch in 'abc' if ch != 'b']",
+      "options": [
+        "['b']",
+        "['a','c']",
+        "'ac'",
+        "['a','b','c']"
+      ],
+      "answer": 1,
+      "hints": [
+        "The if condition filters.",
+        "b is excluded.",
+        "a and c remain."
+      ]
+    },
+    {
+      "id": 69,
+      "type": "mcq",
+      "topic": "Frequency Problems",
+      "level": "Interview",
+      "question": "What is printed?",
+      "code": "print('mississippi'.count('s'))",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": 2,
+      "hints": [
+        "count checks every occurrence.",
+        "mississippi contains four s characters.",
+        "Therefore the count is 4."
+      ]
+    },
+    {
+      "id": 70,
+      "type": "mcq",
+      "topic": "Palindrome & Anagram",
+      "level": "Interview",
+      "question": "Is 'madam' a palindrome?",
+      "code": "s='madam'",
+      "options": [
+        "Yes",
+        "No",
+        "Only if sorted",
+        "Error"
+      ],
+      "answer": 0,
+      "hints": [
+        "Read it forward.",
+        "Read it backward.",
+        "Both are madam."
+      ]
+    },
+    {
+      "id": 71,
+      "type": "mcq",
+      "topic": "Advanced String Problems",
+      "level": "Advanced",
+      "question": "Which method tests whether all characters are digits?",
+      "code": "s='12345'",
+      "options": [
+        "isnumber()",
+        "isdigit()",
+        "isnumericstr()",
+        "digits()"
+      ],
+      "answer": 1,
+      "hints": [
+        "It is a string method.",
+        "The method name starts with is.",
+        "Use isdigit()."
+      ]
+    },
+    {
+      "id": 72,
+      "type": "code",
+      "topic": "String Basics",
+      "level": "Beginner",
+      "question": "Print the length of a user-entered string.",
+      "code": "s=input()\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use len().",
+        "len accepts the string.",
+        "Print the returned number."
+      ]
+    },
+    {
+      "id": 73,
+      "type": "code",
+      "topic": "Indexing & Slicing",
+      "level": "Beginner",
+      "question": "Print the first three characters of s.",
+      "code": "s='Interview'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use slicing.",
+        "Start at 0.",
+        "Stop at index 3 because stop is excluded."
+      ]
+    },
+    {
+      "id": 74,
+      "type": "code",
+      "topic": "String Operators",
+      "level": "Beginner",
+      "question": "Repeat a user-entered string three times.",
+      "code": "s=input()\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "String repetition uses *.",
+        "Multiply the string by 3.",
+        "Print the result."
+      ]
+    },
+    {
+      "id": 75,
+      "type": "code",
+      "topic": "String Methods",
+      "level": "Beginner",
+      "question": "Convert input to lowercase and remove outer spaces.",
+      "code": "s=input()\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "strip removes outer whitespace.",
+        "lower changes case.",
+        "Chain them or use two steps."
+      ]
+    },
+    {
+      "id": 76,
+      "type": "code",
+      "topic": "Strings + For Loops",
+      "level": "Intermediate",
+      "question": "Count spaces in a string with a for loop.",
+      "code": "s='python is easy'\ncount=0\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Loop through each character.",
+        "Compare ch with a space.",
+        "Increment the counter."
+      ]
+    },
+    {
+      "id": 77,
+      "type": "code",
+      "topic": "Strings + Lists",
+      "level": "Intermediate",
+      "question": "Print the last word of a sentence.",
+      "code": "s='Python is powerful'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use split().",
+        "The result is a list.",
+        "Use negative indexing for the last item."
+      ]
+    },
+    {
+      "id": 78,
+      "type": "code",
+      "topic": "Built-ins + Strings",
+      "level": "Intermediate",
+      "question": "Print the shortest word in a sentence.",
+      "code": "s='Python is powerful'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Split into words.",
+        "min can accept key=len.",
+        "Use key=len."
+      ]
+    },
+    {
+      "id": 79,
+      "type": "code",
+      "topic": "Comprehensions",
+      "level": "Intermediate",
+      "question": "Create a list of uppercase characters from s.",
+      "code": "s='PyThOn'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Iterate through s.",
+        "Filter with isupper().",
+        "Build a list comprehension."
+      ]
+    },
+    {
+      "id": 80,
+      "type": "code",
+      "topic": "Frequency Problems",
+      "level": "Interview",
+      "question": "Count vowels and consonants in a word.",
+      "code": "s='python'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Decide whether each character is a vowel.",
+        "Alphabetic non-vowels are consonants.",
+        "Maintain two counters."
+      ]
+    },
+    {
+      "id": 81,
+      "type": "mcq",
+      "topic": "String Basics",
+      "level": "Beginner",
+      "question": "What is the type of a string literal?",
+      "code": "x='hello'",
+      "options": [
+        "str",
+        "list",
+        "tuple",
+        "int"
+      ],
+      "answer": 0,
+      "hints": [
+        "Python has a dedicated text type.",
+        "Use type(x) to inspect it.",
+        "The type name is str."
+      ]
+    },
+    {
+      "id": 82,
+      "type": "mcq",
+      "topic": "Indexing & Slicing",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('Python'[2])",
+      "options": [
+        "P",
+        "y",
+        "t",
+        "h"
+      ],
+      "answer": 2,
+      "hints": [
+        "Indexing starts at zero.",
+        "P is index 0 and y is index 1.",
+        "Therefore index 2 is t."
+      ]
+    },
+    {
+      "id": 83,
+      "type": "mcq",
+      "topic": "String Operators",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('ab' + 'cd')",
+      "options": [
+        "abcd",
+        "ab cd",
+        "ab+cd",
+        "Error"
+      ],
+      "answer": 0,
+      "hints": [
+        "+ concatenates strings.",
+        "No space is inserted.",
+        "The result is abcd."
+      ]
+    },
+    {
+      "id": 84,
+      "type": "mcq",
+      "topic": "String Methods",
+      "level": "Beginner",
+      "question": "What is printed?",
+      "code": "print('python'.capitalize())",
+      "options": [
+        "python",
+        "Python",
+        "PYTHON",
+        "pYTHON"
+      ],
+      "answer": 1,
+      "hints": [
+        "capitalize affects the first character.",
+        "The first character becomes uppercase.",
+        "The remaining characters become lowercase."
+      ]
+    },
+    {
+      "id": 85,
+      "type": "mcq",
+      "topic": "Strings + For Loops",
+      "level": "Intermediate",
+      "question": "How many iterations occur?",
+      "code": "for ch in 'code':\n    print(ch)",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "0"
+      ],
+      "answer": 1,
+      "hints": [
+        "The loop iterates over characters.",
+        "code has four characters.",
+        "Each character is one iteration."
+      ]
+    },
+    {
+      "id": 86,
+      "type": "mcq",
+      "topic": "Strings + Lists",
+      "level": "Intermediate",
+      "question": "What is the type of 'a,b'.split(',')?",
+      "code": "x='a,b'.split(',')",
+      "options": [
+        "str",
+        "list",
+        "tuple",
+        "set"
+      ],
+      "answer": 1,
+      "hints": [
+        "split separates text into pieces.",
+        "The result is a collection of pieces.",
+        "In Python split returns a list."
+      ]
+    },
+    {
+      "id": 87,
+      "type": "mcq",
+      "topic": "Built-ins + Strings",
+      "level": "Intermediate",
+      "question": "What does enumerate() provide when iterating a string?",
+      "code": "for item in enumerate('ab'):\n    print(item)",
+      "options": [
+        "Only characters",
+        "Only indexes",
+        "Index and value pairs",
+        "A dictionary"
+      ],
+      "answer": 2,
+      "hints": [
+        "enumerate adds a counter.",
+        "Each item contains position and value.",
+        "They are returned as pairs."
+      ]
+    },
+    {
+      "id": 88,
+      "type": "mcq",
+      "topic": "Comprehensions",
+      "level": "Intermediate",
+      "question": "What does this produce?",
+      "code": "[ch for ch in 'abc' if ch != 'b']",
+      "options": [
+        "['b']",
+        "['a','c']",
+        "'ac'",
+        "['a','b','c']"
+      ],
+      "answer": 1,
+      "hints": [
+        "The if condition filters.",
+        "b is excluded.",
+        "a and c remain."
+      ]
+    },
+    {
+      "id": 89,
+      "type": "mcq",
+      "topic": "Frequency Problems",
+      "level": "Interview",
+      "question": "What is printed?",
+      "code": "print('mississippi'.count('s'))",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": 2,
+      "hints": [
+        "count checks every occurrence.",
+        "mississippi contains four s characters.",
+        "Therefore the count is 4."
+      ]
+    },
+    {
+      "id": 90,
+      "type": "mcq",
+      "topic": "Palindrome & Anagram",
+      "level": "Interview",
+      "question": "Is 'madam' a palindrome?",
+      "code": "s='madam'",
+      "options": [
+        "Yes",
+        "No",
+        "Only if sorted",
+        "Error"
+      ],
+      "answer": 0,
+      "hints": [
+        "Read it forward.",
+        "Read it backward.",
+        "Both are madam."
+      ]
+    },
+    {
+      "id": 91,
+      "type": "mcq",
+      "topic": "Advanced String Problems",
+      "level": "Advanced",
+      "question": "Which method tests whether all characters are digits?",
+      "code": "s='12345'",
+      "options": [
+        "isnumber()",
+        "isdigit()",
+        "isnumericstr()",
+        "digits()"
+      ],
+      "answer": 1,
+      "hints": [
+        "It is a string method.",
+        "The method name starts with is.",
+        "Use isdigit()."
+      ]
+    },
+    {
+      "id": 92,
+      "type": "code",
+      "topic": "String Basics",
+      "level": "Beginner",
+      "question": "Print the length of a user-entered string.",
+      "code": "s=input()\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use len().",
+        "len accepts the string.",
+        "Print the returned number."
+      ]
+    },
+    {
+      "id": 93,
+      "type": "code",
+      "topic": "Indexing & Slicing",
+      "level": "Beginner",
+      "question": "Print the first three characters of s.",
+      "code": "s='Interview'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use slicing.",
+        "Start at 0.",
+        "Stop at index 3 because stop is excluded."
+      ]
+    },
+    {
+      "id": 94,
+      "type": "code",
+      "topic": "String Operators",
+      "level": "Beginner",
+      "question": "Repeat a user-entered string three times.",
+      "code": "s=input()\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "String repetition uses *.",
+        "Multiply the string by 3.",
+        "Print the result."
+      ]
+    },
+    {
+      "id": 95,
+      "type": "code",
+      "topic": "String Methods",
+      "level": "Beginner",
+      "question": "Convert input to lowercase and remove outer spaces.",
+      "code": "s=input()\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "strip removes outer whitespace.",
+        "lower changes case.",
+        "Chain them or use two steps."
+      ]
+    },
+    {
+      "id": 96,
+      "type": "code",
+      "topic": "Strings + For Loops",
+      "level": "Intermediate",
+      "question": "Count spaces in a string with a for loop.",
+      "code": "s='python is easy'\ncount=0\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Loop through each character.",
+        "Compare ch with a space.",
+        "Increment the counter."
+      ]
+    },
+    {
+      "id": 97,
+      "type": "code",
+      "topic": "Strings + Lists",
+      "level": "Intermediate",
+      "question": "Print the last word of a sentence.",
+      "code": "s='Python is powerful'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Use split().",
+        "The result is a list.",
+        "Use negative indexing for the last item."
+      ]
+    },
+    {
+      "id": 98,
+      "type": "code",
+      "topic": "Built-ins + Strings",
+      "level": "Intermediate",
+      "question": "Print the shortest word in a sentence.",
+      "code": "s='Python is powerful'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Split into words.",
+        "min can accept key=len.",
+        "Use key=len."
+      ]
+    },
+    {
+      "id": 99,
+      "type": "code",
+      "topic": "Comprehensions",
+      "level": "Intermediate",
+      "question": "Create a list of uppercase characters from s.",
+      "code": "s='PyThOn'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Iterate through s.",
+        "Filter with isupper().",
+        "Build a list comprehension."
+      ]
+    },
+    {
+      "id": 100,
+      "type": "code",
+      "topic": "Frequency Problems",
+      "level": "Interview",
+      "question": "Count vowels and consonants in a word.",
+      "code": "s='python'\n# Write your solution here",
+      "options": [],
+      "answer": null,
+      "hints": [
+        "Decide whether each character is a vowel.",
+        "Alphabetic non-vowels are consonants.",
+        "Maintain two counters."
+      ]
+    }
+  ],
+  "topicQuestions": [
+    { "topicName": "String Basics", "type": "mcq", "topic": "String Basics", "level": "Beginner", "question": "What is printed?", "code": "s = 'Hi'\nprint(s + '!')", "options": ["Hi!", "Hi", "'Hi!'", "Error"], "answer": 0, "hints": ["+ concatenates two strings.", "'Hi' and '!' are joined directly.", "The result is Hi!."] },
+    { "topicName": "String Basics", "type": "mcq", "topic": "String Basics + immutability", "level": "Intermediate", "question": "What happens?", "code": "s = 'abc'\ns[0] = 'z'", "options": ["s becomes 'zbc'", "Raises TypeError", "Raises IndexError", "Nothing happens"], "answer": 1, "hints": ["Strings cannot be changed in place.", "Assigning to an index tries to mutate the string directly.", "This raises TypeError: 'str' object does not support item assignment."] },
+    { "topicName": "String Basics", "type": "mcq", "topic": "String Basics + nature", "level": "Advanced", "question": "Which best describes a Python string?", "code": "", "options": ["A mutable list of bytes", "An immutable sequence of Unicode characters", "A special kind of integer", "A dictionary of characters"], "answer": 1, "hints": ["Strings can be indexed and iterated like sequences.", "But unlike lists, they cannot be changed after creation.", "Python strings hold Unicode characters and are immutable."] },
+
+    { "topicName": "Indexing & Slicing", "type": "mcq", "topic": "Indexing", "level": "Beginner", "question": "What is printed?", "code": "s = 'Python'\nprint(s[-1])", "options": ["P", "n", "y", "Error"], "answer": 1, "hints": ["Negative indexes count from the end.", "-1 refers to the last character.", "The last character of 'Python' is n."] },
+    { "topicName": "Indexing & Slicing", "type": "mcq", "topic": "Slicing", "level": "Intermediate", "question": "What is printed?", "code": "s = 'Python'\nprint(s[2:5])", "options": ["'tho'", "'yth'", "'thon'", "'Pyt'"], "answer": 0, "hints": ["Slicing starts at index 2 and stops before index 5.", "Characters at positions 2, 3 and 4 are t, h, o.", "The result is 'tho'."] },
+    { "topicName": "Indexing & Slicing", "type": "mcq", "topic": "Slicing + negative step", "level": "Advanced", "question": "What is printed?", "code": "s = 'Python'\nprint(s[::-2])", "options": ["'nhy'", "'nohtyP'", "'Pto'", "Error"], "answer": 0, "hints": ["A step of -2 walks backward, skipping every other character.", "Starting from the last character n, then skip 2 back to h, then to y.", "The result is 'nhy'."] },
+
+    { "topicName": "String Operators", "type": "mcq", "topic": "Repetition", "level": "Beginner", "question": "What is printed?", "code": "print('ab' * 3)", "options": ["'ababab'", "'ab3'", "'aabbabab'", "Error"], "answer": 0, "hints": ["* repeats a string a given number of times.", "'ab' repeated 3 times joins together.", "The result is 'ababab'."] },
+    { "topicName": "String Operators", "type": "mcq", "topic": "Membership", "level": "Intermediate", "question": "What is printed?", "code": "print('py' in 'python')", "options": ["True", "False", "Error", "'py'"], "answer": 0, "hints": ["in checks whether one string appears inside another.", "'py' does appear at the start of 'python'.", "The result is True."] },
+    { "topicName": "String Operators", "type": "mcq", "topic": "Comparison", "level": "Advanced", "question": "What is printed?", "code": "print('a' < 'b')", "options": ["True", "False", "Error", "None"], "answer": 0, "hints": ["Strings compare lexicographically, like dictionary order.", "'a' comes before 'b' in that order.", "The comparison is True."] },
+
+    { "topicName": "String Methods", "type": "mcq", "topic": "strip()", "level": "Beginner", "question": "What is printed?", "code": "print('  hi  '.strip())", "options": ["'  hi  '", "'hi'", "'hi  '", "Error"], "answer": 1, "hints": ["strip() removes leading and trailing whitespace.", "It does not touch whitespace in the middle.", "The result is 'hi'."] },
+    { "topicName": "String Methods", "type": "mcq", "topic": "replace()", "level": "Intermediate", "question": "What is printed?", "code": "print('Hello'.replace('l', 'L'))", "options": ["'HeLLo'", "'Hello'", "'HELLo'", "Error"], "answer": 0, "hints": ["replace() swaps every occurrence of the first argument with the second.", "Both lowercase l's become uppercase L.", "The result is 'HeLLo'."] },
+    { "topicName": "String Methods", "type": "mcq", "topic": "split()", "level": "Advanced", "question": "What is printed?", "code": "print('a-b-c'.split('-'))", "options": ["['a', 'b', 'c']", "'a-b-c'", "['a-b-c']", "Error"], "answer": 0, "hints": ["split() breaks a string into a list using the separator.", "The separator '-' occurs twice.", "The result is ['a', 'b', 'c']."] },
+
+    { "topicName": "Strings + For Loops", "type": "mcq", "topic": "loop + vowels", "level": "Beginner", "question": "What is printed?", "code": "count = 0\nfor ch in 'hello':\n    if ch in 'aeiou':\n        count += 1\nprint(count)", "options": ["1", "2", "3", "0"], "answer": 1, "hints": ["Check each character against the vowels.", "'hello' contains the vowels e and o.", "That gives a count of 2."] },
+    { "topicName": "Strings + For Loops", "type": "mcq", "topic": "loop + end=", "level": "Intermediate", "question": "What is printed?", "code": "s = 'Data'\nfor ch in s:\n    print(ch, end='-')", "options": ["D-a-t-a-", "Data", "D a t a", "Error"], "answer": 0, "hints": ["The loop prints each character followed by a hyphen.", "end='-' replaces the default newline with a hyphen.", "The output is D-a-t-a-."] },
+    { "topicName": "Strings + For Loops", "type": "code", "topic": "loop + isupper()", "level": "Advanced", "question": "Count how many uppercase letters are in a string using a for loop.", "code": "text = 'Hello World'\n# Write your solution here", "options": [], "answer": null, "hints": ["Loop through each character.", "Use ch.isupper() to check the case.", "Increment a counter for every uppercase match."] },
+
+    { "topicName": "Strings + Lists", "type": "mcq", "topic": "split()", "level": "Beginner", "question": "What is printed?", "code": "print('a,b,c'.split(','))", "options": ["['a', 'b', 'c']", "'a,b,c'", "['a,b,c']", "Error"], "answer": 0, "hints": ["split() uses the given separator to break the string apart.", "The comma separates three parts.", "The result is ['a', 'b', 'c']."] },
+    { "topicName": "Strings + Lists", "type": "mcq", "topic": "join()", "level": "Intermediate", "question": "What is printed?", "code": "print('-'.join(['x', 'y', 'z']))", "options": ["'x-y-z'", "['x', 'y', 'z']", "'xyz'", "Error"], "answer": 0, "hints": ["join() combines list items using the string before it as separator.", "The separator here is a hyphen.", "The result is 'x-y-z'."] },
+    { "topicName": "Strings + Lists", "type": "mcq", "topic": "sorted() + join()", "level": "Advanced", "question": "What is printed?", "code": "print(' '.join(sorted('cba')))", "options": ["'a b c'", "'cba'", "['a', 'b', 'c']", "Error"], "answer": 0, "hints": ["sorted('cba') produces the characters in alphabetical order.", "That gives ['a', 'b', 'c'].", "join() combines them with spaces: 'a b c'."] },
+
+    { "topicName": "Built-ins + Strings", "type": "mcq", "topic": "len()", "level": "Beginner", "question": "What is printed?", "code": "print(len('hello'))", "options": ["4", "5", "6", "Error"], "answer": 1, "hints": ["len() counts the characters in the string.", "'hello' has five letters.", "The result is 5."] },
+    { "topicName": "Built-ins + Strings", "type": "mcq", "topic": "sorted()", "level": "Intermediate", "question": "What is printed?", "code": "print(sorted('dcba'))", "options": ["['a', 'b', 'c', 'd']", "'abcd'", "['d', 'c', 'b', 'a']", "Error"], "answer": 0, "hints": ["sorted() on a string returns a list of characters.", "Those characters are arranged alphabetically.", "The result is ['a', 'b', 'c', 'd']."] },
+    { "topicName": "Built-ins + Strings", "type": "mcq", "topic": "max()", "level": "Advanced", "question": "What is printed?", "code": "print(max('hello'))", "options": ["'h'", "'o'", "'l'", "Error"], "answer": 1, "hints": ["max() on a string compares characters alphabetically.", "Among h, e, l, l, o, the largest letter is o.", "The result is 'o'."] },
+
+    { "topicName": "Comprehensions", "type": "mcq", "topic": "comprehension basics", "level": "Beginner", "question": "What is printed?", "code": "print([c for c in 'abc'])", "options": ["['a', 'b', 'c']", "'abc'", "['abc']", "Error"], "answer": 0, "hints": ["A comprehension can iterate over a string character by character.", "Each character becomes its own list item.", "The result is ['a', 'b', 'c']."] },
+    { "topicName": "Comprehensions", "type": "mcq", "topic": "comprehension + upper()", "level": "Intermediate", "question": "What is printed?", "code": "print([c.upper() for c in 'abc'])", "options": ["['A', 'B', 'C']", "['a', 'b', 'c']", "'ABC'", "Error"], "answer": 0, "hints": ["The comprehension applies .upper() to each character.", "'a', 'b', 'c' become 'A', 'B', 'C'.", "The result is a list: ['A', 'B', 'C']."] },
+    { "topicName": "Comprehensions", "type": "mcq", "topic": "comprehension + filter", "level": "Advanced", "question": "What is printed?", "code": "print([c for c in 'hello' if c not in 'aeiou'])", "options": ["['h', 'l', 'l']", "['e', 'o']", "['h', 'e', 'l', 'l', 'o']", "Error"], "answer": 0, "hints": ["The condition keeps only consonants.", "'hello' has consonants h, l and l.", "The result is ['h', 'l', 'l']."] },
+
+    { "topicName": "Frequency Problems", "type": "mcq", "topic": "count()", "level": "Beginner", "question": "What is printed?", "code": "print('banana'.count('a'))", "options": ["2", "3", "1", "0"], "answer": 1, "hints": ["count() tallies how many times a substring occurs.", "'banana' contains 'a' three times.", "The result is 3."] },
+    { "topicName": "Frequency Problems", "type": "code", "topic": "frequency dict", "level": "Intermediate", "question": "Build a dictionary mapping each character to how many times it appears in a string.", "code": "text = 'banana'\n# Write your solution here", "options": [], "answer": null, "hints": ["Start with an empty dictionary.", "Loop through each character in text.", "Use dict.get(ch, 0) + 1 to update the count for each character."] },
+    { "topicName": "Frequency Problems", "type": "mcq", "topic": "Counter", "level": "Advanced", "question": "Which class from the collections module is designed for counting items efficiently?", "code": "", "options": ["Counter", "OrderedDict", "deque", "namedtuple"], "answer": 0, "hints": ["This class builds a dictionary-like frequency map automatically.", "It is commonly used for counting characters or words.", "That class is collections.Counter."] },
+
+    { "topicName": "Palindrome & Anagram", "type": "mcq", "topic": "palindrome check", "level": "Beginner", "question": "What is printed?", "code": "s = 'level'\nprint(s == s[::-1])", "options": ["True", "False", "Error", "'level'"], "answer": 0, "hints": ["s[::-1] reverses the string.", "'level' reversed is still 'level'.", "Since they match, the result is True."] },
+    { "topicName": "Palindrome & Anagram", "type": "mcq", "topic": "anagram check", "level": "Intermediate", "question": "What is printed?", "code": "print(sorted('listen') == sorted('silent'))", "options": ["True", "False", "Error", "None"], "answer": 0, "hints": ["Anagrams contain exactly the same letters, just rearranged.", "Sorting both words produces identical letter sequences.", "Since the sorted letters match, this is True."] },
+    { "topicName": "Palindrome & Anagram", "type": "code", "topic": "palindrome + normalization", "level": "Advanced", "question": "Write a function that checks if a phrase is a palindrome, ignoring case and spaces.", "code": "def is_palindrome(text):\n    # Write your solution here", "options": [], "answer": null, "hints": ["Normalize the text first: lowercase it and remove spaces.", "Compare the normalized text to its reverse.", "Return True only if they match exactly."] },
+
+    { "topicName": "Advanced String Problems", "type": "mcq", "topic": "first non-repeating character", "level": "Advanced", "question": "Which approach efficiently finds the first non-repeating character in a string?", "code": "", "options": ["Count frequencies with a dict first, then scan in order for count == 1", "Sort the string and check the first character", "Reverse the string and check the last character", "Use max() on the string"], "answer": 0, "hints": ["You need both frequency information and the original order.", "A dictionary can record how many times each character occurs.", "Then scan the string in its original order and return the first character with a count of 1."] },
+    { "topicName": "Advanced String Problems", "type": "code", "topic": "remove duplicates, preserve order", "level": "Advanced", "question": "Remove duplicate characters from a string while preserving the original order.", "code": "text = 'programming'\n# Write your solution here", "options": [], "answer": null, "hints": ["Keep track of characters already seen, using a set.", "Loop through the string in order.", "Only keep a character the first time it is seen."] },
+    { "topicName": "Advanced String Problems", "type": "mcq", "topic": "strip() scope", "level": "Interview", "question": "Which method removes leading and trailing whitespace only, leaving internal spaces untouched?", "code": "", "options": ["strip()", "replace(' ', '')", "split()", "lower()"], "answer": 0, "hints": ["Some methods affect the whole string; this one only affects the edges.", "It trims whitespace from the start and end.", "That method is strip()."] }
+  ]
+}

@@ -1,0 +1,1850 @@
+{
+  "version": "7.0",
+  "title": "Python Interview Practice — Functions",
+  "topics": [
+    [
+      "Function Basics",
+      "Beginner",
+      "Define and call functions; understand why functions are used."
+    ],
+    [
+      "Parameters & Arguments",
+      "Beginner",
+      "Positional, keyword, default and mixed arguments."
+    ],
+    [
+      "Return Values",
+      "Beginner",
+      "return vs print, multiple returns and using results."
+    ],
+    [
+      "Scope & Lifetime",
+      "Intermediate",
+      "Local/global scope, name resolution and mutation."
+    ],
+    [
+      "Default & Keyword Arguments",
+      "Intermediate",
+      "Defaults, keyword calls and common interview traps."
+    ],
+    [
+      "*args & **kwargs",
+      "Intermediate",
+      "Variable-length positional and keyword arguments."
+    ],
+    [
+      "Lambda Functions",
+      "Intermediate",
+      "Small anonymous functions and use with built-ins."
+    ],
+    [
+      "Functions + Built-ins",
+      "Interview",
+      "Combine functions with map, filter, sorted, zip, enumerate and others."
+    ],
+    [
+      "Recursion",
+      "Advanced",
+      "Base cases, recursive calls and classic interview problems."
+    ],
+    [
+      "Higher-Order Functions",
+      "Advanced",
+      "Functions as values, callbacks and closures."
+    ],
+    [
+      "Advanced Interview Problems",
+      "Advanced",
+      "Closures, decorators, recursion, scope and function design."
+    ]
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "topic": "Function Basics",
+      "level": "Beginner",
+      "q": "Which keyword is used to define a function?",
+      "code": "",
+      "options": [
+        "function",
+        "def",
+        "define",
+        "fun"
+      ],
+      "answer": 1,
+      "hints": [
+        "Python uses a dedicated keyword for function definitions.",
+        "The keyword is three letters.",
+        "It starts a function definition."
+      ],
+      "id": 1
+    },
+    {
+      "type": "mcq",
+      "topic": "Function Basics",
+      "level": "Beginner",
+      "q": "What is printed?",
+      "code": "def greet():\n    print('Hello')\ngreet()",
+      "options": [
+        "Nothing",
+        "Hello",
+        "greet",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "The function is defined first.",
+        "The last line calls it.",
+        "The print statement runs during the call."
+      ],
+      "id": 2
+    },
+    {
+      "type": "code",
+      "topic": "Function Basics",
+      "level": "Beginner",
+      "q": "Write a function named square that takes a number and prints its square.",
+      "code": "# Write your solution here",
+      "expected": "Define square(n) and use print(n ** 2) inside it.",
+      "hints": [
+        "Start with def square(n):",
+        "The square operation is ** 2.",
+        "This question asks you to print, not return."
+      ],
+      "id": 3
+    },
+    {
+      "type": "mcq",
+      "topic": "Function Basics",
+      "level": "Beginner",
+      "q": "What happens when a function definition is executed?",
+      "code": "def add(a,b):\n    return a+b",
+      "options": [
+        "The function is called automatically",
+        "A function object is created",
+        "The result is printed",
+        "The program stops"
+      ],
+      "answer": 1,
+      "hints": [
+        "Defining a function does not execute its body.",
+        "Python creates a callable function object.",
+        "A call is required to execute the body."
+      ],
+      "id": 4
+    },
+    {
+      "type": "mcq",
+      "topic": "Function Basics",
+      "level": "Beginner",
+      "q": "Which is a valid function call?",
+      "code": "def add(a,b):\n    return a+b",
+      "options": [
+        "call add(2,3)",
+        "add 2,3",
+        "add(2,3)",
+        "add[2,3]"
+      ],
+      "answer": 2,
+      "hints": [
+        "Function calls use parentheses.",
+        "The arguments go inside the parentheses.",
+        "The function name is add."
+      ],
+      "id": 5
+    },
+    {
+      "type": "code",
+      "topic": "Function Basics",
+      "level": "Beginner",
+      "q": "Create a function is_even(n) that returns True for even numbers and False otherwise.",
+      "code": "# Write your solution here",
+      "expected": "Use def is_even(n): and return n % 2 == 0.",
+      "hints": [
+        "Use modulo 2.",
+        "The expression n % 2 == 0 is already boolean.",
+        "Use return to send that boolean back."
+      ],
+      "id": 6
+    },
+    {
+      "type": "mcq",
+      "topic": "Function Basics",
+      "level": "Beginner",
+      "q": "What is the purpose of a function?",
+      "code": "",
+      "options": [
+        "Only to print values",
+        "To group reusable logic",
+        "Only to store data",
+        "To replace loops"
+      ],
+      "answer": 1,
+      "hints": [
+        "Functions reduce repeated code.",
+        "They package behavior into a reusable unit.",
+        "Loops and functions solve different problems."
+      ],
+      "id": 7
+    },
+    {
+      "type": "mcq",
+      "topic": "Function Basics",
+      "level": "Beginner",
+      "q": "What is the output?",
+      "code": "def f():\n    return 10\nprint(f() + 5)",
+      "options": [
+        "10",
+        "15",
+        "5",
+        "None"
+      ],
+      "answer": 1,
+      "hints": [
+        "f() returns a value.",
+        "That value is used in an expression.",
+        "10 + 5 is evaluated before print."
+      ],
+      "id": 8
+    },
+    {
+      "type": "mcq",
+      "topic": "Parameters & Arguments",
+      "level": "Beginner",
+      "q": "In def greet(name), what is name?",
+      "code": "def greet(name):\n    print(name)",
+      "options": [
+        "Argument",
+        "Parameter",
+        "Return value",
+        "Global variable"
+      ],
+      "answer": 1,
+      "hints": [
+        "It appears in the function definition.",
+        "A value supplied at the call is the argument.",
+        "The definition names the parameter."
+      ],
+      "id": 9
+    },
+    {
+      "type": "mcq",
+      "topic": "Parameters & Arguments",
+      "level": "Beginner",
+      "q": "In greet('Ravi'), what is 'Ravi'?",
+      "code": "def greet(name):\n    print(name)",
+      "options": [
+        "Parameter",
+        "Argument",
+        "Function",
+        "Return value"
+      ],
+      "answer": 1,
+      "hints": [
+        "It is supplied during the call.",
+        "The function definition has name as the parameter.",
+        "The supplied value is the argument."
+      ],
+      "id": 10
+    },
+    {
+      "type": "mcq",
+      "topic": "Parameters & Arguments",
+      "level": "Beginner",
+      "q": "What is printed?",
+      "code": "def add(a,b):\n    return a+b\nprint(add(2,5))",
+      "options": [
+        "25",
+        "7",
+        "2",
+        "5"
+      ],
+      "answer": 1,
+      "hints": [
+        "The two arguments are 2 and 5.",
+        "The function adds them.",
+        "2 + 5 equals 7."
+      ],
+      "id": 11
+    },
+    {
+      "type": "code",
+      "topic": "Parameters & Arguments",
+      "level": "Beginner",
+      "q": "Write a function multiply(a,b) that returns the product.",
+      "code": "# Write your solution here",
+      "expected": "Use return a * b.",
+      "hints": [
+        "Create two parameters.",
+        "Use multiplication.",
+        "Return the result so the caller can use it."
+      ],
+      "id": 12
+    },
+    {
+      "type": "mcq",
+      "topic": "Parameters & Arguments",
+      "level": "Intermediate",
+      "q": "What is printed?",
+      "code": "def show(a,b):\n    print(a,b)\nshow(b=20,a=10)",
+      "options": [
+        "10 20",
+        "20 10",
+        "Error",
+        "None"
+      ],
+      "answer": 0,
+      "hints": [
+        "Keyword arguments can be supplied by parameter name.",
+        "Their order in the call does not have to match the definition.",
+        "a receives 10 and b receives 20."
+      ],
+      "id": 13
+    },
+    {
+      "type": "mcq",
+      "topic": "Parameters & Arguments",
+      "level": "Intermediate",
+      "q": "Which call uses a keyword argument?",
+      "code": "def power(base, exp):\n    return base ** exp",
+      "options": [
+        "power(2,3)",
+        "power(base=2, exp=3)",
+        "power[2,3]",
+        "power 2,3"
+      ],
+      "answer": 1,
+      "hints": [
+        "Keyword arguments use parameter_name=value.",
+        "Both parameters are named in this option.",
+        "Parentheses are still required."
+      ],
+      "id": 14
+    },
+    {
+      "type": "code",
+      "topic": "Parameters & Arguments",
+      "level": "Intermediate",
+      "q": "Write a function max_of_two(a,b) that returns the larger value without using max().",
+      "code": "# Write your solution here",
+      "expected": "Use an if/else comparison and return the larger value.",
+      "hints": [
+        "Compare a and b.",
+        "Return a if a > b.",
+        "Otherwise return b."
+      ],
+      "id": 15
+    },
+    {
+      "type": "mcq",
+      "topic": "Parameters & Arguments",
+      "level": "Interview",
+      "q": "What happens with this call?",
+      "code": "def f(a,b):\n    return a+b\nf(1)",
+      "options": [
+        "Returns 1",
+        "Returns None",
+        "TypeError due to missing argument",
+        "Uses b=0"
+      ],
+      "answer": 2,
+      "hints": [
+        "Both required parameters need values.",
+        "No default was supplied for b.",
+        "Python raises TypeError when a required argument is missing."
+      ],
+      "id": 16
+    },
+    {
+      "type": "mcq",
+      "topic": "Return Values",
+      "level": "Beginner",
+      "q": "What is the difference between print() and return inside a function?",
+      "code": "",
+      "options": [
+        "They are identical",
+        "print displays; return sends a value to the caller",
+        "return only displays text",
+        "print stops the function"
+      ],
+      "answer": 1,
+      "hints": [
+        "print produces output.",
+        "return gives a value back to the calling code.",
+        "A returned value can be stored or used in expressions."
+      ],
+      "id": 17
+    },
+    {
+      "type": "mcq",
+      "topic": "Return Values",
+      "level": "Beginner",
+      "q": "What is printed?",
+      "code": "def f():\n    return 7\nx=f()\nprint(x)",
+      "options": [
+        "f",
+        "7",
+        "None",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "The returned value is assigned to x.",
+        "x therefore contains 7.",
+        "print(x) displays it."
+      ],
+      "id": 18
+    },
+    {
+      "type": "mcq",
+      "topic": "Return Values",
+      "level": "Beginner",
+      "q": "What does a function return if it reaches the end without return?",
+      "code": "def f():\n    print('Hi')",
+      "options": [
+        "0",
+        "False",
+        "None",
+        "Error"
+      ],
+      "answer": 2,
+      "hints": [
+        "Python functions can finish without an explicit return.",
+        "The implicit return value is None.",
+        "The print inside the function is separate from its return value."
+      ],
+      "id": 19
+    },
+    {
+      "type": "code",
+      "topic": "Return Values",
+      "level": "Beginner",
+      "q": "Write a function sum_two(a,b) that returns the sum, then print the returned result.",
+      "code": "# Write your solution here",
+      "expected": "Define sum_two and use print(sum_two(…,…)).",
+      "hints": [
+        "Use return a + b.",
+        "A returned value can be passed to print.",
+        "Do not rely only on print inside the function."
+      ],
+      "id": 20
+    },
+    {
+      "type": "mcq",
+      "topic": "Return Values",
+      "level": "Intermediate",
+      "q": "What is printed?",
+      "code": "def f():\n    return 1,2\nx=f()\nprint(type(x).__name__)",
+      "options": [
+        "list",
+        "tuple",
+        "int",
+        "str"
+      ],
+      "answer": 1,
+      "hints": [
+        "Multiple comma-separated return values are packed together.",
+        "The packed object is immutable.",
+        "Python represents it as a tuple."
+      ],
+      "id": 21
+    },
+    {
+      "type": "code",
+      "topic": "Return Values",
+      "level": "Intermediate",
+      "q": "Write a function divide(a,b) that returns both quotient and remainder.",
+      "code": "# Write your solution here",
+      "expected": "Return a // b, a % b.",
+      "hints": [
+        "Integer quotient uses //.",
+        "Remainder uses %.",
+        "Separate the two returned values with a comma."
+      ],
+      "id": 22
+    },
+    {
+      "type": "mcq",
+      "topic": "Return Values",
+      "level": "Interview",
+      "q": "What happens here?",
+      "code": "def f():\n    return 10\n    print('Hello')\nf()",
+      "options": [
+        "Hello is printed",
+        "10 is printed",
+        "The print is unreachable",
+        "SyntaxError"
+      ],
+      "answer": 2,
+      "hints": [
+        "return exits the function immediately.",
+        "Statements after return in the same execution path do not run.",
+        "There is no syntax error merely because code follows return."
+      ],
+      "id": 23
+    },
+    {
+      "type": "mcq",
+      "topic": "Scope & Lifetime",
+      "level": "Intermediate",
+      "q": "Where is a variable created inside a function normally local?",
+      "code": "def f():\n    x=10",
+      "options": [
+        "Inside the function",
+        "Everywhere",
+        "Only in imported modules",
+        "Nowhere"
+      ],
+      "answer": 0,
+      "hints": [
+        "Assignments inside a function create local names by default.",
+        "Local scope belongs to that function call.",
+        "Outside code cannot normally access that local name directly."
+      ],
+      "id": 24
+    },
+    {
+      "type": "mcq",
+      "topic": "Scope & Lifetime",
+      "level": "Intermediate",
+      "q": "What happens?",
+      "code": "def f():\n    x=10\nf()\nprint(x)",
+      "options": [
+        "10",
+        "None",
+        "NameError",
+        "0"
+      ],
+      "answer": 2,
+      "hints": [
+        "x was local to f.",
+        "The call ends and x is not a global name.",
+        "Accessing it outside raises NameError."
+      ],
+      "id": 25
+    },
+    {
+      "type": "mcq",
+      "topic": "Scope & Lifetime",
+      "level": "Intermediate",
+      "q": "Which keyword lets a function assign to a module-level global variable?",
+      "code": "x=10\n\ndef f():\n    # here",
+      "options": [
+        "outer",
+        "global",
+        "public",
+        "module"
+      ],
+      "answer": 1,
+      "hints": [
+        "Python has a keyword for explicitly referring to the global binding.",
+        "It is used before assignment to that name.",
+        "The keyword is global."
+      ],
+      "id": 26
+    },
+    {
+      "type": "code",
+      "topic": "Scope & Lifetime",
+      "level": "Intermediate",
+      "q": "Create a global count=0 and a function increment() that uses global to increase it by 1.",
+      "code": "# Write your solution here",
+      "expected": "Use count=0, then inside increment use global count and count += 1.",
+      "hints": [
+        "Assignment normally creates a local name inside a function.",
+        "Use global count before modifying the global binding.",
+        "Then increment with += 1."
+      ],
+      "id": 27
+    },
+    {
+      "type": "mcq",
+      "topic": "Scope & Lifetime",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "x=10\ndef f():\n    x=20\n    return x\nprint(f(), x)",
+      "options": [
+        "20 20",
+        "10 10",
+        "20 10",
+        "10 20"
+      ],
+      "answer": 2,
+      "hints": [
+        "The local x shadows the global x inside f.",
+        "f() returns its local value.",
+        "The global x remains 10."
+      ],
+      "id": 28
+    },
+    {
+      "type": "mcq",
+      "topic": "Scope & Lifetime",
+      "level": "Interview",
+      "q": "What is the main issue with excessive global state?",
+      "code": "",
+      "options": [
+        "It always makes code faster",
+        "It can make code harder to reason about and test",
+        "It prevents functions",
+        "It removes variables"
+      ],
+      "answer": 1,
+      "hints": [
+        "Global state can be changed from many places.",
+        "That creates hidden dependencies.",
+        "Functions with explicit inputs/outputs are usually easier to test."
+      ],
+      "id": 29
+    },
+    {
+      "type": "mcq",
+      "topic": "Default & Keyword Arguments",
+      "level": "Beginner",
+      "q": "What is printed?",
+      "code": "def greet(name='Guest'):\n    print(name)\ngreet()",
+      "options": [
+        "Guest",
+        "name",
+        "None",
+        "Error"
+      ],
+      "answer": 0,
+      "hints": [
+        "A default is used when no argument is supplied.",
+        "The default value is Guest.",
+        "The function prints the selected name."
+      ],
+      "id": 30
+    },
+    {
+      "type": "mcq",
+      "topic": "Default & Keyword Arguments",
+      "level": "Intermediate",
+      "q": "What is printed?",
+      "code": "def power(n, exp=2):\n    return n ** exp\nprint(power(3))",
+      "options": [
+        "6",
+        "9",
+        "8",
+        "3"
+      ],
+      "answer": 1,
+      "hints": [
+        "exp has a default of 2.",
+        "Only n is supplied.",
+        "3 squared is 9."
+      ],
+      "id": 31
+    },
+    {
+      "type": "mcq",
+      "topic": "Default & Keyword Arguments",
+      "level": "Intermediate",
+      "q": "Which definition is invalid?",
+      "code": "",
+      "options": [
+        "def f(a,b=2): pass",
+        "def f(a=1,b=2): pass",
+        "def f(a=1,b): pass",
+        "def f(*args): pass"
+      ],
+      "answer": 2,
+      "hints": [
+        "Required positional parameters cannot normally follow default parameters.",
+        "Think about how positional arguments would be assigned.",
+        "The third definition violates that ordering rule."
+      ],
+      "id": 32
+    },
+    {
+      "type": "code",
+      "topic": "Default & Keyword Arguments",
+      "level": "Intermediate",
+      "q": "Create a function area(length, width=1) that returns length*width.",
+      "code": "# Write your solution here",
+      "expected": "Use a default width of 1 and return length * width.",
+      "hints": [
+        "Put width=1 in the definition.",
+        "Return the multiplication.",
+        "Calling area(5) should produce 5."
+      ],
+      "id": 33
+    },
+    {
+      "type": "mcq",
+      "topic": "Default & Keyword Arguments",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "def f(a,b=10):\n    return a+b\nprint(f(5,b=20))",
+      "options": [
+        "15",
+        "25",
+        "30",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "Keyword b=20 overrides the default.",
+        "a receives 5.",
+        "5 + 20 is 25."
+      ],
+      "id": 34
+    },
+    {
+      "type": "mcq",
+      "topic": "*args & **kwargs",
+      "level": "Intermediate",
+      "q": "What type is args inside a function defined with *args?",
+      "code": "def f(*args):\n    print(type(args).__name__)",
+      "options": [
+        "list",
+        "tuple",
+        "set",
+        "dict"
+      ],
+      "answer": 1,
+      "hints": [
+        "*args collects extra positional arguments.",
+        "Python packs them into an immutable sequence.",
+        "That sequence is a tuple."
+      ],
+      "id": 35
+    },
+    {
+      "type": "mcq",
+      "topic": "*args & **kwargs",
+      "level": "Intermediate",
+      "q": "What type is kwargs inside a function defined with **kwargs?",
+      "code": "def f(**kwargs):\n    print(type(kwargs).__name__)",
+      "options": [
+        "tuple",
+        "list",
+        "dict",
+        "set"
+      ],
+      "answer": 2,
+      "hints": [
+        "**kwargs collects keyword arguments.",
+        "They are represented as name-value pairs.",
+        "Python stores them in a dictionary."
+      ],
+      "id": 36
+    },
+    {
+      "type": "code",
+      "topic": "*args & **kwargs",
+      "level": "Intermediate",
+      "q": "Write a function total(*numbers) that returns the sum of all supplied numbers.",
+      "code": "# Write your solution here",
+      "expected": "Use return sum(numbers).",
+      "hints": [
+        "*numbers collects positional values.",
+        "sum() accepts the tuple of numbers.",
+        "Return the result."
+      ],
+      "id": 37
+    },
+    {
+      "type": "code",
+      "topic": "*args & **kwargs",
+      "level": "Intermediate",
+      "q": "Write a function show_info(**info) that prints each key and value.",
+      "code": "# Write your solution here",
+      "expected": "Loop through info.items() and print each key and value.",
+      "hints": [
+        "**info is a dictionary.",
+        "Use for key, value in info.items().",
+        "Print both values."
+      ],
+      "id": 38
+    },
+    {
+      "type": "mcq",
+      "topic": "*args & **kwargs",
+      "level": "Interview",
+      "q": "What does f(1,2,x=3,y=4) collect in f(*args, **kwargs)?",
+      "code": "def f(*args, **kwargs): pass",
+      "options": [
+        "args=(1,2), kwargs={'x':3,'y':4}",
+        "args=(x,y), kwargs={1,2}",
+        "args=[1,2,3,4], kwargs={}",
+        "Both are dictionaries"
+      ],
+      "answer": 0,
+      "hints": [
+        "Positional values go to *args.",
+        "Named keyword values go to **kwargs.",
+        "args is a tuple and kwargs is a dictionary."
+      ],
+      "id": 39
+    },
+    {
+      "type": "code",
+      "topic": "*args & **kwargs",
+      "level": "Advanced",
+      "q": "Write a function that accepts any number of positional numbers and optional keyword multiplier=1, then returns their sum multiplied by multiplier.",
+      "code": "# Write your solution here",
+      "expected": "Use def calculate(*numbers, multiplier=1): return sum(numbers) * multiplier.",
+      "hints": [
+        "Collect numbers with *numbers.",
+        "Make multiplier a keyword-only default parameter.",
+        "Multiply the sum by multiplier."
+      ],
+      "id": 40
+    },
+    {
+      "type": "mcq",
+      "topic": "Lambda Functions",
+      "level": "Intermediate",
+      "q": "Which is a valid lambda that squares x?",
+      "code": "",
+      "options": [
+        "lambda x: x**2",
+        "lambda: x => x**2",
+        "lambda x => x**2",
+        "def lambda(x): x**2"
+      ],
+      "answer": 0,
+      "hints": [
+        "A lambda uses the word lambda followed by parameters.",
+        "A colon separates parameters from the expression.",
+        "The body is an expression."
+      ],
+      "id": 41
+    },
+    {
+      "type": "mcq",
+      "topic": "Lambda Functions",
+      "level": "Intermediate",
+      "q": "What is printed?",
+      "code": "f=lambda x:x+1\nprint(f(4))",
+      "options": [
+        "4",
+        "5",
+        "1",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "The lambda adds 1.",
+        "Calling f with 4 passes x=4.",
+        "4+1 equals 5."
+      ],
+      "id": 42
+    },
+    {
+      "type": "mcq",
+      "topic": "Lambda Functions",
+      "level": "Interview",
+      "q": "What does sorted(words, key=lambda x: len(x)) do?",
+      "code": "words=['bbb','a','cc']",
+      "options": [
+        "Sorts alphabetically",
+        "Sorts by word length",
+        "Reverses the list",
+        "Counts words"
+      ],
+      "answer": 1,
+      "hints": [
+        "The key function returns len(x).",
+        "sorted compares those key values.",
+        "Therefore length determines the order."
+      ],
+      "id": 43
+    },
+    {
+      "type": "code",
+      "topic": "Lambda Functions",
+      "level": "Intermediate",
+      "q": "Sort this list of tuples by the second value using sorted() and lambda.",
+      "code": "items=[('a',3),('b',1),('c',2)]\n# Write your solution here",
+      "expected": "Use sorted(items, key=lambda x: x[1]).",
+      "hints": [
+        "Each item is a tuple.",
+        "The second element is at index 1.",
+        "Pass that expression as key."
+      ],
+      "id": 44
+    },
+    {
+      "type": "mcq",
+      "topic": "Lambda Functions",
+      "level": "Interview",
+      "q": "What is returned by filter(lambda x:x%2==0,[1,2,3,4])?",
+      "code": "",
+      "options": [
+        "Only odd values",
+        "An iterator containing even values",
+        "A tuple of all values",
+        "A boolean"
+      ],
+      "answer": 1,
+      "hints": [
+        "filter keeps values for which the function is True.",
+        "The condition checks evenness.",
+        "In Python 3, filter returns an iterator."
+      ],
+      "id": 45
+    },
+    {
+      "type": "code",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "Use map() with a lambda to create a list containing squares of [1,2,3,4].",
+      "code": "nums=[1,2,3,4]\n# Write your solution here",
+      "expected": "Use list(map(lambda x: x**2, nums)).",
+      "hints": [
+        "map applies a function to every element.",
+        "The lambda squares each element.",
+        "Convert the map object to list for a list result."
+      ],
+      "id": 46
+    },
+    {
+      "type": "code",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "Use filter() to keep only even numbers from a list.",
+      "code": "nums=[1,2,3,4,5,6]\n# Write your solution here",
+      "expected": "Use list(filter(lambda x: x%2==0, nums)).",
+      "hints": [
+        "filter keeps values whose condition is True.",
+        "Use modulo 2.",
+        "Convert the iterator to a list."
+      ],
+      "id": 47
+    },
+    {
+      "type": "code",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "Sort a list of dictionaries by the 'age' key using a lambda.",
+      "code": "people=[{'name':'A','age':30},{'name':'B','age':20}]\n# Write your solution here",
+      "expected": "Use sorted(people, key=lambda p: p['age']).",
+      "hints": [
+        "Each element is a dictionary.",
+        "The sort key is p['age'].",
+        "sorted returns a new list."
+      ],
+      "id": 48
+    },
+    {
+      "type": "mcq",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "What does enumerate() provide when used in a loop?",
+      "code": "",
+      "options": [
+        "Only values",
+        "Only indexes",
+        "Index-value pairs",
+        "Key-value dictionaries"
+      ],
+      "answer": 2,
+      "hints": [
+        "enumerate wraps an iterable.",
+        "It produces pairs containing a counter and the item.",
+        "It is useful when you need both position and value."
+      ],
+      "id": 49
+    },
+    {
+      "type": "code",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "Write a function that returns a dictionary mapping each word in a list to its length using a dictionary comprehension.",
+      "code": "words=['cat','python','code']\n# Write your solution here",
+      "expected": "Use {word: len(word) for word in words}.",
+      "hints": [
+        "Dictionary comprehensions use key:value.",
+        "The key should be the word.",
+        "The value should be len(word)."
+      ],
+      "id": 50
+    },
+    {
+      "type": "code",
+      "topic": "Functions + Built-ins",
+      "level": "Advanced",
+      "q": "Write a function pair_sum(a,b) that returns a list of sums using zip() over two lists.",
+      "code": "a=[1,2,3]\nb=[10,20,30]\n# Write your solution here",
+      "expected": "Use [x+y for x,y in zip(a,b)].",
+      "hints": [
+        "zip pairs corresponding elements.",
+        "Unpack each pair as x,y.",
+        "Add them in a comprehension."
+      ],
+      "id": 51
+    },
+    {
+      "type": "mcq",
+      "topic": "Recursion",
+      "level": "Advanced",
+      "q": "What is the most important part of a recursive function?",
+      "code": "",
+      "options": [
+        "A global variable",
+        "A base case",
+        "A print statement",
+        "A list"
+      ],
+      "answer": 1,
+      "hints": [
+        "Recursion must eventually stop.",
+        "The stopping condition is the base case.",
+        "Without it, recursive calls can continue until an error."
+      ],
+      "id": 52
+    },
+    {
+      "type": "code",
+      "topic": "Recursion",
+      "level": "Advanced",
+      "q": "Write a recursive factorial(n) function.",
+      "code": "# Write your solution here",
+      "expected": "Use base case n<=1 returning 1; otherwise return n*factorial(n-1).",
+      "hints": [
+        "Factorial of 0 and 1 is 1.",
+        "The recursive case reduces n.",
+        "Each call should move toward the base case."
+      ],
+      "id": 53
+    },
+    {
+      "type": "mcq",
+      "topic": "Recursion",
+      "level": "Advanced",
+      "q": "What is factorial(4) if defined recursively as n*factorial(n-1), with factorial(1)=1?",
+      "code": "",
+      "options": [
+        "4",
+        "10",
+        "24",
+        "16"
+      ],
+      "answer": 2,
+      "hints": [
+        "4! = 4*3*2*1.",
+        "Multiply the sequence.",
+        "The result is 24."
+      ],
+      "id": 54
+    },
+    {
+      "type": "code",
+      "topic": "Recursion",
+      "level": "Advanced",
+      "q": "Write a recursive function sum_n(n) that returns 1+2+...+n.",
+      "code": "# Write your solution here",
+      "expected": "Base case n<=0 returns 0; otherwise return n+sum_n(n-1).",
+      "hints": [
+        "Reduce n by 1 each call.",
+        "Use 0 as a safe stopping total.",
+        "Add n to the recursive result."
+      ],
+      "id": 55
+    },
+    {
+      "type": "code",
+      "topic": "Recursion",
+      "level": "Advanced",
+      "q": "Write a recursive function reverse_string(s) that returns the reversed string.",
+      "code": "# Write your solution here",
+      "expected": "Base case for empty or one-character string; otherwise return reverse_string(s[1:]) + s[0].",
+      "hints": [
+        "Remove the first character each call.",
+        "Reverse the remaining substring recursively.",
+        "Append the first character at the end."
+      ],
+      "id": 56
+    },
+    {
+      "type": "mcq",
+      "topic": "Recursion",
+      "level": "Advanced",
+      "q": "What happens if a recursive function has no reachable base case?",
+      "code": "",
+      "options": [
+        "It becomes faster",
+        "It can eventually raise RecursionError",
+        "It returns None immediately",
+        "It automatically converts to a loop"
+      ],
+      "answer": 1,
+      "hints": [
+        "Python limits recursion depth.",
+        "A function that keeps calling itself can exceed that limit.",
+        "The usual error is RecursionError."
+      ],
+      "id": 57
+    },
+    {
+      "type": "code",
+      "topic": "Higher-Order Functions",
+      "level": "Advanced",
+      "q": "Write apply_twice(func, value) that applies func two times to value.",
+      "code": "# Write your solution here",
+      "expected": "Return func(func(value)).",
+      "hints": [
+        "A function can be passed as an argument.",
+        "Call func once on value.",
+        "Pass that result into func again."
+      ],
+      "id": 58
+    },
+    {
+      "type": "mcq",
+      "topic": "Higher-Order Functions",
+      "level": "Advanced",
+      "q": "What is a higher-order function?",
+      "code": "",
+      "options": [
+        "A function that only has many lines",
+        "A function that takes or returns another function",
+        "A function with no parameters",
+        "A recursive function only"
+      ],
+      "answer": 1,
+      "hints": [
+        "Functions are first-class objects in Python.",
+        "A higher-order function operates on functions.",
+        "It can accept a function or return one."
+      ],
+      "id": 59
+    },
+    {
+      "type": "code",
+      "topic": "Higher-Order Functions",
+      "level": "Advanced",
+      "q": "Create make_multiplier(n) that returns a function multiplying its input by n.",
+      "code": "# Write your solution here",
+      "expected": "Define an inner function multiply(x) returning x*n, then return multiply.",
+      "hints": [
+        "The inner function can access n from the enclosing scope.",
+        "Return the inner function itself, not its result.",
+        "This is a closure pattern."
+      ],
+      "id": 60
+    },
+    {
+      "type": "mcq",
+      "topic": "Higher-Order Functions",
+      "level": "Advanced",
+      "q": "What does a closure allow an inner function to do?",
+      "code": "",
+      "options": [
+        "Access variables from its enclosing scope after creation",
+        "Change Python syntax",
+        "Avoid all memory use",
+        "Only call built-ins"
+      ],
+      "answer": 0,
+      "hints": [
+        "The inner function can retain access to enclosing variables.",
+        "This is called closing over the variable.",
+        "Closures are common in callbacks and decorators."
+      ],
+      "id": 61
+    },
+    {
+      "type": "code",
+      "topic": "Higher-Order Functions",
+      "level": "Advanced",
+      "q": "Create a function counter() that returns a nested function increment() which remembers and increments a count each call.",
+      "code": "# Write your solution here",
+      "expected": "Use a nonlocal count inside increment().",
+      "hints": [
+        "Initialize count in counter().",
+        "Use nonlocal count inside increment before assignment.",
+        "Return increment from counter."
+      ],
+      "id": 62
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "What is printed?",
+      "code": "def outer():\n    x=10\n    def inner():\n        return x\n    return inner\nf=outer()\nprint(f())",
+      "options": [
+        "10",
+        "None",
+        "Error",
+        "inner"
+      ],
+      "answer": 0,
+      "hints": [
+        "inner closes over x.",
+        "outer returns the inner function.",
+        "Calling that returned function still has access to x."
+      ],
+      "id": 63
+    },
+    {
+      "type": "code",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Write a decorator that prints 'Before' before calling a function and 'After' after it.",
+      "code": "# Write your solution here",
+      "expected": "Define decorator(func), an inner wrapper, print Before, call func, print After, then return wrapper.",
+      "hints": [
+        "A decorator receives a function.",
+        "The wrapper controls when the original function runs.",
+        "Return the wrapper from the decorator."
+      ],
+      "id": 64
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Why use functools.wraps in a decorator?",
+      "code": "",
+      "options": [
+        "To make recursion automatic",
+        "To preserve metadata such as the wrapped function's name/docstring",
+        "To make code run in parallel",
+        "To convert a function to a class"
+      ],
+      "answer": 1,
+      "hints": [
+        "Decorators replace the function object with a wrapper.",
+        "wraps copies useful metadata from the original function.",
+        "It improves introspection and debugging."
+      ],
+      "id": 65
+    },
+    {
+      "type": "code",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Write a function first_unique(s) that returns the first character occurring exactly once.",
+      "code": "s='swiss'\n# Write your solution here",
+      "expected": "Use a frequency dictionary/counter, then scan the string again and return the first character with count 1.",
+      "hints": [
+        "First determine character frequencies.",
+        "A set alone cannot preserve frequency counts.",
+        "Scan left-to-right for the first frequency of 1."
+      ],
+      "id": 66
+    },
+    {
+      "type": "code",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Write a function that accepts *args and returns the second-largest distinct number.",
+      "code": "nums=()\n# Write your solution here",
+      "expected": "Use a set to remove duplicates, then handle fewer than two unique values and find the second-largest.",
+      "hints": [
+        "Convert args to a set for distinct values.",
+        "You need at least two unique values.",
+        "Sort or use two largest values after deduplication."
+      ],
+      "id": 67
+    },
+    {
+      "type": "code",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Write a recursive binary search function on a sorted list.",
+      "code": "# Write your solution here",
+      "expected": "Use low/high bounds, calculate mid, compare target and recursively search the appropriate half.",
+      "hints": [
+        "Binary search requires sorted input.",
+        "Each recursive call should reduce the search interval.",
+        "Base case is when low > high or target is found."
+      ],
+      "id": 68
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "What is the average lookup complexity of a dictionary by key?",
+      "code": "",
+      "options": [
+        "O(1) average",
+        "O(n²)",
+        "O(log n) always",
+        "O(n) always"
+      ],
+      "answer": 0,
+      "hints": [
+        "Dictionaries are hash-table based.",
+        "Interview answers generally use average-case O(1).",
+        "Worst-case details are separate from the usual average-case claim."
+      ],
+      "id": 69
+    },
+    {
+      "type": "code",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Write a function group_by_length(words) that returns a dictionary whose keys are word lengths and values are lists of words.",
+      "code": "words=['cat','dog','python','hi']\n# Write your solution here",
+      "expected": "Loop through words and use setdefault(length, []).append(word).",
+      "hints": [
+        "The key is len(word).",
+        "Initialize a list when a length is first seen.",
+        "append each word to its length group."
+      ],
+      "id": 70
+    },
+    {
+      "type": "code",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Write a function memoized_fib(n) using a dictionary cache.",
+      "code": "# Write your solution here",
+      "expected": "Use a cache dict; return cached values when present, otherwise compute recursively and store the result.",
+      "hints": [
+        "Memoization stores previous results.",
+        "Check the cache before recursing.",
+        "Store the newly calculated Fibonacci value."
+      ],
+      "id": 71
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Which design is generally easiest to test?",
+      "code": "",
+      "options": [
+        "A function depending heavily on hidden global state",
+        "A function with explicit inputs and predictable outputs",
+        "A function that changes many unrelated globals",
+        "A function with random side effects"
+      ],
+      "answer": 1,
+      "hints": [
+        "Explicit dependencies are visible.",
+        "Predictable inputs/outputs make unit tests simpler.",
+        "Hidden state increases coupling."
+      ],
+      "id": 72
+    },
+    {
+      "type": "mcq",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "def double(x): return x*2\nprint(list(map(double,[1,2,3])))",
+      "options": [
+        "[1,2,3]",
+        "[2,4,6]",
+        "[2,3,4]",
+        "None"
+      ],
+      "answer": 1,
+      "hints": [
+        "map applies double to every element.",
+        "Each number is multiplied by 2.",
+        "Convert the map object to list."
+      ],
+      "id": 93
+    },
+    {
+      "type": "code",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "Write a function even_squares(nums) that returns squares of only even numbers using filter and map.",
+      "code": "nums=[1,2,3,4,5,6]\n# Write your solution here",
+      "expected": "Use list(map(lambda x:x*x, filter(lambda x:x%2==0, nums))).",
+      "hints": [
+        "Filter even values first.",
+        "Then map each remaining value to its square.",
+        "Wrap the final iterator in list()."
+      ],
+      "id": 94
+    },
+    {
+      "type": "mcq",
+      "topic": "Default & Keyword Arguments",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "def f(a=1): return a\nprint(f(a=5))",
+      "options": [
+        "1",
+        "5",
+        "None",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "A keyword argument explicitly supplies a.",
+        "It overrides the default.",
+        "The returned value is 5."
+      ],
+      "id": 95
+    },
+    {
+      "type": "code",
+      "topic": "Parameters & Arguments",
+      "level": "Interview",
+      "q": "Write a function is_palindrome(s) that returns True if a string reads the same forward and backward.",
+      "code": "# Write your solution here",
+      "expected": "Return s == s[::-1].",
+      "hints": [
+        "Use slicing to reverse the string.",
+        "Compare original and reversed strings.",
+        "Return the boolean comparison."
+      ],
+      "id": 96
+    },
+    {
+      "type": "mcq",
+      "topic": "Scope & Lifetime",
+      "level": "Interview",
+      "q": "Which LEGB scope is checked after Local?",
+      "code": "",
+      "options": [
+        "Global",
+        "Built-in",
+        "Enclosing",
+        "Loop"
+      ],
+      "answer": 2,
+      "hints": [
+        "LEGB stands for Local, Enclosing, Global, Built-in.",
+        "A nested function can see an enclosing function's scope.",
+        "So E comes after L."
+      ],
+      "id": 97
+    },
+    {
+      "type": "code",
+      "topic": "Recursion",
+      "level": "Advanced",
+      "q": "Write recursive fibonacci(n) for the nth Fibonacci number with fib(0)=0 and fib(1)=1.",
+      "code": "# Write your solution here",
+      "expected": "Use base cases 0 and 1; otherwise return fib(n-1)+fib(n-2).",
+      "hints": [
+        "Handle both base cases.",
+        "The recursive case has two smaller calls.",
+        "This simple version is exponential without memoization."
+      ],
+      "id": 98
+    },
+    {
+      "type": "mcq",
+      "topic": "Higher-Order Functions",
+      "level": "Advanced",
+      "q": "What is printed?",
+      "code": "def make_adder(n):\n    return lambda x:x+n\nadd5=make_adder(5)\nprint(add5(3))",
+      "options": [
+        "3",
+        "5",
+        "8",
+        "15"
+      ],
+      "answer": 2,
+      "hints": [
+        "The returned lambda remembers n.",
+        "n is 5 and x is 3.",
+        "The lambda computes x+n."
+      ],
+      "id": 99
+    },
+    {
+      "type": "code",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Write a function flatten_once(items) that combines one level of nested lists.",
+      "code": "items=[[1,2],[3],[4,5]]\n# Write your solution here",
+      "expected": "Use a nested comprehension: [x for sub in items for x in sub].",
+      "hints": [
+        "The outer loop gets each sublist.",
+        "The inner loop gets each element.",
+        "This flattens one level."
+      ],
+      "id": 100
+    },
+    {
+      "type": "mcq",
+      "topic": "*args & **kwargs",
+      "level": "Interview",
+      "q": "Which call passes positional arguments to *args and named arguments to **kwargs?",
+      "code": "def f(*args,**kwargs): pass",
+      "options": [
+        "f(1,2,a=3,b=4)",
+        "f(args=1,2)",
+        "f[1,2,a=3]",
+        "f(1,2,3,4)"
+      ],
+      "answer": 0,
+      "hints": [
+        "Values without names become positional.",
+        "Values using name=value become keyword arguments.",
+        "Both forms can be used in one call."
+      ],
+      "id": 91
+    },
+    {
+      "type": "code",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "Write a function that returns the top 3 numbers from a list in descending order.",
+      "code": "nums=[4,9,1,7,3]\n# Write your solution here",
+      "expected": "Use sorted(nums, reverse=True)[:3].",
+      "hints": [
+        "sorted can reverse the order.",
+        "Slice the first three results.",
+        "This returns a new list."
+      ],
+      "id": 92
+    },
+    {
+      "type": "mcq",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "def double(x): return x*2\nprint(list(map(double,[1,2,3])))",
+      "options": [
+        "[1,2,3]",
+        "[2,4,6]",
+        "[2,3,4]",
+        "None"
+      ],
+      "answer": 1,
+      "hints": [
+        "map applies double to every element.",
+        "Each number is multiplied by 2.",
+        "Convert the map object to list."
+      ],
+      "id": 93
+    },
+    {
+      "type": "code",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "Write a function even_squares(nums) that returns squares of only even numbers using filter and map.",
+      "code": "nums=[1,2,3,4,5,6]\n# Write your solution here",
+      "expected": "Use list(map(lambda x:x*x, filter(lambda x:x%2==0, nums))).",
+      "hints": [
+        "Filter even values first.",
+        "Then map each remaining value to its square.",
+        "Wrap the final iterator in list()."
+      ],
+      "id": 94
+    },
+    {
+      "type": "mcq",
+      "topic": "Default & Keyword Arguments",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "def f(a=1): return a\nprint(f(a=5))",
+      "options": [
+        "1",
+        "5",
+        "None",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "A keyword argument explicitly supplies a.",
+        "It overrides the default.",
+        "The returned value is 5."
+      ],
+      "id": 95
+    },
+    {
+      "type": "code",
+      "topic": "Parameters & Arguments",
+      "level": "Interview",
+      "q": "Write a function is_palindrome(s) that returns True if a string reads the same forward and backward.",
+      "code": "# Write your solution here",
+      "expected": "Return s == s[::-1].",
+      "hints": [
+        "Use slicing to reverse the string.",
+        "Compare original and reversed strings.",
+        "Return the boolean comparison."
+      ],
+      "id": 96
+    },
+    {
+      "type": "mcq",
+      "topic": "Scope & Lifetime",
+      "level": "Interview",
+      "q": "Which LEGB scope is checked after Local?",
+      "code": "",
+      "options": [
+        "Global",
+        "Built-in",
+        "Enclosing",
+        "Loop"
+      ],
+      "answer": 2,
+      "hints": [
+        "LEGB stands for Local, Enclosing, Global, Built-in.",
+        "A nested function can see an enclosing function's scope.",
+        "So E comes after L."
+      ],
+      "id": 97
+    },
+    {
+      "type": "code",
+      "topic": "Recursion",
+      "level": "Advanced",
+      "q": "Write recursive fibonacci(n) for the nth Fibonacci number with fib(0)=0 and fib(1)=1.",
+      "code": "# Write your solution here",
+      "expected": "Use base cases 0 and 1; otherwise return fib(n-1)+fib(n-2).",
+      "hints": [
+        "Handle both base cases.",
+        "The recursive case has two smaller calls.",
+        "This simple version is exponential without memoization."
+      ],
+      "id": 98
+    },
+    {
+      "type": "mcq",
+      "topic": "Higher-Order Functions",
+      "level": "Advanced",
+      "q": "What is printed?",
+      "code": "def make_adder(n):\n    return lambda x:x+n\nadd5=make_adder(5)\nprint(add5(3))",
+      "options": [
+        "3",
+        "5",
+        "8",
+        "15"
+      ],
+      "answer": 2,
+      "hints": [
+        "The returned lambda remembers n.",
+        "n is 5 and x is 3.",
+        "The lambda computes x+n."
+      ],
+      "id": 99
+    },
+    {
+      "type": "code",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Write a function flatten_once(items) that combines one level of nested lists.",
+      "code": "items=[[1,2],[3],[4,5]]\n# Write your solution here",
+      "expected": "Use a nested comprehension: [x for sub in items for x in sub].",
+      "hints": [
+        "The outer loop gets each sublist.",
+        "The inner loop gets each element.",
+        "This flattens one level."
+      ],
+      "id": 100
+    },
+    {
+      "type": "mcq",
+      "topic": "*args & **kwargs",
+      "level": "Interview",
+      "q": "Which call passes positional arguments to *args and named arguments to **kwargs?",
+      "code": "def f(*args,**kwargs): pass",
+      "options": [
+        "f(1,2,a=3,b=4)",
+        "f(args=1,2)",
+        "f[1,2,a=3]",
+        "f(1,2,3,4)"
+      ],
+      "answer": 0,
+      "hints": [
+        "Values without names become positional.",
+        "Values using name=value become keyword arguments.",
+        "Both forms can be used in one call."
+      ],
+      "id": 91
+    },
+    {
+      "type": "code",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "Write a function that returns the top 3 numbers from a list in descending order.",
+      "code": "nums=[4,9,1,7,3]\n# Write your solution here",
+      "expected": "Use sorted(nums, reverse=True)[:3].",
+      "hints": [
+        "sorted can reverse the order.",
+        "Slice the first three results.",
+        "This returns a new list."
+      ],
+      "id": 92
+    },
+    {
+      "type": "mcq",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "def double(x): return x*2\nprint(list(map(double,[1,2,3])))",
+      "options": [
+        "[1,2,3]",
+        "[2,4,6]",
+        "[2,3,4]",
+        "None"
+      ],
+      "answer": 1,
+      "hints": [
+        "map applies double to every element.",
+        "Each number is multiplied by 2.",
+        "Convert the map object to list."
+      ],
+      "id": 93
+    },
+    {
+      "type": "code",
+      "topic": "Functions + Built-ins",
+      "level": "Interview",
+      "q": "Write a function even_squares(nums) that returns squares of only even numbers using filter and map.",
+      "code": "nums=[1,2,3,4,5,6]\n# Write your solution here",
+      "expected": "Use list(map(lambda x:x*x, filter(lambda x:x%2==0, nums))).",
+      "hints": [
+        "Filter even values first.",
+        "Then map each remaining value to its square.",
+        "Wrap the final iterator in list()."
+      ],
+      "id": 94
+    },
+    {
+      "type": "mcq",
+      "topic": "Default & Keyword Arguments",
+      "level": "Interview",
+      "q": "What is printed?",
+      "code": "def f(a=1): return a\nprint(f(a=5))",
+      "options": [
+        "1",
+        "5",
+        "None",
+        "Error"
+      ],
+      "answer": 1,
+      "hints": [
+        "A keyword argument explicitly supplies a.",
+        "It overrides the default.",
+        "The returned value is 5."
+      ],
+      "id": 95
+    },
+    {
+      "type": "code",
+      "topic": "Parameters & Arguments",
+      "level": "Interview",
+      "q": "Write a function is_palindrome(s) that returns True if a string reads the same forward and backward.",
+      "code": "# Write your solution here",
+      "expected": "Return s == s[::-1].",
+      "hints": [
+        "Use slicing to reverse the string.",
+        "Compare original and reversed strings.",
+        "Return the boolean comparison."
+      ],
+      "id": 96
+    },
+    {
+      "type": "mcq",
+      "topic": "Scope & Lifetime",
+      "level": "Interview",
+      "q": "Which LEGB scope is checked after Local?",
+      "code": "",
+      "options": [
+        "Global",
+        "Built-in",
+        "Enclosing",
+        "Loop"
+      ],
+      "answer": 2,
+      "hints": [
+        "LEGB stands for Local, Enclosing, Global, Built-in.",
+        "A nested function can see an enclosing function's scope.",
+        "So E comes after L."
+      ],
+      "id": 97
+    },
+    {
+      "type": "code",
+      "topic": "Recursion",
+      "level": "Advanced",
+      "q": "Write recursive fibonacci(n) for the nth Fibonacci number with fib(0)=0 and fib(1)=1.",
+      "code": "# Write your solution here",
+      "expected": "Use base cases 0 and 1; otherwise return fib(n-1)+fib(n-2).",
+      "hints": [
+        "Handle both base cases.",
+        "The recursive case has two smaller calls.",
+        "This simple version is exponential without memoization."
+      ],
+      "id": 98
+    },
+    {
+      "type": "mcq",
+      "topic": "Higher-Order Functions",
+      "level": "Advanced",
+      "q": "What is printed?",
+      "code": "def make_adder(n):\n    return lambda x:x+n\nadd5=make_adder(5)\nprint(add5(3))",
+      "options": [
+        "3",
+        "5",
+        "8",
+        "15"
+      ],
+      "answer": 2,
+      "hints": [
+        "The returned lambda remembers n.",
+        "n is 5 and x is 3.",
+        "The lambda computes x+n."
+      ],
+      "id": 99
+    },
+    {
+      "type": "code",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Write a function flatten_once(items) that combines one level of nested lists.",
+      "code": "items=[[1,2],[3],[4,5]]\n# Write your solution here",
+      "expected": "Use a nested comprehension: [x for sub in items for x in sub].",
+      "hints": [
+        "The outer loop gets each sublist.",
+        "The inner loop gets each element.",
+        "This flattens one level."
+      ],
+      "id": 100
+    }
+  ],
+  "topicQuestions": [
+    { "topicName": "Function Basics", "type": "mcq", "topic": "Function Basics", "level": "Beginner", "question": "What is printed?", "code": "def greet():\n    return 'hi'\nprint(greet())", "options": ["greet", "'hi'", "hi", "None"], "answer": 2, "hints": ["Calling greet() executes the function body.", "It returns the string 'hi'.", "print() displays it without quotes: hi."] },
+    { "topicName": "Function Basics", "type": "mcq", "topic": "implicit None return", "level": "Intermediate", "question": "What is printed?", "code": "def f():\n    pass\nprint(f())", "options": ["None", "0", "''", "Error"], "answer": 0, "hints": ["A function without an explicit return statement still returns something.", "That implicit return value is always None.", "print(f()) shows None."] },
+    { "topicName": "Function Basics", "type": "mcq", "topic": "definition syntax", "level": "Advanced", "question": "Which correctly defines a function with no parameters?", "code": "", "options": ["def foo():", "function foo():", "def foo[]:", "foo() = def:"], "answer": 0, "hints": ["Python functions are defined with the def keyword.", "Empty parentheses mean no parameters.", "def foo(): is the correct syntax."] },
+
+    { "topicName": "Parameters & Arguments", "type": "mcq", "topic": "positional args", "level": "Beginner", "question": "What is printed?", "code": "def add(a, b):\n    return a + b\nprint(add(2, 3))", "options": ["23", "5", "'23'", "Error"], "answer": 1, "hints": ["a and b receive the values 2 and 3 in order.", "The function returns a + b.", "2 + 3 = 5."] },
+    { "topicName": "Parameters & Arguments", "type": "mcq", "topic": "default parameter", "level": "Intermediate", "question": "What is printed?", "code": "def greet(name='Guest'):\n    return name\nprint(greet())", "options": ["None", "'Guest'", "Guest", "Error"], "answer": 2, "hints": ["No argument was passed for name.", "The default value 'Guest' is used instead.", "print() displays it without quotes: Guest."] },
+    { "topicName": "Parameters & Arguments", "type": "mcq", "topic": "keyword arguments", "level": "Advanced", "question": "What is printed?", "code": "def f(a, b):\n    return a - b\nprint(f(b=2, a=5))", "options": ["3", "-3", "7", "Error"], "answer": 0, "hints": ["Keyword arguments can be passed in any order.", "a is bound to 5 and b is bound to 2, regardless of call order.", "5 - 2 = 3."] },
+
+    { "topicName": "Return Values", "type": "mcq", "topic": "return a value", "level": "Beginner", "question": "What is printed?", "code": "def f():\n    return 5\nx = f()\nprint(x)", "options": ["5", "None", "f", "Error"], "answer": 0, "hints": ["return sends a value back to the caller.", "x captures that returned value.", "x is 5."] },
+    { "topicName": "Return Values", "type": "mcq", "topic": "print vs return", "level": "Intermediate", "question": "What is printed on the second line?", "code": "def f():\n    print('hi')\nx = f()\nprint(x)", "options": ["hi", "None", "'hi'", "Error"], "answer": 1, "hints": ["f() prints 'hi' as a side effect, but has no return statement.", "Without an explicit return, the function returns None.", "x is None, so the second print shows None."] },
+    { "topicName": "Return Values", "type": "mcq", "topic": "multiple return values", "level": "Advanced", "question": "What is printed?", "code": "def f():\n    return 1, 2\nx, y = f()\nprint(x, y)", "options": ["1 2", "(1, 2)", "Error", "1"], "answer": 0, "hints": ["Returning 1, 2 actually returns the tuple (1, 2).", "That tuple can be unpacked directly into x and y.", "x becomes 1 and y becomes 2, so this prints '1 2'."] },
+
+    { "topicName": "Scope & Lifetime", "type": "mcq", "topic": "local shadows global", "level": "Beginner", "question": "What is printed?", "code": "x = 10\ndef f():\n    x = 20\nf()\nprint(x)", "options": ["10", "20", "Error", "None"], "answer": 0, "hints": ["Assigning to x inside f() creates a new local variable.", "That local x does not affect the global x.", "The global x remains 10."] },
+    { "topicName": "Scope & Lifetime", "type": "mcq", "topic": "global keyword", "level": "Intermediate", "question": "What is printed?", "code": "x = 10\ndef f():\n    global x\n    x = 20\nf()\nprint(x)", "options": ["10", "20", "Error", "None"], "answer": 1, "hints": ["The global keyword tells Python to use the outer x, not a new local one.", "Assigning x = 20 now modifies the global variable.", "print(x) shows 20."] },
+    { "topicName": "Scope & Lifetime", "type": "mcq", "topic": "nonlocal keyword", "level": "Advanced", "question": "What is printed?", "code": "def outer():\n    x = 1\n    def inner():\n        nonlocal x\n        x = 2\n    inner()\n    return x\nprint(outer())", "options": ["1", "2", "Error", "None"], "answer": 1, "hints": ["nonlocal refers to the variable in the nearest enclosing function scope.", "inner() modifies outer's x directly, not a new local copy.", "outer() returns the updated value, 2."] },
+
+    { "topicName": "Default & Keyword Arguments", "type": "mcq", "topic": "default + positional", "level": "Beginner", "question": "What is printed?", "code": "def f(a, b=10):\n    return a + b\nprint(f(5))", "options": ["5", "10", "15", "Error"], "answer": 2, "hints": ["Only a is provided; b uses its default value.", "b defaults to 10.", "5 + 10 = 15."] },
+    { "topicName": "Default & Keyword Arguments", "type": "mcq", "topic": "override default", "level": "Intermediate", "question": "What is printed?", "code": "def f(a, b=10):\n    return a + b\nprint(f(5, 20))", "options": ["15", "25", "10", "Error"], "answer": 1, "hints": ["Passing a second positional argument overrides the default.", "b becomes 20 instead of 10.", "5 + 20 = 25."] },
+    { "topicName": "Default & Keyword Arguments", "type": "mcq", "topic": "keyword-only arguments", "level": "Advanced", "question": "What happens?", "code": "def f(a, *, b):\n    return a + b\nprint(f(1, 2))", "options": ["3", "Raises TypeError", "Raises ValueError", "1"], "answer": 1, "hints": ["The * in the parameter list forces b to be passed by keyword only.", "Calling f(1, 2) tries to pass b positionally.", "This raises TypeError: f() takes 1 positional argument but 2 were given."] },
+
+    { "topicName": "*args & **kwargs", "type": "mcq", "topic": "*args", "level": "Beginner", "question": "What is printed?", "code": "def f(*args):\n    return sum(args)\nprint(f(1, 2, 3))", "options": ["6", "(1, 2, 3)", "Error", "0"], "answer": 0, "hints": ["*args collects all positional arguments into a tuple.", "args becomes (1, 2, 3).", "sum(args) is 1 + 2 + 3 = 6."] },
+    { "topicName": "*args & **kwargs", "type": "mcq", "topic": "**kwargs", "level": "Intermediate", "question": "What is printed?", "code": "def f(**kwargs):\n    return kwargs\nprint(f(a=1, b=2))", "options": ["{'a': 1, 'b': 2}", "(1, 2)", "['a', 'b']", "Error"], "answer": 0, "hints": ["**kwargs collects all keyword arguments into a dictionary.", "a=1 and b=2 become entries in that dict.", "The result is {'a': 1, 'b': 2}."] },
+    { "topicName": "*args & **kwargs", "type": "mcq", "topic": "combining all argument types", "level": "Advanced", "question": "What is printed?", "code": "def f(a, *args, **kwargs):\n    return (a, args, kwargs)\nprint(f(1, 2, 3, x=4))", "options": ["(1, (2, 3), {'x': 4})", "(1, [2, 3], {'x': 4})", "(1, 2, 3, 4)", "Error"], "answer": 0, "hints": ["a takes the first positional argument, 1.", "*args collects the remaining positional arguments as a tuple: (2, 3).", "**kwargs collects keyword arguments as a dict: {'x': 4}."] },
+
+    { "topicName": "Lambda Functions", "type": "mcq", "topic": "basic lambda", "level": "Beginner", "question": "What is printed?", "code": "square = lambda x: x * x\nprint(square(5))", "options": ["10", "25", "5", "Error"], "answer": 1, "hints": ["A lambda is a small anonymous function.", "This one squares its input.", "square(5) is 5 * 5 = 25."] },
+    { "topicName": "Lambda Functions", "type": "mcq", "topic": "lambda with two args", "level": "Intermediate", "question": "What is printed?", "code": "add = lambda a, b: a + b\nprint(add(2, 3))", "options": ["23", "5", "'23'", "Error"], "answer": 1, "hints": ["A lambda can take multiple arguments, separated by commas.", "This one adds its two inputs.", "2 + 3 = 5."] },
+    { "topicName": "Lambda Functions", "type": "mcq", "topic": "lambda + sorted key", "level": "Advanced", "question": "What is printed?", "code": "nums = [3, 1, 2]\nprint(sorted(nums, key=lambda x: -x))", "options": ["[1, 2, 3]", "[3, 2, 1]", "[3, 1, 2]", "Error"], "answer": 1, "hints": ["The key negates each value before comparing.", "Sorting by the negated value produces descending order.", "The result is [3, 2, 1]."] },
+
+    { "topicName": "Functions + Built-ins", "type": "mcq", "topic": "map() + lambda", "level": "Beginner", "question": "What is printed?", "code": "nums = [1, 2, 3]\nprint(list(map(lambda x: x * 2, nums)))", "options": ["[1, 2, 3]", "[2, 4, 6]", "6", "map object"], "answer": 1, "hints": ["map() applies the lambda to every element.", "Each value is doubled.", "The result is [2, 4, 6]."] },
+    { "topicName": "Functions + Built-ins", "type": "mcq", "topic": "filter() + lambda", "level": "Intermediate", "question": "What is printed?", "code": "nums = [1, 2, 3, 4]\nprint(list(filter(lambda x: x % 2 == 0, nums)))", "options": ["[1, 3]", "[2, 4]", "[1, 2, 3, 4]", "Error"], "answer": 1, "hints": ["filter() keeps items where the lambda returns True.", "The lambda checks for even numbers.", "Only 2 and 4 are even."] },
+    { "topicName": "Functions + Built-ins", "type": "mcq", "topic": "sorted() + key=len", "level": "Advanced", "question": "What is printed?", "code": "words = ['bb', 'a', 'ccc']\nprint(sorted(words, key=len))", "options": ["['a', 'bb', 'ccc']", "['ccc', 'bb', 'a']", "['bb', 'a', 'ccc']", "Error"], "answer": 0, "hints": ["key=len sorts by each word's length.", "Lengths are 2, 1 and 3 respectively.", "Ordered by length ascending: 'a' (1), 'bb' (2), 'ccc' (3)."] },
+
+    { "topicName": "Recursion", "type": "mcq", "topic": "factorial recursion", "level": "Beginner", "question": "What is printed?", "code": "def fact(n):\n    if n <= 1:\n        return 1\n    return n * fact(n - 1)\nprint(fact(4))", "options": ["10", "24", "16", "Error"], "answer": 1, "hints": ["fact(4) = 4 * fact(3) = 4 * 3 * fact(2) = ...", "Unwind the recursion down to fact(1) = 1.", "4 * 3 * 2 * 1 = 24."] },
+    { "topicName": "Recursion", "type": "mcq", "topic": "base case", "level": "Intermediate", "question": "What must every recursive function have to avoid infinite recursion?", "code": "", "options": ["A base case that stops the recursion", "A return statement of any kind", "A loop inside it", "A default argument"], "answer": 0, "hints": ["Recursive calls must eventually stop.", "A condition that returns without calling itself again provides that stop.", "This is called the base case."] },
+    { "topicName": "Recursion", "type": "mcq", "topic": "fibonacci recursion", "level": "Advanced", "question": "What is printed?", "code": "def fib(n):\n    if n < 2:\n        return n\n    return fib(n - 1) + fib(n - 2)\nprint(fib(5))", "options": ["3", "5", "8", "Error"], "answer": 1, "hints": ["The Fibonacci sequence starts 0, 1, 1, 2, 3, 5, ...", "fib(5) refers to the 6th term (starting the count at fib(0)).", "That value is 5."] },
+
+    { "topicName": "Higher-Order Functions", "type": "mcq", "topic": "definition", "level": "Beginner", "question": "Which best describes a higher-order function?", "code": "", "options": ["A function that takes another function as an argument or returns one", "A function with more than 5 parameters", "A function that only returns numbers", "A function defined inside a class"], "answer": 0, "hints": ["'Higher-order' refers to how functions can be treated as values.", "Such a function accepts or produces other functions.", "That is exactly the definition of a higher-order function."] },
+    { "topicName": "Higher-Order Functions", "type": "mcq", "topic": "apply a function twice", "level": "Intermediate", "question": "What is printed?", "code": "def apply_twice(f, x):\n    return f(f(x))\nprint(apply_twice(lambda x: x + 3, 2))", "options": ["5", "8", "6", "Error"], "answer": 1, "hints": ["First apply f to 2: 2 + 3 = 5.", "Then apply f again to that result: 5 + 3 = 8.", "apply_twice returns 8."] },
+    { "topicName": "Higher-Order Functions", "type": "mcq", "topic": "closures", "level": "Advanced", "question": "What is printed?", "code": "def make_multiplier(n):\n    def multiplier(x):\n        return x * n\n    return multiplier\ntimes3 = make_multiplier(3)\nprint(times3(5))", "options": ["8", "15", "3", "Error"], "answer": 1, "hints": ["make_multiplier(3) returns a function that remembers n = 3.", "times3 is that returned function, a closure over n.", "times3(5) computes 5 * 3 = 15."] },
+
+    { "topicName": "Advanced Interview Problems", "type": "mcq", "topic": "memoization", "level": "Advanced", "question": "Which built-in decorator can automatically cache a function's results?", "code": "", "options": ["functools.lru_cache", "functools.partial", "itertools.cache", "sys.cache"], "answer": 0, "hints": ["Python's standard library provides a ready-made caching decorator.", "It stores previous results keyed by their arguments.", "That decorator is functools.lru_cache."] },
+    { "topicName": "Advanced Interview Problems", "type": "mcq", "topic": "closures with state", "level": "Advanced", "question": "What is printed?", "code": "def counter():\n    count = 0\n    def inc():\n        nonlocal count\n        count += 1\n        return count\n    return inc\nc = counter()\nprint(c())\nprint(c())", "options": ["1 then 1", "1 then 2", "0 then 1", "Error"], "answer": 1, "hints": ["c is a closure that remembers count between calls.", "Each call to c() increments count using nonlocal.", "The first call prints 1, and the second prints 2."] },
+    { "topicName": "Advanced Interview Problems", "type": "mcq", "topic": "mutable default argument risk", "level": "Interview", "question": "What is the main risk of a mutable default argument like def f(x, lst=[])?", "code": "", "options": ["The default list is created once and shared across all calls", "It always raises a SyntaxError", "Python forbids this pattern entirely", "It makes the function run slower"], "answer": 0, "hints": ["Default argument values are evaluated once, when the function is defined.", "If that default is a mutable object, every call without an explicit argument shares it.", "Mutating it in one call leaks into future calls, a classic Python gotcha."] }
+  ]
+}

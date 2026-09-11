@@ -1,0 +1,1979 @@
+{
+  "version": "9.0",
+  "title": "Python Interview Practice \u2014 Exceptions & File Handling",
+  "topics": [
+    [
+      "Exceptions Basics",
+      "Beginner",
+      "Understand exceptions, errors, and common built-in exception types."
+    ],
+    [
+      "try / except",
+      "Beginner",
+      "Catch and handle expected runtime failures safely."
+    ],
+    [
+      "else / finally",
+      "Beginner",
+      "Understand exactly when else and finally execute."
+    ],
+    [
+      "raise",
+      "Intermediate",
+      "Raise exceptions deliberately for validation and control flow."
+    ],
+    [
+      "Custom Exceptions",
+      "Intermediate",
+      "Create application-specific exception classes."
+    ],
+    [
+      "File Handling Basics",
+      "Beginner",
+      "Open files using appropriate modes and manage file resources."
+    ],
+    [
+      "Reading Files",
+      "Intermediate",
+      "Use read, readline, readlines and iteration to process files."
+    ],
+    [
+      "Writing & Appending",
+      "Intermediate",
+      "Write, append and generate file content safely."
+    ],
+    [
+      "Context Managers",
+      "Intermediate",
+      "Use with open to manage resources automatically."
+    ],
+    [
+      "Advanced Interview Problems",
+      "Advanced",
+      "Combine exceptions, loops, functions, collections and file handling."
+    ]
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "topic": "Exceptions Basics",
+      "level": "Beginner",
+      "q": "What type of problem is detected while Python is parsing invalid Python syntax?",
+      "code": "",
+      "options": [
+        "SyntaxError",
+        "ValueError",
+        "KeyError",
+        "IndexError"
+      ],
+      "answer": 0,
+      "hints": [
+        "It happens before normal execution.",
+        "Think about malformed Python syntax.",
+        "The exception name contains the word Syntax."
+      ],
+      "id": 1
+    },
+    {
+      "type": "mcq",
+      "topic": "Exceptions Basics",
+      "level": "Beginner",
+      "q": "What exception is raised by int('abc')?",
+      "code": "",
+      "options": [
+        "TypeError",
+        "ValueError",
+        "NameError",
+        "KeyError"
+      ],
+      "answer": 1,
+      "hints": [
+        "The type is a string, which int can accept syntactically.",
+        "The value cannot be converted to an integer.",
+        "Think: the value is unsuitable."
+      ],
+      "id": 2
+    },
+    {
+      "type": "mcq",
+      "topic": "Exceptions Basics",
+      "level": "Beginner",
+      "q": "What exception occurs for [1,2][5]?",
+      "code": "",
+      "options": [
+        "IndexError",
+        "KeyError",
+        "ValueError",
+        "NameError"
+      ],
+      "answer": 0,
+      "hints": [
+        "A list uses numeric indexes.",
+        "Index 5 does not exist in a two-item index range.",
+        "The exception name refers to an invalid index."
+      ],
+      "id": 3
+    },
+    {
+      "type": "mcq",
+      "topic": "Exceptions Basics",
+      "level": "Beginner",
+      "q": "What exception occurs for {'a':1}['b']?",
+      "code": "",
+      "options": [
+        "IndexError",
+        "KeyError",
+        "ValueError",
+        "TypeError"
+      ],
+      "answer": 1,
+      "hints": [
+        "A dictionary lookup uses a key.",
+        "The requested key is absent.",
+        "The exception name refers to the missing key."
+      ],
+      "id": 4
+    },
+    {
+      "type": "mcq",
+      "topic": "Exceptions Basics",
+      "level": "Beginner",
+      "q": "What exception occurs in 10 / 0?",
+      "code": "",
+      "options": [
+        "ValueError",
+        "ZeroDivisionError",
+        "TypeError",
+        "OverflowError"
+      ],
+      "answer": 1,
+      "hints": [
+        "The denominator is zero.",
+        "Python has a specific exception for division by zero.",
+        "Look for the exception containing Division."
+      ],
+      "id": 5
+    },
+    {
+      "type": "mcq",
+      "topic": "try / except",
+      "level": "Beginner",
+      "q": "Which block contains code that might raise an exception?",
+      "code": "",
+      "options": [
+        "try",
+        "except",
+        "else",
+        "finally"
+      ],
+      "answer": 0,
+      "hints": [
+        "The risky operation goes in one block.",
+        "The handler is a different block.",
+        "It is the first keyword in the standard pattern."
+      ],
+      "id": 6
+    },
+    {
+      "type": "mcq",
+      "topic": "try / except",
+      "level": "Beginner",
+      "q": "What is printed?",
+      "code": "try:\n    print(10/0)\nexcept ZeroDivisionError:\n    print('error')",
+      "options": [
+        "10",
+        "error",
+        "0",
+        "Nothing"
+      ],
+      "answer": 1,
+      "hints": [
+        "10/0 fails.",
+        "The matching except catches ZeroDivisionError.",
+        "Only the handler's print executes."
+      ],
+      "id": 7
+    },
+    {
+      "type": "mcq",
+      "topic": "try / except",
+      "level": "Beginner",
+      "q": "What happens if an exception is not caught?",
+      "code": "",
+      "options": [
+        "Python silently ignores it",
+        "Normal execution continues",
+        "The program reports an unhandled exception and stops that flow",
+        "The file is deleted"
+      ],
+      "answer": 2,
+      "hints": [
+        "A runtime exception needs handling if you want recovery.",
+        "An unhandled exception produces a traceback.",
+        "Execution does not simply continue normally."
+      ],
+      "id": 8
+    },
+    {
+      "type": "mcq",
+      "topic": "try / except",
+      "level": "Beginner",
+      "q": "Which is more specific?",
+      "code": "",
+      "options": [
+        "except Exception",
+        "except ValueError",
+        "They are identical",
+        "except object"
+      ],
+      "answer": 1,
+      "hints": [
+        "Specific handlers should generally come before broad handlers.",
+        "ValueError targets one class of problem.",
+        "Exception is a broad base class."
+      ],
+      "id": 9
+    },
+    {
+      "type": "mcq",
+      "topic": "try / except",
+      "level": "Beginner",
+      "q": "What does except Exception as e do?",
+      "code": "",
+      "options": [
+        "Stores the caught exception object in e",
+        "Creates a new exception",
+        "Suppresses all syntax errors",
+        "Closes all files"
+      ],
+      "answer": 0,
+      "hints": [
+        "as gives the exception a local name.",
+        "e can be inspected or logged.",
+        "It does not mean every possible Python error including syntax errors."
+      ],
+      "id": 10
+    },
+    {
+      "type": "mcq",
+      "topic": "else / finally",
+      "level": "Beginner",
+      "q": "When does an else block after try/except run?",
+      "code": "",
+      "options": [
+        "Only when try raises",
+        "When try succeeds without an exception",
+        "Always before try",
+        "Only after finally"
+      ],
+      "answer": 1,
+      "hints": [
+        "else is the success path.",
+        "If the try raises a caught exception, else is skipped.",
+        "It comes after the exception handlers."
+      ],
+      "id": 11
+    },
+    {
+      "type": "mcq",
+      "topic": "else / finally",
+      "level": "Beginner",
+      "q": "When does finally execute?",
+      "code": "",
+      "options": [
+        "Only on success",
+        "Only on failure",
+        "Normally whether or not an exception occurs",
+        "Never"
+      ],
+      "answer": 2,
+      "hints": [
+        "finally is designed for cleanup.",
+        "It runs after try/except processing.",
+        "Its purpose is reliable cleanup."
+      ],
+      "id": 12
+    },
+    {
+      "type": "mcq",
+      "topic": "else / finally",
+      "level": "Beginner",
+      "q": "What is printed?",
+      "code": "try:\n    print('A')\nexcept:\n    print('B')\nelse:\n    print('C')\nfinally:\n    print('D')",
+      "options": [
+        "A C D",
+        "A B D",
+        "B C D",
+        "A D"
+      ],
+      "answer": 0,
+      "hints": [
+        "try succeeds.",
+        "Therefore else runs.",
+        "finally runs after that."
+      ],
+      "id": 13
+    },
+    {
+      "type": "mcq",
+      "topic": "else / finally",
+      "level": "Beginner",
+      "q": "If try raises a caught exception, which block is skipped?",
+      "code": "try:\n    int('x')\nexcept ValueError:\n    pass\nelse:\n    print('success')",
+      "options": [
+        "try",
+        "except",
+        "else",
+        "finally"
+      ],
+      "answer": 2,
+      "hints": [
+        "ValueError is caught.",
+        "else is specifically for successful try execution.",
+        "The except path prevents else from running."
+      ],
+      "id": 14
+    },
+    {
+      "type": "mcq",
+      "topic": "else / finally",
+      "level": "Beginner",
+      "q": "Why is finally useful with files?",
+      "code": "",
+      "options": [
+        "It can guarantee cleanup",
+        "It makes files faster",
+        "It converts text to numbers",
+        "It disables exceptions"
+      ],
+      "answer": 0,
+      "hints": [
+        "Resources may need closing.",
+        "finally runs even when an exception happens.",
+        "Context managers are often an even cleaner solution."
+      ],
+      "id": 15
+    },
+    {
+      "type": "mcq",
+      "topic": "raise",
+      "level": "Intermediate",
+      "q": "Which keyword manually raises an exception?",
+      "code": "",
+      "options": [
+        "throw",
+        "raise",
+        "error",
+        "except"
+      ],
+      "answer": 1,
+      "hints": [
+        "Python has a dedicated keyword.",
+        "It is followed by an exception instance/class.",
+        "JavaScript and other languages may use different terminology."
+      ],
+      "id": 16
+    },
+    {
+      "type": "mcq",
+      "topic": "raise",
+      "level": "Intermediate",
+      "q": "What does raise ValueError('bad') do?",
+      "code": "",
+      "options": [
+        "Prints only",
+        "Creates and raises a ValueError",
+        "Returns 'bad'",
+        "Catches ValueError"
+      ],
+      "answer": 1,
+      "hints": [
+        "raise changes control flow.",
+        "The ValueError is intentionally triggered.",
+        "The string becomes the exception message."
+      ],
+      "id": 17
+    },
+    {
+      "type": "mcq",
+      "topic": "raise",
+      "level": "Intermediate",
+      "q": "What is printed?",
+      "code": "x=-1\nif x < 0:\n    raise ValueError('negative')\nprint('ok')",
+      "options": [
+        "ok",
+        "negative",
+        "Nothing; the exception stops normal flow",
+        "-1"
+      ],
+      "answer": 2,
+      "hints": [
+        "The condition is true.",
+        "raise interrupts normal execution.",
+        "Without a handler, Python reports the exception."
+      ],
+      "id": 18
+    },
+    {
+      "type": "mcq",
+      "topic": "raise",
+      "level": "Intermediate",
+      "q": "Why raise an exception during input validation?",
+      "code": "",
+      "options": [
+        "To enforce a rule when invalid data is supplied",
+        "To skip all loops",
+        "To create a class automatically",
+        "To close a file"
+      ],
+      "answer": 0,
+      "hints": [
+        "Validation checks whether input meets a rule.",
+        "raise makes the failure explicit.",
+        "The caller can catch the exception."
+      ],
+      "id": 19
+    },
+    {
+      "type": "mcq",
+      "topic": "raise",
+      "level": "Intermediate",
+      "q": "Which is valid?",
+      "code": "",
+      "options": [
+        "raise ValueError",
+        "raise 'bad'",
+        "raise 10",
+        "raise print"
+      ],
+      "answer": 0,
+      "hints": [
+        "Python can raise an exception class or instance.",
+        "The standard approach uses BaseException subclasses.",
+        "A plain string/integer is not a valid modern exception to raise."
+      ],
+      "id": 20
+    },
+    {
+      "type": "mcq",
+      "topic": "Custom Exceptions",
+      "level": "Intermediate",
+      "q": "What should most application-specific exceptions inherit from?",
+      "code": "",
+      "options": [
+        "list",
+        "dict",
+        "Exception",
+        "str"
+      ],
+      "answer": 2,
+      "hints": [
+        "Custom exceptions are exception classes.",
+        "Exception is the conventional general base.",
+        "Collections are unrelated."
+      ],
+      "id": 21
+    },
+    {
+      "type": "mcq",
+      "topic": "Custom Exceptions",
+      "level": "Intermediate",
+      "q": "Which defines a custom exception?",
+      "code": "",
+      "options": [
+        "class MyError(Exception): pass",
+        "def MyError(): pass",
+        "exception MyError: pass",
+        "new Exception MyError"
+      ],
+      "answer": 0,
+      "hints": [
+        "Custom exceptions use class syntax.",
+        "Inheritance goes in parentheses.",
+        "pass creates an empty class body."
+      ],
+      "id": 22
+    },
+    {
+      "type": "mcq",
+      "topic": "Custom Exceptions",
+      "level": "Intermediate",
+      "q": "Why use custom exceptions?",
+      "code": "",
+      "options": [
+        "To give domain-specific failures clear names",
+        "To make Python compiled",
+        "To replace every loop",
+        "To hide all errors"
+      ],
+      "answer": 0,
+      "hints": [
+        "Names communicate intent.",
+        "A handler can catch the specific exception.",
+        "This improves maintainability in larger applications."
+      ],
+      "id": 23
+    },
+    {
+      "type": "mcq",
+      "topic": "Custom Exceptions",
+      "level": "Intermediate",
+      "q": "How would you catch a custom InvalidAgeError?",
+      "code": "",
+      "options": [
+        "except InvalidAgeError:",
+        "catch InvalidAgeError:",
+        "except age:",
+        "handle InvalidAgeError:"
+      ],
+      "answer": 0,
+      "hints": [
+        "Python uses try/except syntax.",
+        "The exception class follows except.",
+        "Use the exact custom class name."
+      ],
+      "id": 24
+    },
+    {
+      "type": "mcq",
+      "topic": "Custom Exceptions",
+      "level": "Intermediate",
+      "q": "Can a custom exception contain methods or attributes?",
+      "code": "",
+      "options": [
+        "Yes",
+        "No",
+        "Only if it is a list",
+        "Only in Java"
+      ],
+      "answer": 0,
+      "hints": [
+        "It is a normal class derived from an exception class.",
+        "Normal class features can be added.",
+        "Keep custom exceptions focused."
+      ],
+      "id": 25
+    },
+    {
+      "type": "mcq",
+      "topic": "File Handling Basics",
+      "level": "Beginner",
+      "q": "Which built-in function opens a file?",
+      "code": "",
+      "options": [
+        "file()",
+        "open()",
+        "read()",
+        "load()"
+      ],
+      "answer": 1,
+      "hints": [
+        "It is a built-in function.",
+        "It returns a file object.",
+        "Reading is an operation on the opened object."
+      ],
+      "id": 26
+    },
+    {
+      "type": "mcq",
+      "topic": "File Handling Basics",
+      "level": "Beginner",
+      "q": "Which mode is used for reading text by default?",
+      "code": "",
+      "options": [
+        "r",
+        "w",
+        "a",
+        "x"
+      ],
+      "answer": 0,
+      "hints": [
+        "r stands for read.",
+        "open(path) also defaults to read mode.",
+        "w and a have different effects."
+      ],
+      "id": 27
+    },
+    {
+      "type": "mcq",
+      "topic": "File Handling Basics",
+      "level": "Beginner",
+      "q": "What does w mode generally do?",
+      "code": "",
+      "options": [
+        "Reads only",
+        "Writes and truncates/creates the file",
+        "Appends only",
+        "Deletes the Python program"
+      ],
+      "answer": 1,
+      "hints": [
+        "w is write mode.",
+        "Existing content is normally replaced.",
+        "It can create a missing file."
+      ],
+      "id": 28
+    },
+    {
+      "type": "mcq",
+      "topic": "File Handling Basics",
+      "level": "Beginner",
+      "q": "What does a mode do?",
+      "code": "",
+      "options": [
+        "Append writes to the end",
+        "Always truncates",
+        "Only reads",
+        "Makes a directory"
+      ],
+      "answer": 0,
+      "hints": [
+        "a stands for append.",
+        "Existing content is preserved.",
+        "New writes go at the end."
+      ],
+      "id": 29
+    },
+    {
+      "type": "mcq",
+      "topic": "File Handling Basics",
+      "level": "Beginner",
+      "q": "Why should files be closed?",
+      "code": "",
+      "options": [
+        "To release resources and flush/finish file operations",
+        "To convert files to lists",
+        "To prevent loops",
+        "Because read() requires it"
+      ],
+      "answer": 0,
+      "hints": [
+        "Open files consume system resources.",
+        "Closing completes resource cleanup.",
+        "with is usually preferred."
+      ],
+      "id": 30
+    },
+    {
+      "type": "mcq",
+      "topic": "Reading Files",
+      "level": "Intermediate",
+      "q": "What does read() return for a text file?",
+      "code": "",
+      "options": [
+        "The full remaining text as a string",
+        "A dictionary",
+        "One integer",
+        "Only the first character"
+      ],
+      "answer": 0,
+      "hints": [
+        "read returns text for a normal text file.",
+        "It can read all remaining content.",
+        "readline is the line-oriented method."
+      ],
+      "id": 31
+    },
+    {
+      "type": "mcq",
+      "topic": "Reading Files",
+      "level": "Intermediate",
+      "q": "What does readline() return?",
+      "code": "",
+      "options": [
+        "One line from the file",
+        "All lines as a dictionary",
+        "File size",
+        "A list always"
+      ],
+      "answer": 0,
+      "hints": [
+        "The method name says line.",
+        "Repeated calls move through the file.",
+        "It returns a string for normal text files."
+      ],
+      "id": 32
+    },
+    {
+      "type": "mcq",
+      "topic": "Reading Files",
+      "level": "Intermediate",
+      "q": "What does readlines() commonly return?",
+      "code": "",
+      "options": [
+        "A list of lines",
+        "One character",
+        "A set",
+        "An integer"
+      ],
+      "answer": 0,
+      "hints": [
+        "The plural suggests multiple lines.",
+        "The result is a list of strings.",
+        "Each element represents a line."
+      ],
+      "id": 33
+    },
+    {
+      "type": "mcq",
+      "topic": "Reading Files",
+      "level": "Intermediate",
+      "q": "Why is for line in file useful for large files?",
+      "code": "",
+      "options": [
+        "It can process lines incrementally rather than loading everything at once",
+        "It always sorts the file",
+        "It converts every line to int",
+        "It prevents all exceptions"
+      ],
+      "answer": 0,
+      "hints": [
+        "Iteration over a file is streaming-friendly.",
+        "You can process one line at a time.",
+        "This can reduce memory use."
+      ],
+      "id": 34
+    },
+    {
+      "type": "mcq",
+      "topic": "Reading Files",
+      "level": "Intermediate",
+      "q": "How do you remove surrounding newline/whitespace from a line?",
+      "code": "",
+      "options": [
+        "line.strip()",
+        "line.remove()",
+        "strip(line) only",
+        "line.clean()"
+      ],
+      "answer": 0,
+      "hints": [
+        "Strings provide strip().",
+        "It returns a new string.",
+        "It can remove surrounding whitespace including newline."
+      ],
+      "id": 35
+    },
+    {
+      "type": "mcq",
+      "topic": "Writing & Appending",
+      "level": "Intermediate",
+      "q": "What type does file.write() normally expect in text mode?",
+      "code": "",
+      "options": [
+        "str",
+        "list only",
+        "int only",
+        "dict only"
+      ],
+      "answer": 0,
+      "hints": [
+        "Text files receive strings.",
+        "Numbers can be converted first with str().",
+        "write does not automatically stringify arbitrary objects."
+      ],
+      "id": 36
+    },
+    {
+      "type": "mcq",
+      "topic": "Writing & Appending",
+      "level": "Intermediate",
+      "q": "How do you write two lines?",
+      "code": "",
+      "options": [
+        "f.write('a\\nb')",
+        "f.write(['a','b']) always",
+        "f.write(2)",
+        "f.lines('a','b')"
+      ],
+      "answer": 0,
+      "hints": [
+        "A newline character separates lines in text.",
+        "write takes one string at a time.",
+        "Use \\n for line breaks."
+      ],
+      "id": 37
+    },
+    {
+      "type": "mcq",
+      "topic": "Writing & Appending",
+      "level": "Intermediate",
+      "q": "What is a risk of opening an existing file in w mode?",
+      "code": "",
+      "options": [
+        "Existing content can be truncated",
+        "The file becomes read-only",
+        "Python crashes always",
+        "It appends only"
+      ],
+      "answer": 0,
+      "hints": [
+        "w means write/truncate.",
+        "Opening can replace existing content.",
+        "Use a when you need to preserve and append."
+      ],
+      "id": 38
+    },
+    {
+      "type": "mcq",
+      "topic": "Writing & Appending",
+      "level": "Intermediate",
+      "q": "Which mode creates a new file but fails if it already exists?",
+      "code": "",
+      "options": [
+        "x",
+        "r",
+        "a",
+        "w"
+      ],
+      "answer": 0,
+      "hints": [
+        "x stands for exclusive creation.",
+        "It is useful when accidental overwrite should be prevented.",
+        "Existing path causes an error."
+      ],
+      "id": 39
+    },
+    {
+      "type": "mcq",
+      "topic": "Writing & Appending",
+      "level": "Intermediate",
+      "q": "Which operation appends a string?",
+      "code": "with open('log.txt','a') as f:\n    f.write('hello\\n')",
+      "options": [
+        "f.write",
+        "f.read",
+        "f.readline",
+        "f.close only"
+      ],
+      "answer": 0,
+      "hints": [
+        "The mode is append.",
+        "write sends content to the file.",
+        "read operations do not add content."
+      ],
+      "id": 40
+    },
+    {
+      "type": "mcq",
+      "topic": "Context Managers",
+      "level": "Intermediate",
+      "q": "What keyword starts a context-manager block?",
+      "code": "",
+      "options": [
+        "with",
+        "using",
+        "manage",
+        "context"
+      ],
+      "answer": 0,
+      "hints": [
+        "Python's context manager syntax starts with with.",
+        "It is followed by an expression and as target optionally.",
+        "Files are a common example."
+      ],
+      "id": 41
+    },
+    {
+      "type": "mcq",
+      "topic": "Context Managers",
+      "level": "Intermediate",
+      "q": "What is the major advantage of with open(...) as f:?",
+      "code": "",
+      "options": [
+        "The file is closed automatically when leaving the block",
+        "It makes all reads integers",
+        "It disables exceptions",
+        "It prevents writing"
+      ],
+      "answer": 0,
+      "hints": [
+        "The context manager handles cleanup.",
+        "This remains true when exceptions occur.",
+        "It reduces manual close calls."
+      ],
+      "id": 42
+    },
+    {
+      "type": "mcq",
+      "topic": "Context Managers",
+      "level": "Intermediate",
+      "q": "Where is f available?",
+      "code": "with open('a.txt') as f:\n    print(f)",
+      "options": [
+        "Inside the with block; after it, the file object may be closed",
+        "Only before with",
+        "Never",
+        "Only inside except"
+      ],
+      "answer": 0,
+      "hints": [
+        "The variable is bound by the as clause.",
+        "The resource is managed by the block.",
+        "Afterward the file is normally closed."
+      ],
+      "id": 43
+    },
+    {
+      "type": "mcq",
+      "topic": "Context Managers",
+      "level": "Intermediate",
+      "q": "Which is preferred for normal file work?",
+      "code": "",
+      "options": [
+        "with open(...) as f",
+        "open(...) and never close",
+        "print(...)",
+        "input(...)"
+      ],
+      "answer": 0,
+      "hints": [
+        "with handles cleanup automatically.",
+        "Manual close can be forgotten.",
+        "Resource management is the key reason."
+      ],
+      "id": 44
+    },
+    {
+      "type": "mcq",
+      "topic": "Context Managers",
+      "level": "Intermediate",
+      "q": "If an exception occurs inside a with-open block, what happens to the file resource?",
+      "code": "",
+      "options": [
+        "The context manager closes it during cleanup",
+        "It always remains open forever",
+        "It is converted to JSON",
+        "The exception disappears automatically"
+      ],
+      "answer": 0,
+      "hints": [
+        "Cleanup is part of the context manager protocol.",
+        "The exception is not necessarily suppressed.",
+        "The file is closed as the block exits."
+      ],
+      "id": 45
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Which is generally better when reading a file that may not exist?",
+      "code": "",
+      "options": [
+        "Catch FileNotFoundError specifically",
+        "Catch every exception blindly",
+        "Ignore all exceptions",
+        "Use print only"
+      ],
+      "answer": 0,
+      "hints": [
+        "Specific exceptions make recovery safer.",
+        "FileNotFoundError identifies the expected failure.",
+        "Broad catches can hide programming bugs."
+      ],
+      "id": 46
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "What should you avoid in production exception handling?",
+      "code": "",
+      "options": [
+        "except: pass for everything",
+        "Specific exception handling",
+        "Logging useful failures",
+        "Using finally for cleanup"
+      ],
+      "answer": 0,
+      "hints": [
+        "Silently swallowing every exception hides bugs.",
+        "Specific handling is clearer.",
+        "Logging can preserve diagnostic information."
+      ],
+      "id": 47
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "What happens to finally if except re-raises an exception?",
+      "code": "",
+      "options": [
+        "finally still executes",
+        "finally is skipped",
+        "Python deletes the file",
+        "The exception becomes a list"
+      ],
+      "answer": 0,
+      "hints": [
+        "finally is designed for cleanup.",
+        "It runs during unwinding.",
+        "Re-raising does not bypass finally."
+      ],
+      "id": 48
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Which approach best combines a file and integer conversion safely?",
+      "code": "",
+      "options": [
+        "Use with open, iterate lines, convert inside try/except as appropriate",
+        "Read nothing and assume input is valid",
+        "Use w mode to read",
+        "Catch BaseException for every line"
+      ],
+      "answer": 0,
+      "hints": [
+        "Use the correct resource pattern.",
+        "Conversion can fail with ValueError.",
+        "Specific handling avoids hiding unrelated failures."
+      ],
+      "id": 49
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "What is the main reason to separate file I/O errors from data conversion errors?",
+      "code": "",
+      "options": [
+        "They represent different failure causes and may need different recovery",
+        "Python requires two loops",
+        "It makes all code shorter",
+        "They are always the same exception"
+      ],
+      "answer": 0,
+      "hints": [
+        "Missing file and invalid number are different problems.",
+        "Specific exceptions enable appropriate responses.",
+        "This is a common interview design point."
+      ],
+      "id": 50
+    },
+    {
+      "type": "code",
+      "topic": "Exceptions Basics",
+      "level": "Beginner",
+      "q": "Write code that safely converts user input to int and prints 'Invalid number' when ValueError occurs.",
+      "code": "n = input('Number: ')\n# write your try/except here",
+      "expected": "Use try: n=int(n), except ValueError: print('Invalid number').",
+      "hints": [
+        "Conversion can raise ValueError.",
+        "Put int(n) inside try.",
+        "Catch ValueError."
+      ],
+      "id": 51
+    },
+    {
+      "type": "code",
+      "topic": "Exceptions Basics",
+      "level": "Beginner",
+      "q": "Write code that safely accesses the first element of a list and handles IndexError.",
+      "code": "items=[]\n# write your code here",
+      "expected": "Catch IndexError around items[0].",
+      "hints": [
+        "An empty list has no index 0.",
+        "Use try/except.",
+        "The relevant exception is IndexError."
+      ],
+      "id": 52
+    },
+    {
+      "type": "code",
+      "topic": "try / except",
+      "level": "Beginner",
+      "q": "Write a function safe_divide(a,b) that returns a/b and returns None for ZeroDivisionError.",
+      "code": "def safe_divide(a,b):\n    # write here",
+      "expected": "Use try/except ZeroDivisionError and return None in except.",
+      "hints": [
+        "The division belongs in try.",
+        "Catch only ZeroDivisionError.",
+        "Return None from the handler."
+      ],
+      "id": 53
+    },
+    {
+      "type": "code",
+      "topic": "try / except",
+      "level": "Intermediate",
+      "q": "Write code that catches both ValueError and TypeError when converting x to int.",
+      "code": "x = None\n# write here",
+      "expected": "Use except (ValueError, TypeError).",
+      "hints": [
+        "Multiple exception classes can be grouped in a tuple.",
+        "int(None) causes TypeError.",
+        "int('x') causes ValueError."
+      ],
+      "id": 54
+    },
+    {
+      "type": "code",
+      "topic": "else / finally",
+      "level": "Intermediate",
+      "q": "Write a try/except/else/finally structure that prints 'success' only if int conversion succeeds and always prints 'done'.",
+      "code": "text='25'\n# write here",
+      "expected": "Use else for success and finally for done.",
+      "hints": [
+        "Conversion belongs in try.",
+        "Print success in else.",
+        "Print done in finally."
+      ],
+      "id": 55
+    },
+    {
+      "type": "code",
+      "topic": "raise",
+      "level": "Intermediate",
+      "q": "Write validate_age(age) that raises ValueError if age is negative.",
+      "code": "def validate_age(age):\n    # write here",
+      "expected": "if age < 0: raise ValueError('age cannot be negative')",
+      "hints": [
+        "Check the boundary first.",
+        "Use raise.",
+        "ValueError is appropriate for an invalid value."
+      ],
+      "id": 56
+    },
+    {
+      "type": "code",
+      "topic": "raise",
+      "level": "Intermediate",
+      "q": "Write a function require_positive(n) that returns n if positive, otherwise raises ValueError.",
+      "code": "def require_positive(n):\n    # write here",
+      "expected": "Return n when n > 0; otherwise raise ValueError.",
+      "hints": [
+        "Use an if condition.",
+        "Return only for valid input.",
+        "Raise for invalid input."
+      ],
+      "id": 57
+    },
+    {
+      "type": "code",
+      "topic": "Custom Exceptions",
+      "level": "Intermediate",
+      "q": "Create InvalidPasswordError and raise it when password length is less than 8.",
+      "code": "class InvalidPasswordError(Exception):\n    pass\n# validation here",
+      "expected": "Raise InvalidPasswordError when len(password)<8.",
+      "hints": [
+        "The custom class inherits Exception.",
+        "Use len().",
+        "Raise the custom exception in the invalid branch."
+      ],
+      "id": 58
+    },
+    {
+      "type": "code",
+      "topic": "Custom Exceptions",
+      "level": "Advanced",
+      "q": "Create InsufficientFundsError and use it in withdraw(balance, amount).",
+      "code": "class InsufficientFundsError(Exception):\n    pass\n\ndef withdraw(balance, amount):\n    # write here",
+      "expected": "Raise InsufficientFundsError if amount > balance; otherwise return balance-amount.",
+      "hints": [
+        "Compare amount with balance.",
+        "Raise the domain-specific error.",
+        "Return the new balance for valid withdrawal."
+      ],
+      "id": 59
+    },
+    {
+      "type": "code",
+      "topic": "File Handling Basics",
+      "level": "Beginner",
+      "q": "Open notes.txt in read mode using a context manager and print its contents.",
+      "code": "# write here",
+      "expected": "Use with open('notes.txt','r') as f: print(f.read()).",
+      "hints": [
+        "Use with.",
+        "The mode is r.",
+        "read() returns the content."
+      ],
+      "id": 60
+    },
+    {
+      "type": "code",
+      "topic": "File Handling Basics",
+      "level": "Beginner",
+      "q": "Write the string 'Hello Python' to output.txt, replacing existing content.",
+      "code": "# write here",
+      "expected": "Use with open('output.txt','w') as f: f.write('Hello Python').",
+      "hints": [
+        "Use write mode.",
+        "w can replace existing content.",
+        "write receives a string."
+      ],
+      "id": 61
+    },
+    {
+      "type": "code",
+      "topic": "File Handling Basics",
+      "level": "Beginner",
+      "q": "Append 'New log\\n' to app.log.",
+      "code": "# write here",
+      "expected": "Use open('app.log','a') and write the string.",
+      "hints": [
+        "Append mode is a.",
+        "Keep the newline if you want a separate line.",
+        "Use with for cleanup."
+      ],
+      "id": 62
+    },
+    {
+      "type": "code",
+      "topic": "Reading Files",
+      "level": "Intermediate",
+      "q": "Read all lines from data.txt and print each line without its surrounding whitespace.",
+      "code": "# write here",
+      "expected": "Iterate over the file and print(line.strip()).",
+      "hints": [
+        "Files are iterable.",
+        "strip removes surrounding whitespace.",
+        "This avoids loading the whole file explicitly."
+      ],
+      "id": 63
+    },
+    {
+      "type": "code",
+      "topic": "Reading Files",
+      "level": "Intermediate",
+      "q": "Count how many non-empty lines are in data.txt.",
+      "code": "# write here",
+      "expected": "Initialize count=0; iterate lines; if line.strip(): count+=1.",
+      "hints": [
+        "Use a counter like previous for-loop practice.",
+        "Check stripped line truthiness.",
+        "Increment once per non-empty line."
+      ],
+      "id": 64
+    },
+    {
+      "type": "code",
+      "topic": "Reading Files",
+      "level": "Advanced",
+      "q": "Read numbers.txt and calculate the sum of integer lines. Ignore blank lines.",
+      "code": "# write here",
+      "expected": "Use with, loop, if line.strip(), int(line), and a running total.",
+      "hints": [
+        "Combine file iteration with a for loop.",
+        "Use int for conversion.",
+        "Blank lines should be skipped."
+      ],
+      "id": 65
+    },
+    {
+      "type": "code",
+      "topic": "Writing & Appending",
+      "level": "Intermediate",
+      "q": "Write numbers 1 through 5 to numbers.txt, one per line.",
+      "code": "# write here",
+      "expected": "Use a loop and f.write(str(i)+'\\n').",
+      "hints": [
+        "Use range(1,6).",
+        "write expects a string.",
+        "Add a newline after each number."
+      ],
+      "id": 66
+    },
+    {
+      "type": "code",
+      "topic": "Writing & Appending",
+      "level": "Advanced",
+      "q": "Read names from names.txt and write only names beginning with 'A' to a_new.txt.",
+      "code": "# write here",
+      "expected": "Read line-by-line, strip it, test startswith('A'), and write matching names.",
+      "hints": [
+        "Use line.strip().",
+        "startswith can test the prefix.",
+        "Use separate read/write context managers or safely manage both."
+      ],
+      "id": 67
+    },
+    {
+      "type": "code",
+      "topic": "Context Managers",
+      "level": "Intermediate",
+      "q": "Use with to copy the text from source.txt to copy.txt.",
+      "code": "# write here",
+      "expected": "Read source content and write it to destination using context managers.",
+      "hints": [
+        "Open source with r.",
+        "Open destination with w.",
+        "Write the source content."
+      ],
+      "id": 68
+    },
+    {
+      "type": "code",
+      "topic": "Context Managers",
+      "level": "Advanced",
+      "q": "Copy a file while handling FileNotFoundError with a helpful message.",
+      "code": "# write here",
+      "expected": "Wrap the with-open copy operation in try/except FileNotFoundError.",
+      "hints": [
+        "The file operation can fail before reading.",
+        "Catch FileNotFoundError specifically.",
+        "Print a useful message in except."
+      ],
+      "id": 69
+    },
+    {
+      "type": "code",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Create load_scores(path) that returns a list of integers from a file and skips blank lines, but handles missing files by returning [].",
+      "code": "def load_scores(path):\n    # write here",
+      "expected": "Use try, with open, list/loop conversion, and except FileNotFoundError: return [].",
+      "hints": [
+        "Use a list accumulator or comprehension.",
+        "Skip blank lines.",
+        "Only missing-file handling should return an empty list."
+      ],
+      "id": 70
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Why is 'except Exception: pass' risky?",
+      "code": "",
+      "options": [
+        "It can silently hide bugs and make failures difficult to diagnose",
+        "It always improves performance",
+        "It prevents all errors",
+        "It converts errors to strings"
+      ],
+      "answer": 0,
+      "hints": [
+        "pass does nothing.",
+        "Broad catching can hide programming mistakes.",
+        "Good error handling should be intentional."
+      ],
+      "id": 71
+    },
+    {
+      "type": "mcq",
+      "topic": "Exceptions Basics",
+      "level": "Interview",
+      "q": "Which exception is appropriate when a dictionary key is missing?",
+      "code": "d={'x':1}\n# d['y']",
+      "options": [
+        "KeyError",
+        "IndexError",
+        "ValueError",
+        "EOFError"
+      ],
+      "answer": 0,
+      "hints": [
+        "Dictionary lookups use keys.",
+        "The key y is absent.",
+        "The exception name describes the missing key."
+      ],
+      "id": 72
+    },
+    {
+      "type": "mcq",
+      "topic": "try / except",
+      "level": "Interview",
+      "q": "Why should specific exceptions generally be caught before Exception?",
+      "code": "",
+      "options": [
+        "A broad Exception handler could catch cases meant for a more specific handler",
+        "Python requires alphabetical order",
+        "Specific handlers never work",
+        "Exception is not a class"
+      ],
+      "answer": 0,
+      "hints": [
+        "Handler order matters.",
+        "Exception is broad.",
+        "A specific handler should get the first opportunity to handle its exception."
+      ],
+      "id": 73
+    },
+    {
+      "type": "mcq",
+      "topic": "else / finally",
+      "level": "Interview",
+      "q": "Which block is best for code that should run only after successful try execution?",
+      "code": "",
+      "options": [
+        "else",
+        "finally",
+        "except",
+        "raise"
+      ],
+      "answer": 0,
+      "hints": [
+        "Success-only logic should not run after failure.",
+        "else is designed for this.",
+        "finally runs on both paths."
+      ],
+      "id": 74
+    },
+    {
+      "type": "mcq",
+      "topic": "raise",
+      "level": "Interview",
+      "q": "What is the difference between raise and except?",
+      "code": "",
+      "options": [
+        "raise triggers/propagates an exception; except handles a matching exception",
+        "They are identical",
+        "except triggers and raise handles",
+        "Both only work with files"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think cause vs handler.",
+        "raise changes control flow by raising.",
+        "except is part of handling."
+      ],
+      "id": 75
+    },
+    {
+      "type": "mcq",
+      "topic": "Custom Exceptions",
+      "level": "Interview",
+      "q": "A custom exception class is itself what kind of Python object?",
+      "code": "class E(Exception): pass",
+      "options": [
+        "A class",
+        "A list",
+        "A module",
+        "A loop"
+      ],
+      "answer": 0,
+      "hints": [
+        "The syntax begins with class.",
+        "It inherits from Exception.",
+        "Instances of it can be raised."
+      ],
+      "id": 76
+    },
+    {
+      "type": "mcq",
+      "topic": "File Handling Basics",
+      "level": "Interview",
+      "q": "What does the file pointer represent at a high level?",
+      "code": "",
+      "options": [
+        "The current position for the next read/write operation",
+        "The file's owner",
+        "The filename only",
+        "A Python loop counter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Reads and writes occur relative to a current position.",
+        "Methods such as seek can move it.",
+        "It is part of file-object state."
+      ],
+      "id": 77
+    },
+    {
+      "type": "mcq",
+      "topic": "Reading Files",
+      "level": "Interview",
+      "q": "Why can read() be less suitable for a huge file?",
+      "code": "",
+      "options": [
+        "It may load a large amount of content into memory at once",
+        "It cannot read text",
+        "It always deletes the file",
+        "It only returns integers"
+      ],
+      "answer": 0,
+      "hints": [
+        "read() can request all remaining content.",
+        "Large data may increase memory usage.",
+        "Iteration can process incrementally."
+      ],
+      "id": 78
+    },
+    {
+      "type": "mcq",
+      "topic": "Writing & Appending",
+      "level": "Interview",
+      "q": "What is the key difference between w and a?",
+      "code": "",
+      "options": [
+        "w writes/truncates; a appends",
+        "w appends; a truncates",
+        "Both always read",
+        "Both are identical"
+      ],
+      "answer": 0,
+      "hints": [
+        "w is write/truncate.",
+        "a preserves existing content and writes at the end.",
+        "This distinction is common in interviews."
+      ],
+      "id": 79
+    },
+    {
+      "type": "mcq",
+      "topic": "Context Managers",
+      "level": "Interview",
+      "q": "Which protocol methods are commonly involved in a custom context manager?",
+      "code": "",
+      "options": [
+        "__enter__ and __exit__",
+        "__start__ and __stop__",
+        "__open__ and __close__",
+        "__try__ and __except__"
+      ],
+      "answer": 0,
+      "hints": [
+        "Context managers define entry and exit behavior.",
+        "The names use double underscores.",
+        "with invokes this protocol."
+      ],
+      "id": 80
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Why is 'except Exception: pass' risky?",
+      "code": "",
+      "options": [
+        "It can silently hide bugs and make failures difficult to diagnose",
+        "It always improves performance",
+        "It prevents all errors",
+        "It converts errors to strings"
+      ],
+      "answer": 0,
+      "hints": [
+        "pass does nothing.",
+        "Broad catching can hide programming mistakes.",
+        "Good error handling should be intentional."
+      ],
+      "id": 81
+    },
+    {
+      "type": "mcq",
+      "topic": "Exceptions Basics",
+      "level": "Interview",
+      "q": "Which exception is appropriate when a dictionary key is missing?",
+      "code": "d={'x':1}\n# d['y']",
+      "options": [
+        "KeyError",
+        "IndexError",
+        "ValueError",
+        "EOFError"
+      ],
+      "answer": 0,
+      "hints": [
+        "Dictionary lookups use keys.",
+        "The key y is absent.",
+        "The exception name describes the missing key."
+      ],
+      "id": 82
+    },
+    {
+      "type": "mcq",
+      "topic": "try / except",
+      "level": "Interview",
+      "q": "Why should specific exceptions generally be caught before Exception?",
+      "code": "",
+      "options": [
+        "A broad Exception handler could catch cases meant for a more specific handler",
+        "Python requires alphabetical order",
+        "Specific handlers never work",
+        "Exception is not a class"
+      ],
+      "answer": 0,
+      "hints": [
+        "Handler order matters.",
+        "Exception is broad.",
+        "A specific handler should get the first opportunity to handle its exception."
+      ],
+      "id": 83
+    },
+    {
+      "type": "mcq",
+      "topic": "else / finally",
+      "level": "Interview",
+      "q": "Which block is best for code that should run only after successful try execution?",
+      "code": "",
+      "options": [
+        "else",
+        "finally",
+        "except",
+        "raise"
+      ],
+      "answer": 0,
+      "hints": [
+        "Success-only logic should not run after failure.",
+        "else is designed for this.",
+        "finally runs on both paths."
+      ],
+      "id": 84
+    },
+    {
+      "type": "mcq",
+      "topic": "raise",
+      "level": "Interview",
+      "q": "What is the difference between raise and except?",
+      "code": "",
+      "options": [
+        "raise triggers/propagates an exception; except handles a matching exception",
+        "They are identical",
+        "except triggers and raise handles",
+        "Both only work with files"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think cause vs handler.",
+        "raise changes control flow by raising.",
+        "except is part of handling."
+      ],
+      "id": 85
+    },
+    {
+      "type": "mcq",
+      "topic": "Custom Exceptions",
+      "level": "Interview",
+      "q": "A custom exception class is itself what kind of Python object?",
+      "code": "class E(Exception): pass",
+      "options": [
+        "A class",
+        "A list",
+        "A module",
+        "A loop"
+      ],
+      "answer": 0,
+      "hints": [
+        "The syntax begins with class.",
+        "It inherits from Exception.",
+        "Instances of it can be raised."
+      ],
+      "id": 86
+    },
+    {
+      "type": "mcq",
+      "topic": "File Handling Basics",
+      "level": "Interview",
+      "q": "What does the file pointer represent at a high level?",
+      "code": "",
+      "options": [
+        "The current position for the next read/write operation",
+        "The file's owner",
+        "The filename only",
+        "A Python loop counter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Reads and writes occur relative to a current position.",
+        "Methods such as seek can move it.",
+        "It is part of file-object state."
+      ],
+      "id": 87
+    },
+    {
+      "type": "mcq",
+      "topic": "Reading Files",
+      "level": "Interview",
+      "q": "Why can read() be less suitable for a huge file?",
+      "code": "",
+      "options": [
+        "It may load a large amount of content into memory at once",
+        "It cannot read text",
+        "It always deletes the file",
+        "It only returns integers"
+      ],
+      "answer": 0,
+      "hints": [
+        "read() can request all remaining content.",
+        "Large data may increase memory usage.",
+        "Iteration can process incrementally."
+      ],
+      "id": 88
+    },
+    {
+      "type": "mcq",
+      "topic": "Writing & Appending",
+      "level": "Interview",
+      "q": "What is the key difference between w and a?",
+      "code": "",
+      "options": [
+        "w writes/truncates; a appends",
+        "w appends; a truncates",
+        "Both always read",
+        "Both are identical"
+      ],
+      "answer": 0,
+      "hints": [
+        "w is write/truncate.",
+        "a preserves existing content and writes at the end.",
+        "This distinction is common in interviews."
+      ],
+      "id": 89
+    },
+    {
+      "type": "mcq",
+      "topic": "Context Managers",
+      "level": "Interview",
+      "q": "Which protocol methods are commonly involved in a custom context manager?",
+      "code": "",
+      "options": [
+        "__enter__ and __exit__",
+        "__start__ and __stop__",
+        "__open__ and __close__",
+        "__try__ and __except__"
+      ],
+      "answer": 0,
+      "hints": [
+        "Context managers define entry and exit behavior.",
+        "The names use double underscores.",
+        "with invokes this protocol."
+      ],
+      "id": 90
+    },
+    {
+      "type": "mcq",
+      "topic": "Advanced Interview Problems",
+      "level": "Advanced",
+      "q": "Why is 'except Exception: pass' risky?",
+      "code": "",
+      "options": [
+        "It can silently hide bugs and make failures difficult to diagnose",
+        "It always improves performance",
+        "It prevents all errors",
+        "It converts errors to strings"
+      ],
+      "answer": 0,
+      "hints": [
+        "pass does nothing.",
+        "Broad catching can hide programming mistakes.",
+        "Good error handling should be intentional."
+      ],
+      "id": 91
+    },
+    {
+      "type": "mcq",
+      "topic": "Exceptions Basics",
+      "level": "Interview",
+      "q": "Which exception is appropriate when a dictionary key is missing?",
+      "code": "d={'x':1}\n# d['y']",
+      "options": [
+        "KeyError",
+        "IndexError",
+        "ValueError",
+        "EOFError"
+      ],
+      "answer": 0,
+      "hints": [
+        "Dictionary lookups use keys.",
+        "The key y is absent.",
+        "The exception name describes the missing key."
+      ],
+      "id": 92
+    },
+    {
+      "type": "mcq",
+      "topic": "try / except",
+      "level": "Interview",
+      "q": "Why should specific exceptions generally be caught before Exception?",
+      "code": "",
+      "options": [
+        "A broad Exception handler could catch cases meant for a more specific handler",
+        "Python requires alphabetical order",
+        "Specific handlers never work",
+        "Exception is not a class"
+      ],
+      "answer": 0,
+      "hints": [
+        "Handler order matters.",
+        "Exception is broad.",
+        "A specific handler should get the first opportunity to handle its exception."
+      ],
+      "id": 93
+    },
+    {
+      "type": "mcq",
+      "topic": "else / finally",
+      "level": "Interview",
+      "q": "Which block is best for code that should run only after successful try execution?",
+      "code": "",
+      "options": [
+        "else",
+        "finally",
+        "except",
+        "raise"
+      ],
+      "answer": 0,
+      "hints": [
+        "Success-only logic should not run after failure.",
+        "else is designed for this.",
+        "finally runs on both paths."
+      ],
+      "id": 94
+    },
+    {
+      "type": "mcq",
+      "topic": "raise",
+      "level": "Interview",
+      "q": "What is the difference between raise and except?",
+      "code": "",
+      "options": [
+        "raise triggers/propagates an exception; except handles a matching exception",
+        "They are identical",
+        "except triggers and raise handles",
+        "Both only work with files"
+      ],
+      "answer": 0,
+      "hints": [
+        "Think cause vs handler.",
+        "raise changes control flow by raising.",
+        "except is part of handling."
+      ],
+      "id": 95
+    },
+    {
+      "type": "mcq",
+      "topic": "Custom Exceptions",
+      "level": "Interview",
+      "q": "A custom exception class is itself what kind of Python object?",
+      "code": "class E(Exception): pass",
+      "options": [
+        "A class",
+        "A list",
+        "A module",
+        "A loop"
+      ],
+      "answer": 0,
+      "hints": [
+        "The syntax begins with class.",
+        "It inherits from Exception.",
+        "Instances of it can be raised."
+      ],
+      "id": 96
+    },
+    {
+      "type": "mcq",
+      "topic": "File Handling Basics",
+      "level": "Interview",
+      "q": "What does the file pointer represent at a high level?",
+      "code": "",
+      "options": [
+        "The current position for the next read/write operation",
+        "The file's owner",
+        "The filename only",
+        "A Python loop counter"
+      ],
+      "answer": 0,
+      "hints": [
+        "Reads and writes occur relative to a current position.",
+        "Methods such as seek can move it.",
+        "It is part of file-object state."
+      ],
+      "id": 97
+    },
+    {
+      "type": "mcq",
+      "topic": "Reading Files",
+      "level": "Interview",
+      "q": "Why can read() be less suitable for a huge file?",
+      "code": "",
+      "options": [
+        "It may load a large amount of content into memory at once",
+        "It cannot read text",
+        "It always deletes the file",
+        "It only returns integers"
+      ],
+      "answer": 0,
+      "hints": [
+        "read() can request all remaining content.",
+        "Large data may increase memory usage.",
+        "Iteration can process incrementally."
+      ],
+      "id": 98
+    },
+    {
+      "type": "mcq",
+      "topic": "Writing & Appending",
+      "level": "Interview",
+      "q": "What is the key difference between w and a?",
+      "code": "",
+      "options": [
+        "w writes/truncates; a appends",
+        "w appends; a truncates",
+        "Both always read",
+        "Both are identical"
+      ],
+      "answer": 0,
+      "hints": [
+        "w is write/truncate.",
+        "a preserves existing content and writes at the end.",
+        "This distinction is common in interviews."
+      ],
+      "id": 99
+    },
+    {
+      "type": "mcq",
+      "topic": "Context Managers",
+      "level": "Interview",
+      "q": "Which protocol methods are commonly involved in a custom context manager?",
+      "code": "",
+      "options": [
+        "__enter__ and __exit__",
+        "__start__ and __stop__",
+        "__open__ and __close__",
+        "__try__ and __except__"
+      ],
+      "answer": 0,
+      "hints": [
+        "Context managers define entry and exit behavior.",
+        "The names use double underscores.",
+        "with invokes this protocol."
+      ],
+      "id": 100
+    }
+  ],
+  "topicQuestions": [
+    { "topicName": "Exceptions Basics", "type": "mcq", "topic": "Exceptions Basics", "level": "Beginner", "question": "Which built-in exception is raised when dividing by zero?", "code": "print(1 / 0)", "options": ["ZeroDivisionError", "ValueError", "TypeError", "OverflowError"], "answer": 0, "hints": ["Division by zero is mathematically undefined.", "Python has a specific exception for this case.", "That exception is ZeroDivisionError."] },
+    { "topicName": "Exceptions Basics", "type": "mcq", "topic": "type conversion error", "level": "Intermediate", "question": "What is raised?", "code": "x = int('abc')", "options": ["TypeError", "ValueError", "NameError", "No error"], "answer": 1, "hints": ["'abc' is not a valid representation of an integer.", "int() cannot parse this string.", "This raises ValueError."] },
+    { "topicName": "Exceptions Basics", "type": "mcq", "topic": "index errors", "level": "Advanced", "question": "Which exception is raised when accessing a list index that doesn't exist?", "code": "nums = [1, 2, 3]\nprint(nums[10])", "options": ["IndexError", "KeyError", "ValueError", "AttributeError"], "answer": 0, "hints": ["Lists raise a specific exception for out-of-range access.", "This is distinct from the exception dictionaries raise for missing keys.", "The correct exception is IndexError."] },
+
+    { "topicName": "try / except", "type": "mcq", "topic": "basic try/except", "level": "Beginner", "question": "What is printed?", "code": "try:\n    print(1 / 0)\nexcept ZeroDivisionError:\n    print('caught')", "options": ["caught", "Raises an unhandled error", "0", "None"], "answer": 0, "hints": ["The division raises ZeroDivisionError.", "The except clause matches that exact exception type.", "The output is 'caught'."] },
+    { "topicName": "try / except", "type": "mcq", "topic": "catching ValueError", "level": "Intermediate", "question": "What is printed?", "code": "try:\n    x = int('abc')\nexcept ValueError:\n    print('invalid')", "options": ["invalid", "Raises an unhandled error", "abc", "None"], "answer": 0, "hints": ["int('abc') raises ValueError.", "The except clause catches exactly that type.", "The output is 'invalid'."] },
+    { "topicName": "try / except", "type": "mcq", "topic": "multiple exception types", "level": "Advanced", "question": "What is printed?", "code": "try:\n    print(1 / 0)\nexcept (ValueError, ZeroDivisionError):\n    print('caught')", "options": ["caught", "Raises an unhandled error", "0", "SyntaxError"], "answer": 0, "hints": ["A tuple of exception types can be given to one except clause.", "ZeroDivisionError is one of the listed types.", "The output is 'caught'."] },
+
+    { "topicName": "else / finally", "type": "mcq", "topic": "else runs on success", "level": "Beginner", "question": "What is printed?", "code": "try:\n    x = 1\nexcept:\n    pass\nelse:\n    print('no error')", "options": ["no error", "Nothing is printed", "Error", "None"], "answer": 0, "hints": ["else runs only if the try block completes without raising an exception.", "No exception occurred here.", "The output is 'no error'."] },
+    { "topicName": "else / finally", "type": "mcq", "topic": "finally always runs", "level": "Intermediate", "question": "What is printed?", "code": "try:\n    pass\nfinally:\n    print('done')", "options": ["done", "Nothing is printed", "Error", "None"], "answer": 0, "hints": ["finally always executes, whether or not an exception occurred.", "There was no exception here, but finally still runs.", "The output is 'done'."] },
+    { "topicName": "else / finally", "type": "mcq", "topic": "finally with return", "level": "Advanced", "question": "Does finally run even if the try block contains a return statement?", "code": "def f():\n    try:\n        return 1\n    finally:\n        print('cleanup')", "options": ["Yes, cleanup prints before the function actually returns", "No, finally is skipped when there's a return", "Only if an exception also occurs", "It causes a SyntaxError"], "answer": 0, "hints": ["finally guarantees cleanup code always runs.", "Even a pending return value doesn't skip it.", "'cleanup' prints, then the function returns 1."] },
+
+    { "topicName": "raise", "type": "mcq", "topic": "raising manually", "level": "Beginner", "question": "What happens?", "code": "def check(age):\n    if age < 0:\n        raise ValueError('Age cannot be negative')\n    return age\ncheck(-1)", "options": ["Returns -1", "Raises ValueError", "Returns None", "Raises TypeError"], "answer": 1, "hints": ["raise deliberately triggers an exception.", "age is -1, which satisfies the condition.", "A ValueError with the given message is raised."] },
+    { "topicName": "raise", "type": "mcq", "topic": "re-raising", "level": "Intermediate", "question": "Which statement re-raises the exception currently being handled inside an except block?", "code": "try:\n    pass\nexcept ValueError:\n    pass # what goes here to re-raise?", "options": ["raise (with no arguments)", "raise again", "throw", "re-raise()"], "answer": 0, "hints": ["Python allows re-triggering the exception currently being handled.", "No new exception object needs to be created.", "A bare raise statement with no arguments does this."] },
+    { "topicName": "raise", "type": "mcq", "topic": "exception chaining", "level": "Advanced", "question": "Which syntax raises a new exception while preserving the original as its cause?", "code": "", "options": ["raise NewError('msg') from original_error", "raise NewError('msg') + original_error", "raise NewError('msg') with original_error", "chain(NewError('msg'), original_error)"], "answer": 0, "hints": ["Python supports explicit exception chaining.", "The keyword used links a new exception to the one that caused it.", "raise NewError('msg') from original_error is the correct syntax."] },
+
+    { "topicName": "Custom Exceptions", "type": "mcq", "topic": "defining a custom exception", "level": "Beginner", "question": "What happens?", "code": "class MyError(Exception):\n    pass\nraise MyError('custom')", "options": ["Raises MyError with message 'custom'", "Raises a SyntaxError", "Nothing happens", "Raises TypeError"], "answer": 0, "hints": ["MyError is a valid exception class since it inherits from Exception.", "raise triggers it just like any built-in exception.", "It raises MyError: custom."] },
+    { "topicName": "Custom Exceptions", "type": "mcq", "topic": "required base class", "level": "Intermediate", "question": "What must a custom exception class typically inherit from?", "code": "", "options": ["Exception (or one of its subclasses)", "object only", "BaseException is forbidden", "It cannot inherit from anything"], "answer": 0, "hints": ["Custom exceptions need to plug into Python's exception hierarchy.", "Exception is the standard base for user-defined errors.", "Inheriting from Exception (or a subclass) is the typical approach."] },
+    { "topicName": "Custom Exceptions", "type": "mcq", "topic": "calling super().__init__()", "level": "Advanced", "question": "Why call super().__init__(message) inside a custom exception's __init__?", "code": "class InsufficientFundsError(Exception):\n    def __init__(self, balance):\n        super().__init__(f'Balance too low: {balance}')\n        self.balance = balance", "options": ["To properly set the exception's message so str(e) works correctly", "It is required by Python syntax and does nothing else", "To automatically print the exception", "To prevent the exception from being caught"], "answer": 0, "hints": ["Exception's own __init__ stores the message used by str(exception).", "Skipping it can leave str(e) empty or incorrect.", "Calling super().__init__(message) ensures normal exception behavior."] },
+
+    { "topicName": "File Handling Basics", "type": "mcq", "topic": "read mode", "level": "Beginner", "question": "Which mode opens a file for reading only?", "code": "", "options": ["'r'", "'w'", "'a'", "'x'"], "answer": 0, "hints": ["This is the default mode when no mode is specified.", "It only allows reading, not writing.", "That mode is 'r'."] },
+    { "topicName": "File Handling Basics", "type": "mcq", "topic": "write mode", "level": "Intermediate", "question": "Which mode opens a file for writing, overwriting any existing content?", "code": "", "options": ["'r'", "'w'", "'a'", "'rb'"], "answer": 1, "hints": ["This mode is meant for creating fresh content.", "If the file already exists, its old contents are erased first.", "That mode is 'w'."] },
+    { "topicName": "File Handling Basics", "type": "mcq", "topic": "append mode", "level": "Advanced", "question": "Which mode opens a file for appending without erasing existing content?", "code": "", "options": ["'a'", "'w'", "'r'", "'x'"], "answer": 0, "hints": ["This mode adds new content to the end of the file.", "Existing content is preserved.", "That mode is 'a'."] },
+
+    { "topicName": "Reading Files", "type": "mcq", "topic": "read()", "level": "Beginner", "question": "Which method reads the entire file's contents as a single string?", "code": "", "options": ["read()", "readline()", "readlines()", "readall()"], "answer": 0, "hints": ["This method has no built-in line splitting.", "It returns everything at once.", "That method is read()."] },
+    { "topicName": "Reading Files", "type": "mcq", "topic": "readlines()", "level": "Intermediate", "question": "Which method reads a file and returns a list of its lines?", "code": "", "options": ["read()", "readlines()", "readline()", "lines()"], "answer": 1, "hints": ["This method splits the file content by line.", "It returns those lines collected in a list.", "That method is readlines()."] },
+    { "topicName": "Reading Files", "type": "mcq", "topic": "memory-efficient reading", "level": "Advanced", "question": "What is the most memory-efficient way to process a very large file line by line?", "code": "", "options": ["Iterate directly over the file object in a for loop", "Call file.read() then split by newline", "Call file.readlines() and loop over the list", "Load the whole file into a string first"], "answer": 0, "hints": ["Loading the whole file at once uses a lot of memory for large files.", "Iterating the file object directly reads one line at a time, lazily.", "for line in file: is the efficient pattern."] },
+
+    { "topicName": "Writing & Appending", "type": "mcq", "topic": "write()", "level": "Beginner", "question": "Which method writes a string to an open file object?", "code": "", "options": ["write()", "print()", "save()", "append()"], "answer": 0, "hints": ["File objects have a dedicated method for writing text.", "It does not add a newline automatically.", "That method is write()."] },
+    { "topicName": "Writing & Appending", "type": "mcq", "topic": "'w' mode overwrites", "level": "Intermediate", "question": "What happens if you open an existing file in 'w' mode?", "code": "", "options": ["Its existing contents are erased", "New content is appended to the end", "It raises an error since the file exists", "Nothing changes until write() is called"], "answer": 0, "hints": ["'w' mode is meant for writing fresh content.", "Opening the file in this mode immediately truncates it.", "Any previous content is erased right away."] },
+    { "topicName": "Writing & Appending", "type": "mcq", "topic": "read and write without truncating", "level": "Advanced", "question": "Which mode allows both reading and writing without erasing existing content?", "code": "", "options": ["'r+'", "'w'", "'a'", "'x'"], "answer": 0, "hints": ["Some modes truncate the file; this one does not.", "It supports both reading and writing operations.", "That mode is 'r+'."] },
+
+    { "topicName": "Context Managers", "type": "mcq", "topic": "with statement basics", "level": "Beginner", "question": "Which statement automatically closes a file, even if an error occurs inside the block?", "code": "", "options": ["with open('file.txt') as f:", "open('file.txt') as f:", "file.auto_close()", "close_after(open('file.txt'))"], "answer": 0, "hints": ["Python's context manager protocol is invoked with the with keyword.", "It guarantees cleanup code (like closing a file) runs automatically.", "with open(...) as f: is the standard pattern."] },
+    { "topicName": "Context Managers", "type": "mcq", "topic": "why use with", "level": "Intermediate", "question": "Why is 'with open(...) as f' preferred over manual open()/close() calls?", "code": "", "options": ["It guarantees the file closes even if an exception occurs", "It reads files faster", "It is required to read text files", "It automatically converts data types"], "answer": 0, "hints": ["Manual close() calls can be skipped if an exception happens first.", "with ensures cleanup always runs via __exit__.", "This makes resource management safer."] },
+    { "topicName": "Context Managers", "type": "mcq", "topic": "context manager protocol", "level": "Advanced", "question": "Which special methods must a class implement to support the with statement?", "code": "", "options": ["__enter__ and __exit__", "__init__ and __del__", "__open__ and __close__", "__start__ and __stop__"], "answer": 0, "hints": ["The context manager protocol defines a setup and teardown method.", "__enter__ runs at the start of the with block.", "__exit__ runs at the end, even if an exception occurred."] },
+
+    { "topicName": "Advanced Interview Problems", "type": "mcq", "topic": "finally for cleanup", "level": "Advanced", "question": "Which block runs no matter whether an exception occurred, commonly used for cleanup?", "code": "", "options": ["finally", "else", "except", "try"], "answer": 0, "hints": ["This block is guaranteed to execute regardless of success or failure.", "It's commonly used to release resources.", "That block is finally."] },
+    { "topicName": "Advanced Interview Problems", "type": "mcq", "topic": "catching broad Exception", "level": "Advanced", "question": "Why is catching the broad Exception class often discouraged?", "code": "try:\n    risky()\nexcept Exception as e:\n    pass", "options": ["It can silently hide bugs and unrelated errors", "It is a syntax error", "It only works with built-in exceptions", "It always crashes the program"], "answer": 0, "hints": ["A broad except clause catches almost everything, expected or not.", "This can mask real bugs that should surface and be fixed.", "Specific exception types are usually preferred for clarity and safety."] },
+    { "topicName": "Advanced Interview Problems", "type": "mcq", "topic": "except clause ordering", "level": "Interview", "question": "What is the correct order when catching both a specific and a general exception?", "code": "try:\n    risky()\nexcept ???:\n    pass\nexcept ???:\n    pass", "options": ["The more specific exception must come before the more general one", "Order never matters", "The general exception must come first", "Only one except clause is ever allowed"], "answer": 0, "hints": ["Python checks except clauses in the order they're written, top to bottom.", "If a general exception (like Exception) comes first, it would catch everything, making a later specific clause unreachable.", "The specific exception type must be listed before the general one."] }
+  ]
+}

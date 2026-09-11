@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python Interview Practice — All Versions</title>
+<style>
+:root {
+  --bg:#f5f7fb; --card:#fff; --text:#172033; --muted:#65708a;
+  --border:#dfe4ee; --primary:#2563eb; --accent:#4338ca;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.5}
+header{background:linear-gradient(135deg,#172554,#2563eb 60%,#4338ca);color:#fff;padding:40px 18px}
+.wrap{max-width:1100px;margin:auto}
+h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px)}
+.subtitle{margin:0;opacity:.92;font-size:17px}
+main{padding:28px 15px 60px}
+.stats-bar{display:flex;gap:12px;flex-wrap:wrap;margin:-20px 0 28px}
+.stat-pill{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 18px;box-shadow:0 6px 18px rgba(20,30,50,.06)}
+.stat-pill b{display:block;font-size:22px}
+.stat-pill span{color:var(--muted);font-size:13px}
+.search{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:12px;font-size:15px;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(20,30,50,.06);display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--text);transition:.15s}
+.card:hover{transform:translateY(-3px);border-color:#9db7ed}
+.badge{display:inline-block;padding:4px 10px;border-radius:99px;background:#eef2ff;color:#3730a3;font-size:12px;font-weight:800;width:fit-content}
+.badge.ref{background:#fef3c7;color:#92400e}
+.card h2{margin:0;font-size:19px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;font-size:12px;color:var(--muted)}
+.meta span{background:#f4f6fb;border:1px solid var(--border);border-radius:8px;padding:4px 8px}
+footer{text-align:center;color:var(--muted);padding:20px}
+.hidden{display:none !important}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>🐍 Python Interview Practice</h1>
+  <p class="subtitle">11 versions merged into one hub — pick a module and start practicing.</p>
+</div></header>
+
+<main class="wrap">
+  <div class="stats-bar">
+    <div class="stat-pill"><b id="totalVersions">11</b><span>Modules</span></div>
+    <div class="stat-pill"><b id="totalQuestions">0</b><span>Practice questions</span></div>
+    <div class="stat-pill"><b id="totalRef">0</b><span>Reference entries</span></div>
+  </div>
+
+  <input class="search" id="search" type="text" placeholder="🔍 Search modules by name or topic…">
+
+  <div class="grid" id="grid"></div>
+</main>
+<footer>Python Interview Practice — merged hub for all 11 versions</footer>
+
+<script>
+const MODULES = [
+  { v:1,  folder:"Python_Interview_Practice_Version_1_Integrated",           file:"index.html",  title:"For Loops", type:"practice", count:100, desc:"The original 100-question For Loop bank with immediate feedback and progressive hints." },
+  { v:2,  folder:"Python_Interview_Practice_Version_2_Builtins",             file:"index.html",  title:"Built-in Functions",                type:"practice", count:20,  desc:"Learn 20 core built-in functions, then practice them with MCQs and code-writing questions." },
+  { v:3,  folder:"Python_Interview_Practice_Version_3_Lists",                file:"index.html",  title:"Lists — Methods Reference",         type:"reference", count:11, desc:"Definitions, syntax and use cases for the most common list methods." },
+  { v:4,  folder:"Python_Interview_Practice_Version_4_Strings",              file:"index.html",  title:"Strings",                           type:"practice", count:100, desc:"Indexing, slicing, operators, methods and string + loop/list interview questions." },
+  { v:5,  folder:"Python_Interview_Practice_Version_5_Dictionaries",         file:"index.html",  title:"Dictionaries",                      type:"practice", count:100, desc:"Key-value basics, dictionary methods, loops and text-analysis style problems." },
+  { v:6,  folder:"Python_Interview_Practice_Version_6_Tuples_Sets",          file:"index.html",  title:"Tuples & Sets",                     type:"practice", count:100, desc:"Tuple unpacking, immutability, set operations and related built-ins." },
+  { v:7,  folder:"Python_Interview_Practice_Version_7_Functions",            file:"index.html",  title:"Functions",                         type:"practice", count:100, desc:"Parameters, return values, scope, *args/**kwargs and lambda expressions." },
+  { v:8,  folder:"Python_Interview_Practice_Version_8_OOP",                  file:"index.html",  title:"Object-Oriented Programming",       type:"practice", count:100, desc:"Classes, constructors, encapsulation, inheritance and class/static methods." },
+  { v:9,  folder:"Python_Interview_Practice_Version_9_Exceptions_FileHandling", file:"index.html", title:"Exceptions & File Handling",     type:"practice", count:100, desc:"try/except/else/finally, raising exceptions, custom exceptions and file I/O." },
+  { v:10, folder:"Python_Interview_Practice_Version_10_Modules_Packages",    file:"index.html", title:"Modules & Packages",                type:"practice", count:100, desc:"Imports, aliases, packages, __name__ == '__main__' and module search/scope." },
+  { v:11, folder:"Python_Interview_Practice_Version_11_Iterators_Builtins",  file:"index.html", title:"Iterators & Functional Built-ins",  type:"practice", count:100, desc:"enumerate(), zip(), map(), filter(), sorted() and other functional built-ins." },
+];
+
+function esc(s){
+  return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function render(list){
+  const grid = document.getElementById("grid");
+  grid.innerHTML = list.map(m => `
+    <a class="card" href="${encodeURIComponent(m.folder)}/${m.file}">
+      <span class="badge ${m.type === 'reference' ? 'ref' : ''}">${m.type === 'reference' ? 'Reference' : 'Practice'}</span>
+      <h2>${esc(m.title)}</h2>
+      <p>${esc(m.desc)}</p>
+      <div class="meta">
+        <span>${m.count} ${m.type === 'reference' ? 'entries' : 'questions'}</span>
+        <span>${esc(m.file)}</span>
+      </div>
+    </a>
+  `).join("");
+}
+
+function updateStats(){
+  const practiceTotal = MODULES.filter(m => m.type === "practice").reduce((a,m)=>a+m.count,0);
+  const refTotal = MODULES.filter(m => m.type === "reference").reduce((a,m)=>a+m.count,0);
+  document.getElementById("totalVersions").textContent = MODULES.length;
+  document.getElementById("totalQuestions").textContent = practiceTotal;
+  document.getElementById("totalRef").textContent = refTotal;
+}
+
+document.getElementById("search").addEventListener("input", e => {
+  const q = e.target.value.trim().toLowerCase();
+  const filtered = MODULES.filter(m =>
+    m.title.toLowerCase().includes(q) ||
+    m.desc.toLowerCase().includes(q) ||
+    ("version " + m.v).includes(q)
+  );
+  render(filtered);
+});
+
+updateStats();
+render(MODULES);
+</script>
+</body>
+</html>
